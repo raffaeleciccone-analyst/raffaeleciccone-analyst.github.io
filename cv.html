@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raffaele Ciccone — CV Data Analyst</title>
+<meta name="description" content="Curriculum vitae di Raffaele Ciccone, data analyst: SQL, Python, pandas, Power BI, dashboard, ETL e validazione dei dati.">
+
+<style>
+  /* Impaginazione a colonna unica e senza icone, di proposito.
+     I software di screening leggono il PDF nell'ordine in cui il testo e' scritto:
+     due colonne affiancate escono mescolate, e le icone non sono testo.
+     Questo file, stampato in PDF, produce testo contiguo e cercabile. */
+  :root{
+    --ink:#15191B;
+    --ink-soft:#3E4547;
+    --ink-faint:#6B7476;
+    --rule:#CBCEC9;
+    --accent:#16565C;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:#E9E9E5;
+    color:var(--ink);
+    font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+    font-size:10.2pt;
+    line-height:1.46;
+  }
+  .page{
+    max-width:210mm;margin:20px auto;padding:15mm 15mm 13mm;
+    background:#fff;box-shadow:0 1px 14px rgba(0,0,0,.10);
+  }
+
+  header{border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:14px}
+  h1{font-size:20pt;line-height:1.05;margin:0 0 2px;letter-spacing:-.01em}
+  .role{
+    font-size:10pt;font-weight:600;color:var(--accent);
+    letter-spacing:.07em;text-transform:uppercase;margin:0 0 8px;
+  }
+  .riga-contatti{font-size:9.4pt;color:var(--ink-soft);margin:0}
+  .riga-contatti a{color:var(--ink-soft);text-decoration:none}
+  .sep{color:var(--rule);padding:0 5px}
+  .todo{background:#FFF3C4;border:1px dashed #B8930F;color:#5E4A00;padding:0 4px;font-size:9pt}
+
+  h2{
+    font-size:9.2pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);margin:16px 0 7px;padding-bottom:3px;
+    border-bottom:1px solid var(--rule);
+  }
+  h2:first-of-type{margin-top:0}
+  p{margin:0 0 7px}
+
+  .profilo{color:var(--ink-soft)}
+
+  dl.comp{margin:0;display:grid;grid-template-columns:132px 1fr;gap:5px 14px}
+  dl.comp dt{font-weight:600;font-size:9.3pt;color:var(--ink-faint);padding-top:1px}
+  dl.comp dd{margin:0;font-size:9.9pt}
+
+  .voce{margin-bottom:11px;break-inside:avoid;page-break-inside:avoid}
+  .voce:last-child{margin-bottom:0}
+  .voce-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .voce h3{font-size:10.6pt;margin:0;font-weight:700}
+  .quando{font-size:8.9pt;color:var(--ink-faint);white-space:nowrap}
+  .dove{font-size:9.4pt;color:var(--accent);font-weight:600;margin:1px 0 3px}
+  .voce ul{margin:3px 0 0;padding-left:16px}
+  .voce li{margin-bottom:2px}
+  .stack{font-size:8.9pt;color:var(--ink-faint);margin-top:4px}
+  .stack a{color:var(--accent)}
+
+  .duecol{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+
+  footer{margin-top:14px;padding-top:7px;border-top:1px solid var(--rule);font-size:8.2pt;color:var(--ink-faint)}
+
+  @media print{
+    body{background:#fff;font-size:9.8pt}
+    .page{margin:0;padding:0;box-shadow:none;max-width:none}
+    .no-print{display:none !important}
+    a{color:var(--ink) !important;text-decoration:none}
+    h2{break-after:avoid;page-break-after:avoid}
+    @page{size:A4;margin:13mm}
+  }
+
+  .avviso{
+    max-width:210mm;margin:16px auto 0;padding:11px 14px;
+    background:#FFF3C4;border:1px solid #B8930F;color:#4A3B00;
+    font-size:9.4pt;line-height:1.5;
+  }
+  .avviso ul{margin:6px 0 0;padding-left:18px}
+</style>
+</head>
+<body>
+
+<div class="avviso no-print">
+  <strong>Prima di mandarlo.</strong> Stampa in PDF con <kbd>Ctrl+P</kbd> &rarr; <em>Salva come PDF</em>
+  (questo riquadro non finisce nella stampa). Poi:
+  <ul>
+    <li>apri il PDF e cerca <em>Power BI</em> con <kbd>Ctrl+F</kbd>: se lo trova, lo trova anche
+      il software di selezione. Sul tuo file Canva non lo trovava.</li>
+    <li>salvalo come <strong>CV-Raffaele-Ciccone.pdf</strong>, con il tuo nome nel nome del file.</li>
+    <li>riempi le tre caselle gialle: sono le uniche cose che non ho.</li>
+  </ul>
+</div>
+
+<div class="page">
+
+  <header>
+    <h1>Raffaele Ciccone</h1>
+    <p class="role">Data Analyst &middot; SQL &middot; Python &middot; Business Intelligence</p>
+    <p class="riga-contatti">
+      Fondi (LT) &middot; 27/02/2000
+      <span class="sep">|</span> +39 350 084 8882
+      <span class="sep">|</span> <a href="mailto:raffaeleciccone.analyst@gmail.com">raffaeleciccone.analyst@gmail.com</a>
+      <span class="sep">|</span> <a href="https://github.com/raffaeleciccone-analyst">github.com/raffaeleciccone-analyst</a>
+      <span class="sep">|</span> <span class="todo">LinkedIn: da compilare</span>
+    </p>
+  </header>
+
+  <h2>Profilo</h2>
+  <p class="profilo">
+    Analista dati in formazione ITS. Lavoro sul percorso intero: estrazione e pulizia da fonti
+    diverse, modello relazionale, metriche, e la dashboard o l&rsquo;applicazione con cui qualcuno
+    le interroga. Costruisco con test automatici e documentazione, e pubblico i limiti di quello
+    che produco insieme ai risultati. Le competenze elencate qui sotto sono verificabili nei
+    progetti pubblici in fondo alla pagina, demo comprese.
+  </p>
+
+  <h2>Competenze tecniche</h2>
+  <dl class="comp">
+    <dt>Linguaggi</dt>
+    <dd>Python &middot; SQL &middot; JavaScript</dd>
+
+    <dt>Basi di dati</dt>
+    <dd>MySQL &middot; PostgreSQL &middot; SQL Server &middot; Oracle &middot; Supabase &middot;
+        progettazione dello schema, viste, migrazioni, vincoli di integrit&agrave;</dd>
+
+    <dt>Analisi dati</dt>
+    <dd>pandas &middot; NumPy &middot; SciPy &middot; ETL e pipeline &middot; pulizia, deduplica e
+        riconciliazione fra fonti &middot; validazione e data quality &middot; statistica applicata
+        (bootstrap, correlazione, calibrazione)</dd>
+
+    <dt>Business Intelligence</dt>
+    <dd>Power BI &middot; Power Query &middot; Data Modeling &middot; Microsoft Excel &middot;
+        dashboard interattive &middot; KPI e indici compositi &middot; reportistica</dd>
+
+    <dt>Sviluppo</dt>
+    <dd>FastAPI &middot; React &middot; Docker &middot; Redis &middot; API REST &middot;
+        Git e GitHub &middot; GitHub Actions (CI) &middot; pytest</dd>
+
+    <dt>AI generativa</dt>
+    <dd>Large Language Model applicati all&rsquo;analisi dati &middot; prompt engineering &middot;
+        Claude &middot; Microsoft Copilot</dd>
+  </dl>
+
+  <h2>Progetti</h2>
+
+  <div class="voce">
+    <div class="voce-top">
+      <h3>Football Scout Index &mdash; modello di scoring e dashboard</h3>
+      <span class="quando">2026 &middot; online</span>
+    </div>
+    <ul>
+      <li>Costruito un database <strong>MySQL</strong> di 23.816 righe soggetto-evento su due
+          stagioni, alimentato da due fonti esterne agganciate per identificativo anzich&eacute;
+          per nome, con procedure ripetibili per righe orfane, omonimi e record duplicati.</li>
+      <li>Sviluppato un indice composito a sette dimensioni che ordina 354 soggetti, e una
+          dashboard con filtri, cinque contesti di confronto, raffronto diretto ed export CSV
+          del sottoinsieme filtrato.</li>
+      <li>Pubblicate 15 verifiche statistiche con intervalli di confidenza bootstrap,
+          <strong>comprese quelle in cui il modello perde</strong>: contro tre predittori
+          elementari non ne batte nessuno sul livello di rendimento futuro, e ne batte due su tre
+          sul miglioramento, che &egrave; la domanda per cui era stato costruito.</li>
+      <li>Suite di test di regressione eseguita a ogni modifica del motore di calcolo.</li>
+    </ul>
+    <p class="stack">
+      Python &middot; pandas &middot; SciPy &middot; MySQL &middot; GitHub Actions &mdash;
+      <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/">raffaeleciccone-analyst.github.io/serie-a-index</a>
+    </p>
+  </div>
+
+  <div class="voce">
+    <div class="voce-top">
+      <h3>Natural Language Data Analyst &mdash; applicazione full-stack</h3>
+      <span class="quando">2026 &middot; online</span>
+    </div>
+    <ul>
+      <li>Applicazione che permette a un utente non tecnico di caricare un CSV, un Excel o un JSON,
+          porre una domanda in linguaggio naturale e ottenere l&rsquo;analisi: risposta discorsiva,
+          tabella, grafici e il codice generato, consultabile.</li>
+      <li>Report automatico sul dataset al caricamento: sintesi, valori anomali, andamenti nel
+          tempo e distribuzioni, senza che venga chiesto nulla.</li>
+      <li>Il codice prodotto dal modello linguistico viene eseguito in una sandbox a due livelli
+          con modello di minaccia documentato; i calcoli li esegue pandas e controlli
+          deterministici bloccano i riferimenti a colonne inesistenti prima dell&rsquo;esecuzione.</li>
+      <li>32 suite di test e tre flussi di integrazione continua, uno dei quali interroga la demo
+          realmente in esercizio.</li>
+    </ul>
+    <p class="stack">
+      Python &middot; FastAPI &middot; React &middot; pandas &middot; Docker &middot; pytest &mdash;
+      <a href="https://nlda.onrender.com">nlda.onrender.com</a>
+    </p>
+  </div>
+
+  <div class="voce">
+    <div class="voce-top">
+      <h3>heXI &mdash; applicazione multi-utente per il supporto alle decisioni</h3>
+      <span class="quando">2026 &middot; prototipo</span>
+    </div>
+    <ul>
+      <li>Applicazione web completa: autenticazione con token di rinnovo, limitazione delle
+          richieste, API REST versionata, motore di ricerca per similarit&agrave; su vettori,
+          generazione di report e gestione degli abbonamenti.</li>
+      <li>170 moduli Python con 37 file di test, su architettura a servizi containerizzata.</li>
+    </ul>
+    <p class="stack">FastAPI &middot; PostgreSQL &middot; Redis &middot; React &middot; Docker &mdash; repository privato, disponibile in colloquio</p>
+  </div>
+
+  <h2>Esperienze lavorative</h2>
+
+  <div class="voce">
+    <div class="voce-top">
+      <h3>Property Manager e sviluppatore del gestionale</h3>
+      <span class="quando">2022 &ndash; in corso</span>
+    </div>
+    <p class="dove">B&amp;B Casa Pignatelli &mdash; Fondi (LT)</p>
+    <ul>
+      <li>Progettato, messo in esercizio e mantengo il <strong>gestionale della struttura</strong>,
+          usato ogni giorno: prenotazioni, anagrafica ospiti, prezzi per stagione, imposta di
+          soggiorno e adempimenti di legge verso la Questura.</li>
+      <li>Migrato il campo prezzo da testo a tipo numerico e introdotto in <strong>PostgreSQL</strong>
+          un vincolo di esclusione che rende impossibile registrare due prenotazioni sovrapposte
+          sulla stessa camera: un controllo che prima viveva solo lato browser ora vive nel
+          database.</li>
+      <li>Scritti script di verifica preliminare da eseguire prima di ogni intervento sui dati di
+          produzione (prezzi non validi, sovrapposizioni preesistenti, righe orfane).</li>
+      <li>Gestione operativa della struttura, delle prenotazioni e della relazione con gli ospiti.</li>
+    </ul>
+    <p class="stack">PostgreSQL &middot; Supabase &middot; SQL &middot; JavaScript</p>
+  </div>
+
+  <div class="voce">
+    <div class="voce-top">
+      <h3>Operatore servizi al cliente &mdash; settore turismo</h3>
+      <span class="quando">2021</span>
+    </div>
+    <p class="dove">Spiaggino</p>
+    <ul>
+      <li>Gestione di richieste immediate della clientela in contesti dinamici e ad alta affluenza,
+          in collaborazione con il team di servizio.</li>
+    </ul>
+  </div>
+
+  <h2>Istruzione</h2>
+  <div class="voce">
+    <div class="voce-top">
+      <h3>ITS Maria Gaetana Agnesi &mdash; Percorso di Alta Specializzazione, Data Analysis</h3>
+      <span class="quando">2025 &ndash; in corso</span>
+    </div>
+  </div>
+  <div class="voce">
+    <div class="voce-top">
+      <h3><span class="todo">Corso di laurea e universit&agrave;: da compilare</span></h3>
+      <span class="quando"><span class="todo">2018 &ndash; 2020</span></span>
+    </div>
+    <p class="dove" style="color:var(--ink-faint);font-weight:400">Percorso interrotto nel 2020.</p>
+  </div>
+  <div class="voce">
+    <div class="voce-top">
+      <h3>Diploma di Liceo Scientifico</h3>
+      <span class="quando">2013 &ndash; 2018</span>
+    </div>
+  </div>
+
+  <div class="duecol">
+    <div>
+      <h2>Certificazioni</h2>
+      <p style="font-size:9.6pt;margin:0">
+        <strong>Anthropic Academy</strong> &mdash; 7 corsi completati: Claude, Claude Code,
+        Claude Platform, AI Fluency, AI Capabilities<br>
+        <strong>Microsoft Learn</strong> &mdash; AI &amp; Copilot Learning Paths<br>
+        <strong>Match Analyst</strong> &mdash; certificazione tecnica, tesserino tecnico
+      </p>
+    </div>
+    <div>
+      <h2>Lingue e altro</h2>
+      <p style="font-size:9.6pt;margin:0">
+        <strong>Italiano</strong> madrelingua &middot; <strong>Inglese</strong> B1 &mdash; la
+        documentazione tecnica dei progetti &egrave; scritta in inglese<br>
+        <strong>Patenti</strong> AM, B<br>
+        <strong>Disponibilit&agrave;</strong>
+        <span class="todo">da compilare: trasferte / trasferimento / full remote</span><br>
+        <strong>Interessi</strong> football e sport analytics, data visualization
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    Autorizzo il trattamento dei dati personali contenuti nel presente curriculum ai sensi del
+    Regolamento UE 2016/679 (GDPR) e del D.Lgs. 101/2018.
+  </footer>
+
+</div>
+
+</body>
+</html>
