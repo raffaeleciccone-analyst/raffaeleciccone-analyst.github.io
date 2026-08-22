@@ -1,35 +1,516 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Raffaele Ciccone &mdash; Serie A Scout Index</title>
-<link rel="canonical" href="https://raffaeleciccone-analyst.github.io/serie-a-scout-demo/">
-<meta http-equiv="refresh" content="0; url=/serie-a-scout-demo/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Raffaele Ciccone — Data Analyst | SQL, Python, dashboard</title>
+<meta name="description" content="Data analyst. SQL, Python, pandas, dashboard interattive, ETL e validazione dei dati. Progetti pubblici con demo online: un modello di scoring validato e un'app che analizza dati in linguaggio naturale.">
+<meta name="author" content="Raffaele Ciccone">
+<link rel="canonical" href="https://raffaeleciccone-analyst.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Raffaele Ciccone — Data Analyst">
+<meta property="og:description" content="SQL, Python, pandas, dashboard, ETL e validazione. Progetti pubblici, due provabili online adesso.">
+<meta property="og:url" content="https://raffaeleciccone-analyst.github.io/">
+<meta property="og:locale" content="it_IT">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
 <style>
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-    background:#0A1512;color:#ECF2EE;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-    text-align:center;padding:32px}
-  .eyebrow{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
-    color:rgba(233,240,236,.42);margin-bottom:18px}
-  h1{font-family:"Oswald","Bahnschrift",Impact,sans-serif;font-weight:500;
-    text-transform:uppercase;font-size:clamp(30px,7vw,58px);line-height:.95;margin:0 0 20px}
-  em{font-style:normal;color:#FFB020}
-  p{color:rgba(233,240,236,.70);font-size:15px;line-height:1.6;margin:0 0 26px}
-  a{display:inline-block;color:#FFB020;text-decoration:none;font-size:13px;
-    letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,176,32,.5);
-    border-radius:8px;padding:10px 18px}
-  a:hover{background:rgba(255,176,32,.1)}
+  :root{
+    --paper:#F6F6F3;
+    --paper-2:#EFEFEB;
+    --ink:#15191B;
+    --ink-soft:#4E5658;
+    --ink-faint:#828C8E;
+    --rule:#D9D9D2;
+    --accent:#16565C;
+    --live:#1E6B4A;
+    --sans:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+    --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 40px;
+    display:grid;
+    grid-template-columns:310px 1fr;
+    gap:0 72px;
+    align-items:start;
+  }
+
+  /* ---------- colonna identita' ---------- */
+  .id{position:sticky;top:0;padding:70px 0 60px}
+
+  .id h1{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:28px;
+    line-height:1.16;
+    letter-spacing:-.015em;
+    margin:0 0 6px;
+  }
+  .role{
+    font-family:var(--mono);
+    font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 22px;
+  }
+  .bio{
+    font-size:16px;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+    max-width:35ch;
+  }
+
+  /* il blocco "cerco lavoro": e' il motivo per cui la pagina esiste */
+  .seeking{
+    border:1px solid var(--rule);
+    border-left:3px solid var(--accent);
+    background:var(--paper-2);
+    padding:15px 17px 16px;
+    margin:0 0 24px;
+    max-width:35ch;
+  }
+  .seeking h2{
+    font-family:var(--mono);
+    font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 8px;font-weight:500;
+  }
+  .seeking p{margin:0;font-size:15px;line-height:1.5;color:var(--ink)}
+  .seeking .avail{
+    display:block;margin-top:9px;
+    font-family:var(--mono);font-size:11.5px;line-height:1.7;
+    color:var(--ink-soft);
+  }
+
+  .contacts{display:flex;flex-direction:column;gap:9px;align-items:flex-start;margin-bottom:26px}
+  .contacts a{
+    font-family:var(--mono);font-size:12.5px;
+    color:var(--ink);text-decoration:none;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:2px;
+    transition:border-color .15s,color .15s;
+  }
+  .contacts a:hover,.contacts a:focus-visible{color:var(--accent);border-color:var(--accent)}
+  .contacts a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .contacts a.primary{
+    font-family:var(--sans);font-weight:500;font-size:14px;
+    color:var(--accent);border-color:rgba(22,86,92,.4);
+  }
+
+  /* ---------- colonna destra ---------- */
+  .work{padding:70px 0 0;min-width:0}
+
+  .band{
+    font-family:var(--mono);
+    font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-faint);
+    padding-bottom:11px;
+    border-bottom:1.5px solid var(--ink);
+    margin-bottom:0;
+    display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  }
+  .band .legend::before{
+    content:"";display:inline-block;
+    width:6px;height:6px;border-radius:50%;
+    background:var(--live);
+    margin-right:7px;vertical-align:1px;
+  }
+
+  /* competenze: la prima cosa che deve trovare chi cerca parole chiave */
+  .skills{padding:24px 0 26px;border-bottom:1px solid var(--rule)}
+  .skills dl{
+    margin:0;
+    display:grid;
+    grid-template-columns:135px 1fr;
+    gap:11px 22px;
+  }
+  .skills dt{
+    font-family:var(--mono);
+    font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-faint);
+    padding-top:4px;
+  }
+  .skills dd{
+    margin:0;
+    font-family:var(--sans);
+    font-size:14.5px;line-height:1.65;
+    color:var(--ink);
+  }
+  .skills .caveat{
+    margin:18px 0 0;
+    font-size:15.5px;
+    color:var(--ink-soft);
+    max-width:66ch;
+  }
+
+  /* ---------- progetti ---------- */
+  .item{padding:30px 0 28px;border-bottom:1px solid var(--rule)}
+  .item-top{
+    display:flex;align-items:baseline;justify-content:space-between;
+    gap:10px 24px;flex-wrap:wrap;
+    margin-bottom:4px;
+  }
+  .item h3{
+    font-family:var(--sans);
+    font-weight:500;
+    font-size:23px;
+    letter-spacing:-.012em;
+    line-height:1.2;
+    margin:0;
+    text-wrap:balance;
+  }
+  .state{
+    font-family:var(--mono);
+    font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-faint);
+    white-space:nowrap;
+  }
+  .state.on{color:var(--live)}
+  .state.on::before{
+    content:"";display:inline-block;
+    width:6px;height:6px;border-radius:50%;
+    background:var(--live);
+    margin-right:7px;vertical-align:1px;
+  }
+
+  /* una riga che dice cosa dimostra il progetto, prima del dominio */
+  .claim{
+    font-family:var(--sans);
+    font-size:15px;font-weight:500;
+    color:var(--accent);
+    margin:0 0 12px;
+    max-width:64ch;
+  }
+
+  .item p{margin:0;color:var(--ink-soft);max-width:64ch}
+  .item p + p{margin-top:12px}
+  .item strong{color:var(--ink);font-weight:600}
+
+  .note{
+    margin-top:16px;
+    padding:13px 17px 14px;
+    background:var(--paper-2);
+    border-left:2px solid var(--rule);
+    max-width:64ch;
+  }
+  .note p{font-size:15px;line-height:1.55;max-width:none}
+
+  figure.shot{margin:20px 0 0;max-width:64ch}
+  figure.shot a{
+    display:block;border:1px solid var(--rule);background:#fff;line-height:0;
+    transition:border-color .15s;
+  }
+  figure.shot a:hover,figure.shot a:focus-visible{border-color:var(--accent)}
+  figure.shot a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  figure.shot img{display:block;width:100%;height:auto}
+  figure.shot figcaption{
+    font-family:var(--mono);font-size:11px;line-height:1.6;
+    color:var(--ink-faint);margin-top:9px;
+  }
+
+  .item-foot{
+    display:flex;align-items:baseline;justify-content:space-between;
+    gap:12px 28px;flex-wrap:wrap;
+    margin-top:18px;
+  }
+  .tech{
+    font-family:var(--mono);font-size:11.5px;
+    color:var(--ink-faint);
+    font-variant-numeric:tabular-nums;
+    max-width:52ch;
+  }
+  .go{display:flex;gap:20px;flex-wrap:wrap;align-items:baseline}
+  .go a{
+    font-family:var(--sans);font-weight:500;font-size:13.5px;
+    color:var(--accent);text-decoration:none;
+    border-bottom:1px solid rgba(22,86,92,.35);
+    padding-bottom:1px;transition:border-color .15s;
+  }
+  .go a:hover,.go a:focus-visible{border-color:var(--accent)}
+  .go a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .go .aside{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+
+  .closing{
+    padding:28px 0 0;
+    max-width:64ch;
+  }
+  .closing p{margin:0;color:var(--ink-soft)}
+  .closing a{color:var(--accent)}
+
+  .colophon{
+    grid-column:1/-1;
+    margin-top:48px;
+    padding:20px 0 64px;
+    border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+    color:var(--ink-faint);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+  .colophon a{color:var(--ink-faint)}
+
+  @media (max-width:860px){
+    .sheet{grid-template-columns:1fr;gap:0;padding:0 26px}
+    .id{position:static;padding:52px 0 30px}
+    .work{padding-top:0}
+    .bio,.seeking{max-width:58ch}
+    .contacts{flex-direction:row;gap:18px;flex-wrap:wrap}
+    .skills dl{grid-template-columns:1fr;gap:3px 0}
+    .skills dt{padding-top:12px}
+    .band{gap:10px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
 </style>
 </head>
 <body>
-  <div>
-    <div class="eyebrow">Raffaele Ciccone &middot; Football analytics</div>
-    <h1>Serie A<br><em>Scout Index</em></h1>
-    <p>Ti sto portando al sito. Se non succede niente, il collegamento &egrave; qui sotto.</p>
-    <a href="/serie-a-scout-demo/">Apri il sito</a>
+
+<div class="sheet">
+
+  <aside class="id">
+    <h1>Raffaele Ciccone</h1>
+    <p class="role">Data analyst &middot; SQL &middot; Python &middot; BI</p>
+
+    <p class="bio">
+      Prendo dati grezzi e li porto fino a una decisione: li pulisco, li metto in un modello,
+      li misuro, e costruisco lo strumento con cui qualcuno li interroga. Poi lo metto online,
+      con i test che avvisano quando si rompe.
+    </p>
+
+    <section class="seeking">
+      <h2>Cerco lavoro</h2>
+      <p>
+        Posizioni da <strong>data analyst</strong>, <strong>business intelligence analyst</strong>,
+        <strong>data engineer junior</strong>. Valuto anche stage e tirocini.
+      </p>
+      <span class="avail">
+        Disponibile da subito<br>
+        <!-- TODO Raffaele: citta' e modalita' (in sede / ibrido / full remote).
+             Esempio: "Fondi (LT) &middot; disponibile a trasferte &middot; anche full remote" -->
+      </span>
+    </section>
+
+    <nav class="contacts" aria-label="Contatti">
+      <a class="primary" href="mailto:raffaeleciccone.analyst@gmail.com">raffaeleciccone.analyst@gmail.com</a>
+      <a href="https://github.com/raffaeleciccone-analyst">GitHub</a>
+      <!-- TODO Raffaele: incollare qui gli indirizzi veri e togliere i commenti.
+           Un href="#" e' peggio di un link assente: chi ci clicca pensa che il sito sia rotto.
+           Il CV e' il TUO PDF: mettilo in questa cartella e lascia il nome del file nell'href.
+           <a href="https://www.linkedin.com/in/DA-COMPILARE">LinkedIn</a>
+           <a href="cv-raffaele-ciccone.pdf">CV (PDF)</a> -->
+    </nav>
+  </aside>
+
+  <main class="work">
+
+    <!-- ===== competenze ===== -->
+    <div class="band">
+      <span>Competenze</span>
+      <span>Verificabili nei progetti qui sotto</span>
+    </div>
+
+    <section class="skills">
+      <dl>
+        <dt>Linguaggi</dt>
+        <dd>Python &middot; SQL &middot; JavaScript</dd>
+
+        <dt>Dati</dt>
+        <dd>pandas &middot; NumPy &middot; SciPy &middot; MySQL &middot; PostgreSQL &middot;
+            ETL e pipeline &middot; pulizia e deduplica &middot; validazione e data quality &middot;
+            statistica applicata (bootstrap, correlazione, calibrazione)</dd>
+
+        <dt>Analisi e BI</dt>
+        <dd>Dashboard interattive &middot; reportistica &middot; Plotly &middot; export CSV &middot;
+            Excel e CSV in ingresso &middot; KPI e metriche composite</dd>
+
+        <dt>Sviluppo</dt>
+        <dd>FastAPI &middot; React &middot; Docker &middot; Redis &middot; Git &middot;
+            GitHub Actions (CI) &middot; pytest &middot; API REST</dd>
+
+        <dt>Modo di lavorare</dt>
+        <dd>Test automatici &middot; documentazione tecnica &middot; codice riproducibile &middot;
+            limiti dichiarati insieme ai risultati</dd>
+      </dl>
+
+      <p class="caveat">
+        Il dominio in cui l&rsquo;ho dimostrato spesso &egrave; il calcio, ed &egrave; una scelta:
+        sono dati pubblici, chiunque pu&ograve; rifare i conti e dirmi che ho sbagliato. Il mestiere
+        &mdash; pulire, modellare, misurare, spiegare &mdash; &egrave; lo stesso su un magazzino,
+        su un CRM o su un bilancio.
+      </p>
+    </section>
+
+    <!-- ===== progetti ===== -->
+    <div class="band" style="margin-top:38px">
+      <span>Progetti</span>
+      <span class="legend">Provabile online adesso</span>
+    </div>
+
+    <!-- 1. il lavoro da analista -->
+    <article class="item">
+      <div class="item-top">
+        <h3>Football Scout Index</h3>
+        <span class="state on">Demo online</span>
+      </div>
+      <p class="claim">Modellare e validare: da un database di 23.816 righe a una metrica che dichiara i propri limiti.</p>
+      <p>
+        Un database <strong>MySQL</strong> di 23.816 righe giocatore-partita su due stagioni,
+        alimentato da due fonti diverse agganciate per identificativo e non per nome, con le
+        riparazioni per righe orfane e doppioni scritte e ripetibili. Sopra, una metrica composita
+        a sette dimensioni che ordina 354 giocatori, e una <strong>dashboard</strong> con filtri,
+        cinque contesti, confronto testa a testa ed export CSV di ci&ograve; che stai guardando.
+      </p>
+      <div class="note">
+        <p>
+          Le <strong>quindici verifiche</strong> sono pubblicate intere, con l&rsquo;intervallo di
+          confidenza accanto: compresa quella costruita per bocciare il modello, che in parte lo
+          boccia. Contro tre predittori elementari non ne batte nessuno sul livello di rendimento
+          futuro; sulla domanda per cui era nato &mdash; chi migliorer&agrave; rispetto a s&eacute;
+          stesso &mdash; ne batte due su tre. Un indice che non ha mai perso &egrave; solo un indice
+          che non &egrave; mai stato messo alla prova.
+        </p>
+      </div>
+      <div class="item-foot">
+        <span class="tech">Python &middot; pandas &middot; SciPy &middot; MySQL &middot; test di regressione &middot; GitHub Actions</span>
+        <div class="go">
+          <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/">Apri la demo</a>
+          <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/validazione.html">Le verifiche</a>
+          <a href="https://github.com/raffaeleciccone-analyst/serie-a-index">Codice</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. il lavoro da ingegnere -->
+    <article class="item">
+      <div class="item-top">
+        <h3>Natural Language Data Analyst</h3>
+        <span class="state on">Demo online</span>
+      </div>
+      <p class="claim">Costruire lo strumento, non solo usarlo: chi non sa scrivere codice carica un file e fa una domanda.</p>
+      <p>
+        Carichi un CSV, un Excel o un JSON, fai una domanda in italiano e ottieni l&rsquo;analisi:
+        risposta in prosa, tabella, grafici, e il codice generato che puoi aprire e controllare.
+        L&rsquo;applicazione produce da sola un report iniziale sul dataset &mdash; sintesi,
+        anomalie, andamenti &mdash; prima ancora che tu chieda qualcosa.
+      </p>
+      <p>
+        Sotto, un LLM scrive codice Pandas che gira in una <strong>sandbox a due livelli</strong>,
+        con modello di minaccia scritto e rischi residui dichiarati; i numeri li calcola Pandas e
+        controlli deterministici bloccano le colonne inventate prima che l&rsquo;analisi parta.
+        All&rsquo;AI resta il compito di raccontare i risultati, non di produrli.
+      </p>
+
+      <figure class="shot">
+        <a href="assets/nlda-risposta.png">
+          <img src="assets/nlda-risposta.png" width="1538" height="784" loading="lazy"
+               alt="Interfaccia di Natural Language Data Analyst: a destra la domanda
+                    &laquo;Quali sono le 5 Region con piu' Sales?&raquo;, la risposta in prosa, la
+                    tabella dei valori e il codice generato consultabile; a sinistra il report
+                    automatico con sintesi del dataset, insight e grafici a barre e a linee.">
+        </a>
+        <figcaption>
+          Domanda in italiano &rarr; risposta, tabella e codice generato consultabile.
+          A sinistra il report che la app produce da sola al caricamento del file.
+          Clicca per la schermata intera.
+        </figcaption>
+      </figure>
+
+      <div class="item-foot">
+        <span class="tech">Python &middot; FastAPI &middot; React &middot; pandas &middot; Docker &middot; 32 suite di test &middot; 3 workflow CI</span>
+        <div class="go">
+          <a href="https://nlda.onrender.com">Apri la demo</a>
+          <a href="https://github.com/raffaeleciccone-analyst/Natural-Language-Data-Analyst">Codice</a>
+          <span class="aside">il primo accesso sveglia il server: ~35 secondi</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. l'ambizione -->
+    <article class="item">
+      <div class="item-top">
+        <h3>heXI</h3>
+        <span class="state">Prototipo &middot; costruito nel 2026</span>
+      </div>
+      <p class="claim">Un&rsquo;applicazione intera, non uno script: autenticazione, multi-utente, abbonamenti.</p>
+      <p>
+        Sistema di supporto alle decisioni di mercato per un club di calcio. Se il Football Scout
+        Index <strong>misura</strong> i giocatori e li mette in ordine, heXI &egrave; il prodotto
+        costruito sopra quella misura e risponde alla domanda successiva: <strong>chi sostituisce
+        chi, e che cosa si rompe nella squadra se lo firmi.</strong>
+      </p>
+      <p>
+        Costruito fra giugno e luglio 2026. Dentro c&rsquo;&egrave; la parte che di solito in un
+        portfolio non si vede: autenticazione con token di rinnovo, limitazione delle richieste,
+        API versionata, motore di ricerca per similarit&agrave; su vettori giocatore, e la
+        fatturazione.
+      </p>
+      <div class="item-foot">
+        <span class="tech">FastAPI &middot; PostgreSQL &middot; Redis &middot; React &middot; Docker &middot; 37 file di test</span>
+        <div class="go">
+          <span class="aside">Repository privato &mdash; lo mostro volentieri in colloquio</span>
+        </div>
+      </div>
+    </article>
+
+    <div class="closing">
+      <p>
+        Il modo pi&ugrave; rapido per capire come lavoro &egrave; aprire
+        <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/validazione.html">la pagina
+        delle verifiche</a>: &egrave; l&rsquo;unica in cui pubblico anche i controlli che il mio
+        modello non supera. Se cercate qualcuno che vi dica quanto vale un numero <em>e</em> dove
+        non vale, <a href="mailto:raffaeleciccone.analyst@gmail.com">scrivetemi</a>.
+      </p>
+    </div>
+  </main>
+
+  <div class="colophon">
+    <span>Raffaele Ciccone &middot; Data analyst &middot; 2026</span>
+    <span><a href="mailto:raffaeleciccone.analyst@gmail.com">raffaeleciccone.analyst@gmail.com</a></span>
   </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Raffaele Ciccone",
+  "jobTitle": "Data Analyst",
+  "email": "mailto:raffaeleciccone.analyst@gmail.com",
+  "url": "https://raffaeleciccone-analyst.github.io/",
+  "description": "Data analyst: SQL, Python, pandas, dashboard interattive, ETL e validazione dei dati. Progetti pubblici con demo online.",
+  "sameAs": ["https://github.com/raffaeleciccone-analyst"],
+  "knowsLanguage": ["it", "en"],
+  "seeks": {
+    "@type": "Demand",
+    "name": "Posizione da data analyst, business intelligence analyst o data engineer junior"
+  },
+  "knowsAbout": [
+    "Data analysis", "SQL", "Python", "pandas", "NumPy", "SciPy",
+    "MySQL", "PostgreSQL", "ETL", "Data quality", "Data validation",
+    "Business intelligence", "Dashboard", "Data visualization", "Plotly",
+    "Statistica applicata", "Bootstrap", "KPI",
+    "FastAPI", "React", "Docker", "Redis", "Git", "GitHub Actions", "pytest", "REST API"
+  ]
+}
+</script>
+
 </body>
 </html>
