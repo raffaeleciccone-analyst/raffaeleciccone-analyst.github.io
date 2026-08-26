@@ -338,8 +338,9 @@
             statistica applicata (bootstrap, correlazione, calibrazione)</dd>
 
         <dt>Analisi e BI</dt>
-        <dd>Dashboard interattive &middot; reportistica &middot; Plotly &middot; export CSV &middot;
-            Excel e CSV in ingresso &middot; KPI e metriche composite</dd>
+        <dd>Power BI (DAX, Power Query, modello a stella) &middot; dashboard interattive &middot;
+            reportistica &middot; Plotly &middot; export CSV &middot; Excel e CSV in ingresso &middot;
+            KPI e metriche composite</dd>
 
         <dt>Sviluppo</dt>
         <dd>FastAPI &middot; React &middot; Docker &middot; Redis &middot; Git &middot;
@@ -388,12 +389,81 @@
           che non &egrave; mai stato messo alla prova.
         </p>
       </div>
+
+      <figure class="shot">
+        <img src="assets/tpi-eta.svg" width="720" height="430" loading="lazy"
+             alt="Grafico a dispersione dei 354 giocatori qualificati: in orizzontale l&rsquo;et&agrave;,
+                  in verticale l&rsquo;indice TPI. La parte alta e&rsquo; occupata quasi solo da
+                  giocatori fra i 27 e i 31 anni, con Lautaro Martinez al vertice. Nella fascia
+                  chiara a sinistra, gli otto giocatori fino a 23 anni gia&rsquo; nella parte alta
+                  dell&rsquo;indice: Wesley, Kenan Yildiz e Nico Paz i primi tre.">
+        <figcaption>
+          Ogni punto e&rsquo; uno dei 354 giocatori qualificati. In alto ci sono quasi solo
+          giocatori fra i 27 e i 31 anni: l&rsquo;indice premia chi e&rsquo; nel pieno. Nella fascia
+          chiara gli otto sotto i 23 che stanno gi&agrave; nella parte alta &mdash; quelli che un
+          club puo&rsquo; ancora comprare e rivendere. <strong>Non dice quanto costano.</strong>
+          Generato dal CSV pubblico con <code>grafico_tpi_eta.py</code>.
+        </figcaption>
+      </figure>
+
       <div class="item-foot">
         <span class="tech">Python &middot; pandas &middot; SciPy &middot; MySQL &middot; test di regressione &middot; GitHub Actions</span>
         <div class="go">
           <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/">Apri la demo</a>
           <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/validazione.html">Le verifiche</a>
           <a href="https://github.com/raffaeleciccone-analyst/serie-a-index">Codice</a>
+          <a href="https://github.com/raffaeleciccone-analyst/serie-a-sql">Lo schema SQL</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. il lavoro su dati non miei -->
+    <article class="item">
+      <div class="item-top">
+        <h3>I ritardi di consegna, in Power BI</h3>
+        <span class="state on">Report in PDF</span>
+      </div>
+      <p class="claim">Rispondere a una domanda che non ho scelto io, su dati di qualcun altro, e dire cosa la risposta non copre.</p>
+      <p>
+        96.470 ordini consegnati di un marketplace brasiliano. La domanda &mdash; <em>i ritardi
+        quanto ci costano in recensioni negative, e quali venditori li causano</em> &mdash; &egrave;
+        stata scritta prima di aprire <strong>Power BI</strong>, e il cruscotto risponde a quella
+        e a nient&rsquo;altro. Modello a stella con due tabelle dei fatti a grana diversa,
+        <strong>39 misure DAX</strong>, filtri sincronizzati, drillthrough sul mese e un riquadro
+        di dettaglio al passaggio del mouse.
+      </p>
+      <div class="note">
+        <p>
+          La seconda met&agrave; della domanda ha una risposta scomoda: <strong>in larga parte non
+          sono i venditori</strong>. Scomponendo il tempo di consegna, sugli ordini in ritardo il
+          venditore impiega 1,2 giorni in pi&ugrave; del solito e la logistica ne impiega 17; e
+          1.390 venditori su 2.970 producono almeno un ritardo, quindi non esiste una manciata di
+          colpevoli da sospendere. Un cruscotto che avesse proposto quello sarebbe stato peggio di
+          nessun cruscotto.
+        </p>
+      </div>
+
+      <figure class="shot">
+        <img src="assets/powerbi-ritardi.png" width="720" height="405" loading="lazy"
+             alt="Prima pagina del cruscotto: quattro riquadri in alto con la quota di consegne
+                  oltre la data promessa (8,1%), le recensioni negative in orario (9,2%) e in
+                  ritardo (54,0%) e il fatturato interessato. Sotto, un grafico a barre delle
+                  recensioni negative per fascia di ritardo, dal 9% delle consegne in anticipo
+                  all&rsquo;82% fra quindici e trenta giorni di ritardo.">
+        <figcaption>
+          Il legame non &egrave; una pendenza, &egrave; un dirupo: fra dieci giorni di anticipo e la
+          consegna appena in orario le recensioni negative passano dall&rsquo;8,9% all&rsquo;11,0%,
+          ma fra 3 e 7 giorni di ritardo sono gi&agrave; il 61,3%. <strong>Per questo nel cruscotto
+          non c&rsquo;&egrave; nessun coefficiente di correlazione:</strong> su tutti gli ordini
+          varrebbe &minus;0,18, schiacciato dal 92% di consegne in anticipo.
+        </figcaption>
+      </figure>
+
+      <div class="item-foot">
+        <span class="tech">Power BI &middot; DAX &middot; Power Query (M) &middot; modello a stella &middot; generazione del report da script</span>
+        <div class="go">
+          <a href="assets/ritardi-consegna-report.pdf">Il report in PDF</a>
+          <a href="https://github.com/raffaeleciccone-analyst/delivery-delay-impact">Codice</a>
         </div>
       </div>
     </article>
@@ -505,7 +575,8 @@
   "knowsAbout": [
     "Data analysis", "SQL", "Python", "pandas", "NumPy", "SciPy",
     "MySQL", "PostgreSQL", "ETL", "Data quality", "Data validation",
-    "Business intelligence", "Dashboard", "Data visualization", "Plotly",
+    "Business intelligence", "Power BI", "DAX", "Power Query", "Modellazione dimensionale",
+    "Dashboard", "Data visualization", "Plotly",
     "Statistica applicata", "Bootstrap", "KPI",
     "FastAPI", "React", "Docker", "Redis", "Git", "GitHub Actions", "pytest", "REST API"
   ]
