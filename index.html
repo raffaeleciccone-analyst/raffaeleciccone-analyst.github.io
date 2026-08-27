@@ -136,6 +136,85 @@
     margin-right:7px;vertical-align:1px;
   }
 
+  /* ---------- indice dei progetti ---------- */
+  /* Nessun colore e nessun carattere nuovo: usa quelli che la pagina ha gia'.
+     L'unica cosa che aggiunge e' un livello di lettura sopra a quello lungo. */
+  .indice{list-style:none;margin:0 0 34px;padding:0}
+  .indice li{border-bottom:1px solid var(--rule)}
+
+  .indice a{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:3px 18px;
+    padding:15px 0 16px;
+    text-decoration:none;color:inherit;
+    transition:background .14s;
+  }
+  .indice a:hover,.indice a:focus-visible{background:var(--paper-2)}
+  .indice a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .ix-nome{
+    font-family:var(--sans);font-weight:600;
+    font-size:17px;letter-spacing:-.01em;
+    color:var(--ink);
+  }
+  /* la freccia dice che la riga porta da qualche parte, e compare al passaggio */
+  .ix-nome::after{
+    content:" 93";
+    color:var(--accent);
+    opacity:0;transition:opacity .14s;
+  }
+  .indice a:hover .ix-nome::after,
+  .indice a:focus-visible .ix-nome::after{opacity:.7}
+
+  .ix-stato{
+    grid-column:2;grid-row:1;
+    font-family:var(--mono);
+    font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-faint);white-space:nowrap;
+    align-self:baseline;
+  }
+  .ix-stato.on{color:var(--live)}
+  .ix-stato.on::before{
+    content:"";display:inline-block;
+    width:6px;height:6px;border-radius:50%;
+    background:var(--live);margin-right:6px;vertical-align:1px;
+  }
+
+  .ix-cosa{
+    grid-column:1;
+    font-size:15px;line-height:1.5;
+    color:var(--ink-soft);
+    max-width:56ch;
+  }
+
+  /* Il fatto che regge il progetto: una misura dove esiste, una capacita' dove
+     non esiste. Non si mette un numero dove non c'e' niente da misurare. */
+  .ix-fatto{
+    grid-column:1/-1;
+    display:flex;align-items:baseline;flex-wrap:wrap;gap:0 10px;
+    margin-top:5px;
+    font-family:var(--mono);font-size:13px;
+    color:var(--ink);
+  }
+  .ix-fatto b{font-weight:500;color:var(--accent)}
+  /* Il monospazio e' la voce delle misure. Dove il fatto non e' un numero ma
+     una frase, quella voce suona come un'etichetta di sistema: torna al
+     carattere dei titoli, cosi' si legge per quello che e'. */
+  .ix-fatto b.parola{
+    font-family:var(--sans);font-weight:600;font-size:14px;
+    letter-spacing:-.005em;
+  }
+  .ix-fatto em{
+    font-family:var(--serif);font-style:normal;
+    font-size:13.5px;color:var(--ink-faint);
+  }
+  .ix-ic{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11.5px;color:var(--ink-soft);white-space:nowrap;
+  }
+  .ix-ic i{display:inline-block;width:1px;height:11px;background:var(--ink-soft)}
+
   /* competenze: la prima cosa che deve trovare chi cerca parole chiave */
   .skills{padding:24px 0 26px;border-bottom:1px solid var(--rule)}
   .skills dl{
@@ -277,6 +356,8 @@
     .skills dl{grid-template-columns:1fr;gap:3px 0}
     .skills dt{padding-top:12px}
     .band{gap:10px}
+    .indice a{grid-template-columns:1fr;gap:4px}
+    .ix-stato{grid-column:1;grid-row:auto;order:-1}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none !important}}
 </style>
@@ -320,6 +401,66 @@
 
   <main class="work">
 
+    <!-- ===== indice dei progetti =====
+         Serve a chi ha trenta secondi. La pagina sotto argomenta ogni progetto
+         per intero, ed e' il suo pregio: fa vedere il ragionamento, non solo il
+         risultato. Ma quattromilacinquecento pixel di scroll non si scorrono in
+         mezzo minuto, e chi seleziona ne ha meno di uno.
+         Qui sopra ci sono le quattro righe che si leggono in dieci secondi:
+         cosa fa, il fatto che lo dimostra, se e' provabile adesso. Chi vuole
+         leggere scende; chi ha fretta ha gia' capito. -->
+    <div class="band">
+      <span>I quattro progetti</span>
+      <span class="legend">Due provabili online adesso</span>
+    </div>
+
+    <ol class="indice">
+      <li><a href="#scout-index">
+        <span class="ix-nome">Football Scout Index</span>
+        <span class="ix-stato on">Demo online</span>
+        <span class="ix-cosa">Ordina i giocatori per impatto offensivo e pubblica tutte e quindici
+          le verifiche, compresa quella costruita per bocciarlo. Stesso motore su due campionati.</span>
+        <span class="ix-fatto">
+          <b>&rho; 0.762</b>
+          <span class="ix-ic" aria-label="intervallo di confidenza da 0,713 a 0,801"><i></i>0.713 &mdash; 0.801<i></i></span>
+          <em>fra le due met&agrave; di stagione</em>
+        </span>
+      </a></li>
+
+      <li><a href="#ritardi-consegna">
+        <span class="ix-nome">I ritardi di consegna, in Power BI</span>
+        <span class="ix-stato">Report in PDF</span>
+        <span class="ix-cosa">Quanto costano i ritardi in recensioni negative, e di chi &egrave; la colpa.
+          La risposta &egrave; scomoda e sta nel cruscotto.</span>
+        <span class="ix-fatto">
+          <b>17 giorni</b>
+          <em>la logistica, contro 1,2 del venditore &mdash; su 96.470 ordini</em>
+        </span>
+      </a></li>
+
+      <li><a href="#linguaggio-naturale">
+        <span class="ix-nome">Natural Language Data Analyst</span>
+        <span class="ix-stato on">Demo online</span>
+        <span class="ix-cosa">Carichi un file, fai una domanda in italiano, ottieni l&rsquo;analisi &mdash;
+          e il codice generato, che puoi aprire e controllare.</span>
+        <span class="ix-fatto">
+          <b class="parola">Lo strumento, non l&rsquo;uso</b>
+          <em>l&rsquo;LLM traduce la domanda, pandas calcola i numeri</em>
+        </span>
+      </a></li>
+
+      <li><a href="#hexi">
+        <span class="ix-nome">heXI</span>
+        <span class="ix-stato">Prototipo</span>
+        <span class="ix-cosa">Chi sostituisce chi, e cosa si rompe nella squadra se lo firmi:
+          il prodotto costruito sopra la misura.</span>
+        <span class="ix-fatto">
+          <b class="parola">Un&rsquo;applicazione intera</b>
+          <em>autenticazione, multi-utente, abbonamenti</em>
+        </span>
+      </a></li>
+    </ol>
+
     <!-- ===== competenze ===== -->
     <div class="band">
       <span>Competenze</span>
@@ -360,12 +501,12 @@
 
     <!-- ===== progetti ===== -->
     <div class="band" style="margin-top:38px">
-      <span>Progetti</span>
-      <span class="legend">Provabile online adesso</span>
+      <span>Gli stessi quattro, per esteso</span>
+      <span>Come sono fatti, e dove sbagliano</span>
     </div>
 
     <!-- 1. il lavoro da analista -->
-    <article class="item">
+    <article class="item" id="scout-index">
       <div class="item-top">
         <h3>Football Scout Index</h3>
         <span class="state on">Demo online</span>
@@ -426,7 +567,7 @@
     </article>
 
     <!-- 2. il lavoro su dati non miei -->
-    <article class="item">
+    <article class="item" id="ritardi-consegna">
       <div class="item-top">
         <h3>I ritardi di consegna, in Power BI</h3>
         <span class="state on">Report in PDF</span>
@@ -477,7 +618,7 @@
     </article>
 
     <!-- 2. il lavoro da ingegnere -->
-    <article class="item">
+    <article class="item" id="linguaggio-naturale">
       <div class="item-top">
         <h3>Natural Language Data Analyst</h3>
         <span class="state on">Demo online</span>
@@ -522,7 +663,7 @@
     </article>
 
     <!-- 3. l'ambizione -->
-    <article class="item">
+    <article class="item" id="hexi">
       <div class="item-top">
         <h3>heXI</h3>
         <span class="state">Prototipo &middot; costruito nel 2026</span>
