@@ -60,7 +60,10 @@ def main():
     add = s.append
     add(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" '
         f'role="img" aria-labelledby="t-tpi d-tpi" style="width:100%;height:auto">')
-    add('<title id="t-tpi">Indice TPI per eta\u0300, 354 giocatori di Serie A</title>')
+    # Il conteggio si conta. Era "354" scritto qui dentro, e questo e' il nome
+    # che uno screen reader annuncia al posto della figura: l'unico testo che
+    # sostituisce il grafico per chi non lo vede, ed era gia' sbagliato di due.
+    add(f'<title id="t-tpi">Indice TPI per eta\u0300, {len(righe)} giocatori di Serie A</title>')
     add(f'<desc id="d-tpi">Grafico a dispersione: in orizzontale l\u2019eta\u0300, in verticale '
         f'l\u2019indice TPI. La parte alta e\u0300 occupata quasi tutta da giocatori fra i 27 e '
         f'i 31 anni. La fascia evidenziata a sinistra raccoglie i {len(giovani)} giocatori '
