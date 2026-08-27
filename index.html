@@ -370,13 +370,21 @@
         <h3>Football Scout Index</h3>
         <span class="state on">Demo online</span>
       </div>
-      <p class="claim">Modellare e validare: da un database di 23.816 righe a una metrica che dichiara i propri limiti.</p>
+      <p class="claim">Modellare e validare: da un database di 23.858 righe a una metrica che dichiara i propri limiti. Due campionati, un motore solo.</p>
       <p>
-        Un database <strong>MySQL</strong> di 23.816 righe giocatore-partita su due stagioni,
+        Un database <strong>MySQL</strong> di 23.858 righe giocatore-partita su due stagioni,
         alimentato da due fonti diverse agganciate per identificativo e non per nome, con le
         riparazioni per righe orfane e doppioni scritte e ripetibili. Sopra, una metrica composita
-        a sette dimensioni che ordina 354 giocatori, e una <strong>dashboard</strong> con filtri,
+        a sette dimensioni che ordina 356 giocatori, e una <strong>dashboard</strong> con filtri,
         cinque contesti, confronto testa a testa ed export CSV di ci&ograve; che stai guardando.
+      </p>
+      <p>
+        Lo stesso motore serve anche la <strong>Premier League</strong>: il campionato &egrave; un
+        parametro, come la stagione. Nessun fork, nessuna seconda copia da tenere allineata &mdash;
+        una correzione resta una correzione sola, e i due indici restano confrontabili perch&eacute;
+        i pesi non sono tarati su nessuno dei due. Cambiano solo i dati, la lingua di partenza e le
+        verifiche che in Inghilterra non si possono fare: quelle che si appoggiano a fonti italiane
+        la pagina le dichiara non applicabili invece di ometterle.
       </p>
       <div class="note">
         <p>
@@ -391,13 +399,13 @@
 
       <figure class="shot">
         <img src="assets/tpi-eta.svg" width="720" height="430" loading="lazy"
-             alt="Grafico a dispersione dei 354 giocatori qualificati: in orizzontale l&rsquo;et&agrave;,
+             alt="Grafico a dispersione dei 356 giocatori qualificati: in orizzontale l&rsquo;et&agrave;,
                   in verticale l&rsquo;indice TPI. La parte alta e&rsquo; occupata quasi solo da
                   giocatori fra i 27 e i 31 anni, con Lautaro Martinez al vertice. Nella fascia
                   chiara a sinistra, gli otto giocatori fino a 23 anni gia&rsquo; nella parte alta
                   dell&rsquo;indice: Wesley, Kenan Yildiz e Nico Paz i primi tre.">
         <figcaption>
-          Ogni punto e&rsquo; uno dei 354 giocatori qualificati. In alto ci sono quasi solo
+          Ogni punto e&rsquo; uno dei 356 giocatori qualificati. In alto ci sono quasi solo
           giocatori fra i 27 e i 31 anni: l&rsquo;indice premia chi e&rsquo; nel pieno. Nella fascia
           chiara gli otto sotto i 23 che stanno gi&agrave; nella parte alta &mdash; quelli che un
           club puo&rsquo; ancora comprare e rivendere. <strong>Non dice quanto costano.</strong>
@@ -408,9 +416,10 @@
       <div class="item-foot">
         <span class="tech">Python &middot; pandas &middot; SciPy &middot; MySQL &middot; test di regressione &middot; GitHub Actions</span>
         <div class="go">
-          <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/">Apri la demo</a>
+          <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/">Serie A</a>
+          <a href="https://raffaeleciccone-analyst.github.io/premier-league-scout-index/">Premier League</a>
           <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/validazione.html">Le verifiche</a>
-          <a href="https://github.com/raffaeleciccone-analyst/serie-a-index">Codice</a>
+          <a href="https://github.com/raffaeleciccone-analyst/serie-a-index-engine">Il motore</a>
           <a href="https://github.com/raffaeleciccone-analyst/serie-a-sql">Lo schema SQL</a>
         </div>
       </div>
