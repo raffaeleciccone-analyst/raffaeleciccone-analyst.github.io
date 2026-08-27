@@ -21,9 +21,14 @@ CSV = Path(r"C:/dev/serie-a-index/serie_a_tpi_2025-26.csv")
 SITO = Path(r"C:/dev/raffaeleciccone-analyst.github.io")
 OUT = SITO / "assets" / "tpi-eta.svg"
 
-# palette di index.html
-INK, INK_SOFT, INK_FAINT = "#15191B", "#4E5658", "#828C8E"
-RULE, ACCENT, PAPER2 = "#D9D9D2", "#16565C", "#EFEFEB"
+# La palette e' quella dell'apertura della vetrina, che e' scura: e' lo stesso
+# verde-nero delle dashboard del Football Scout Index. Il grafico e' nato per
+# quel fondo — su carta chiara i quattrocento punti grigi sparivano, e la figura
+# piu' caratteristica della pagina era anche la piu' slavata.
+# Se un giorno l'apertura torna chiara, questi sei valori tornano indietro: sono
+# tutto quello che lega la figura al fondo su cui sta.
+INK, INK_SOFT, INK_FAINT = "#ECF2EE", "#A9B5B0", "#78847E"
+RULE, ACCENT, PAPER2 = "#1B2A26", "#FFB020", "#0F1F1B"
 
 W, H = 720, 430
 L, R, T, B = 56, 18, 22, 48          # margini
