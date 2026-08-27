@@ -1,5 +1,2 @@
 __pycache__/
 *.pyc
-
-# Bozze di lavoro sulla grafica: non fanno parte del sito.
-_*.html
