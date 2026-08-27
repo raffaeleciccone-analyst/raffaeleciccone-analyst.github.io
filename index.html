@@ -17,25 +17,19 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
 <style>
   :root{
-    /* La carta e' fredda, non crema: il crema con la grazia scura e un accento
-       spento e' il vestito che si mette a qualunque portfolio, e non dice
-       niente di chi lo indossa.
-       I due colori sono quelli delle sue dashboard, a ruoli scambiati: il
-       verde-nero #0A1512 era il fondo, qui e' l'inchiostro; l'ambra era il
-       segno, qui e' la misura. Vetrina e progetti diventano la stessa mano. */
-    --paper:#E9ECE9;
-    --paper-2:#DFE3DF;
-    --ink:#0A1512;
-    --ink-soft:#46524D;
-    --ink-faint:#78847E;
-    --rule:#C4CBC5;
-    --accent:#0F4F44;
+    --paper:#F6F6F3;
+    --paper-2:#EFEFEB;
+    --ink:#15191B;
+    --ink-soft:#4E5658;
+    --ink-faint:#828C8E;
+    --rule:#D9D9D2;
+    --accent:#16565C;
     --live:#1E6B4A;
-    --sans:"Oswald",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --sans:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
     --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
     --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
   }
@@ -67,12 +61,11 @@
 
   .id h1{
     font-family:var(--sans);
-    font-weight:500;
-    font-size:37px;
-    line-height:1.02;
-    letter-spacing:.005em;
-    text-transform:uppercase;
-    margin:0 0 9px;
+    font-weight:600;
+    font-size:28px;
+    line-height:1.16;
+    letter-spacing:-.015em;
+    margin:0 0 6px;
   }
   .role{
     font-family:var(--mono);
@@ -121,7 +114,7 @@
   .contacts a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .contacts a.primary{
     font-family:var(--sans);font-weight:500;font-size:14px;
-    color:var(--accent);border-color:color-mix(in srgb,var(--accent) 40%,transparent);
+    color:var(--accent);border-color:rgba(22,86,92,.4);
   }
 
   /* ---------- colonna destra ---------- */
@@ -142,88 +135,6 @@
     background:var(--live);
     margin-right:7px;vertical-align:1px;
   }
-
-  /* ---------- apertura ---------- */
-  /* Prima la colonna si apriva con la tabella delle competenze, che e' la cosa
-     piu' intercambiabile che ci sia su un profilo. Adesso si apre col lavoro.
-     E' l'unico blocco scuro della pagina, ed e' voluto: quel verde-nero e' il
-     fondo delle sue dashboard, quindi la vetrina mostra l'ambiente in cui il
-     lavoro vive davvero, e poi passa alla carta chiara per la lettura lunga.
-     Un colpo solo, in un posto solo. Resta dentro la colonna come tutto il
-     resto: a tutta pagina sarebbe sembrato un'insegna, e questa e' una misura.
-
-     La firma e' la parentesi dell'intervallo di confidenza — due stanghette e
-     un valore in mezzo. Non e' un ornamento preso altrove: e' la notazione con
-     cui questo lavoro dichiara quanto e' sicuro di se'. Torna sotto ogni titolo
-     di sezione, e non compare dove un intervallo vero non c'e'. */
-  .apertura{
-    background:#0A1512;
-    color:#ECF2EE;
-    margin:0 0 34px;
-    padding:30px 34px 32px;
-    border-radius:3px;
-  }
-
-  .apertura-occhiello{
-    font-family:var(--mono);
-    font-size:11px;letter-spacing:.13em;text-transform:uppercase;
-    color:#78847E;
-    margin:0 0 16px;
-  }
-
-  .apertura-fig{
-    display:block;width:100%;height:auto;
-  }
-
-  .misura{
-    display:flex;align-items:baseline;flex-wrap:wrap;
-    gap:0 12px;
-    margin:18px 0 0;
-    font-family:var(--mono);
-  }
-  .misura-simbolo{font-size:20px;color:#78847E}
-  .misura-valore{
-    font-size:34px;font-weight:500;
-    /* l'ambra vera delle dashboard: qui il fondo e' quello giusto per leggerla */
-    color:#FFB020;
-    letter-spacing:-.02em;
-  }
-  .misura-intervallo{
-    display:inline-flex;align-items:center;gap:7px;
-    font-size:12.5px;color:#A9B5B0;
-    white-space:nowrap;
-  }
-  /* le due stanghette della parentesi, disegnate e non scritte: un carattere
-     tipografico le renderebbe di altezze diverse a ogni ripiego di font */
-  .misura-intervallo i{
-    display:inline-block;width:1px;height:13px;
-    background:#A9B5B0;
-  }
-  .misura-cosa{
-    font-family:var(--serif);
-    font-size:14px;color:#8E9A95;
-    margin:7px 0 0;
-    max-width:52ch;
-  }
-
-  .apertura-tesi{
-    margin:18px 0 0;
-    max-width:62ch;
-    font-size:16px;
-    color:#C3CCC8;
-  }
-  .apertura-tesi strong{color:#ECF2EE;font-weight:600}
-
-  /* Il filo sotto ogni titolo di sezione porta le stesse due stanghette:
-     la pagina si legge come una serie di misure, non di paragrafi. */
-  .band{position:relative}
-  .band::after,
-  .band::before{
-    content:"";position:absolute;bottom:-1.5px;
-    width:1px;height:7px;background:var(--ink);
-  }
-  .band::before{left:0}
-  .band::after{right:0}
 
   /* competenze: la prima cosa che deve trovare chi cerca parole chiave */
   .skills{padding:24px 0 26px;border-bottom:1px solid var(--rule)}
@@ -262,10 +173,9 @@
   .item h3{
     font-family:var(--sans);
     font-weight:500;
-    font-size:27px;
-    letter-spacing:.008em;
-    text-transform:uppercase;
-    line-height:1.08;
+    font-size:23px;
+    letter-spacing:-.012em;
+    line-height:1.2;
     margin:0;
     text-wrap:balance;
   }
@@ -285,12 +195,11 @@
 
   /* una riga che dice cosa dimostra il progetto, prima del dominio */
   .claim{
-    font-family:var(--serif);
-    font-size:17px;font-weight:600;
-    line-height:1.42;
+    font-family:var(--sans);
+    font-size:15px;font-weight:500;
     color:var(--accent);
-    margin:2px 0 14px;
-    max-width:58ch;
+    margin:0 0 12px;
+    max-width:64ch;
   }
 
   .item p{margin:0;color:var(--ink-soft);max-width:64ch}
@@ -334,7 +243,7 @@
   .go a{
     font-family:var(--sans);font-weight:500;font-size:13.5px;
     color:var(--accent);text-decoration:none;
-    border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+    border-bottom:1px solid rgba(22,86,92,.35);
     padding-bottom:1px;transition:border-color .15s;
   }
   .go a:hover,.go a:focus-visible{border-color:var(--accent)}
@@ -368,16 +277,6 @@
     .skills dl{grid-template-columns:1fr;gap:3px 0}
     .skills dt{padding-top:12px}
     .band{gap:10px}
-    /* Sul telefono il blocco scuro esce dai 26px di margine della pagina e
-       tocca i bordi: incorniciato su uno schermo stretto sembrerebbe una
-       figura, a tutta larghezza e' la superficie su cui si apre il sito. */
-    .apertura{
-      margin:0 -26px 26px;
-      padding:22px 20px 24px;
-      border-radius:0;
-    }
-    .misura-valore{font-size:29px}
-    .apertura-tesi{font-size:15.5px}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none !important}}
 </style>
@@ -420,34 +319,6 @@
   </aside>
 
   <main class="work">
-
-    <!-- ===== apertura: il lavoro, non l'elenco delle tecnologie =====
-         La prima cosa nella colonna era la tabella delle competenze: la cosa
-         piu' intercambiabile che ci sia su un profilo. Qui c'e' invece la
-         misura, con il suo intervallo di confidenza accanto e la riga che dice
-         dove l'indice perde. E' l'unico blocco della pagina che nessun altro
-         potrebbe copiare, perche' e' fatto dei suoi dati. -->
-    <section class="apertura">
-      <p class="apertura-occhiello">Serie A 2025/26 &middot; 356 giocatori qualificati</p>
-      <img class="apertura-fig" src="assets/tpi-eta.svg" width="720" height="430"
-           alt="Ogni punto un giocatore: in orizzontale l&rsquo;et&agrave;, in verticale
-                l&rsquo;indice. In alto quasi solo giocatori fra i 27 e i 31 anni.">
-      <div class="misura">
-        <span class="misura-simbolo">&rho;</span>
-        <span class="misura-valore">0.762</span>
-        <span class="misura-intervallo" aria-label="intervallo di confidenza da 0,713 a 0,801">
-          <i></i>0.713 &mdash; 0.801<i></i>
-        </span>
-      </div>
-      <p class="misura-cosa">Correlazione fra la prima e la seconda met&agrave; di stagione, su 537 giocatori.</p>
-      <p class="apertura-tesi">
-        Contro tre predittori elementari l&rsquo;indice ne batte <strong>due su tre</strong> sulla
-        domanda per cui &egrave; nato, e <strong>nessuno dei tre</strong> sul livello di rendimento
-        futuro. Sta scritto sulla pagina delle verifiche, con l&rsquo;intervallo accanto:
-        un indice che non ha mai perso &egrave; solo un indice che non &egrave; mai stato
-        messo alla prova.
-      </p>
-    </section>
 
     <!-- ===== competenze ===== -->
     <div class="band">
