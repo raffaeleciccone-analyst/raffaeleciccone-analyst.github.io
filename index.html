@@ -160,7 +160,7 @@
   }
   /* la freccia dice che la riga porta da qualche parte, e compare al passaggio */
   .ix-nome::after{
-    content:" 93";
+    content:" ↓";
     color:var(--accent);
     opacity:0;transition:opacity .14s;
   }
@@ -448,15 +448,14 @@
           <em>l&rsquo;LLM traduce la domanda, pandas calcola i numeri</em>
         </span>
       </a></li>
-
-      <li><a href="#hexi">
-        <span class="ix-nome">heXI</span>
-        <span class="ix-stato">Prototipo</span>
-        <span class="ix-cosa">Chi sostituisce chi, e cosa si rompe nella squadra se lo firmi:
-          il prodotto costruito sopra la misura.</span>
+      <li><a href="#mybnb">
+        <span class="ix-nome">MyB&amp;B</span>
+        <span class="ix-stato">In uso</span>
+        <span class="ix-cosa">Il gestionale di prenotazioni che ho scritto per il lavoro che
+          facevo: camere, stagioni, e chi arriva domani.</span>
         <span class="ix-fatto">
-          <b class="parola">Un&rsquo;applicazione intera</b>
-          <em>autenticazione, multi-utente, abbonamenti</em>
+          <b class="parola">Due ospiti, una camera</b>
+          <em>il difetto piu&rsquo; costoso: la regola e&rsquo; scesa nel database</em>
         </span>
       </a></li>
     </ol>
@@ -553,6 +552,14 @@
           Generato dal CSV pubblico con <code>grafico_tpi_eta.py</code>.
         </figcaption>
       </figure>
+
+      <p>
+        Sopra questa misura ho costruito <strong>heXI</strong>, un sistema di supporto alle
+        decisioni di mercato per un club: se l&rsquo;indice dice chi &egrave; forte, heXI risponde
+        alla domanda dopo &mdash; chi sostituisce chi, e che cosa si rompe nella squadra se lo
+        firmi. Autenticazione, multi-utente, API versionata, ricerca per similarit&agrave; su
+        vettori giocatore. Repository privato: lo mostro volentieri in colloquio.
+      </p>
 
       <div class="item-foot">
         <span class="tech">Python &middot; pandas &middot; SciPy &middot; MySQL &middot; test di regressione &middot; GitHub Actions</span>
@@ -662,32 +669,70 @@
       </div>
     </article>
 
-    <!-- 3. l'ambizione -->
-    <article class="item" id="hexi">
+    <!-- 4. il software che qualcuno usa davvero -->
+    <article class="item" id="mybnb">
       <div class="item-top">
-        <h3>heXI</h3>
-        <span class="state">Prototipo &middot; costruito nel 2026</span>
+        <h3>MyB&amp;B</h3>
+        <span class="state">In uso &middot; gestionale della struttura</span>
       </div>
-      <p class="claim">Un&rsquo;applicazione intera, non uno script: autenticazione, multi-utente, abbonamenti.</p>
+      <p class="claim">L&rsquo;unico software che qualcuno usa tutti i giorni: quello che ho scritto per il lavoro che facevo.</p>
       <p>
-        Sistema di supporto alle decisioni di mercato per un club di calcio. Se il Football Scout
-        Index <strong>misura</strong> i giocatori e li mette in ordine, heXI &egrave; il prodotto
-        costruito sopra quella misura e risponde alla domanda successiva: <strong>chi sostituisce
-        chi, e che cosa si rompe nella squadra se lo firmi.</strong>
+        Gestionale di prenotazioni per un bed &amp; breakfast: camere, prenotazioni, stagioni con
+        prezzi diversi, e il pannello che si apre la mattina per sapere chi arriva. Non &egrave;
+        un esercizio &mdash; &egrave; il programma con cui si gestiva la struttura, e le decisioni
+        tecniche dentro sono figlie di quello.
       </p>
+      <div class="note">
+        <p>
+          Il controllo sulle date sovrapposte stava in JavaScript, e non basta: <strong>basta una
+          seconda scheda aperta</strong>, una riga inserita dal pannello o una sincronizzazione
+          andata storta, e il database accetta la sovrapposizione senza fiatare. Su un gestionale
+          di prenotazioni quello &egrave; il difetto pi&ugrave; costoso possibile: <strong>due
+          ospiti, una camera</strong>. La regola &egrave; scesa dove non si pu&ograve; aggirare
+          &mdash; un vincolo di esclusione in Postgres, che rifiuta la riga.
+        </p>
+      </div>
       <p>
-        Costruito fra giugno e luglio 2026. Dentro c&rsquo;&egrave; la parte che di solito in un
-        portfolio non si vede: autenticazione con token di rinnovo, limitazione delle richieste,
-        API versionata, motore di ricerca per similarit&agrave; su vettori giocatore, e la
-        fatturazione.
+        L&rsquo;applicazione si installa sul telefono e funziona anche senza rete, ma la cache
+        &egrave; scritta per non tradire: le pagine si prendono prima dalla rete, cos&igrave; chi
+        non &egrave; autenticato non vede dati protetti rimasti in memoria, e le chiamate di
+        autenticazione non si mettono in cache mai &mdash; <strong>i token non devono restare
+        offline</strong>. Ogni tabella ha la sicurezza a livello di riga, con una politica che
+        lascia vedere a ciascuno solo la propria struttura.
       </p>
+      <figure class="shot">
+        <img src="assets/mybnb-dashboard.jpg" width="1200" height="1008" loading="lazy"
+             alt="Cruscotto del gestionale: tre camere occupate su sei, cinquanta per cento di
+                  occupazione, i movimenti del giorno con due arrivi e una partenza, i prossimi
+                  sette giorni con l&rsquo;occupazione riga per riga, e l&rsquo;elenco delle sei
+                  camere con chi c&rsquo;&egrave; dentro.">
+        <figcaption>
+          Quello che si apre la mattina: chi arriva, chi parte, quante camere restano.
+          I dati sono di esempio &mdash; l&rsquo;applicazione ha una modalit&agrave; di anteprima
+          che li inietta al posto dei veri, ed &egrave; lei a dirlo nella fascia in alto.
+        </figcaption>
+      </figure>
+
+      <figure class="shot">
+        <img src="assets/mybnb-calendario.jpg" width="1234" height="891" loading="lazy"
+             alt="Calendario mensile: ogni prenotazione &egrave; una barra colorata per camera,
+                  distesa sui giorni del soggiorno, con la legenda delle sei camere in alto.">
+        <figcaption>
+          La stessa cosa vista nel tempo. &Egrave; qui che si vede perch&eacute; il vincolo sta nel
+          database: due barre della stessa camera non possono accavallarsi, e non perch&eacute; il
+          calendario le disegna bene &mdash; perch&eacute; Postgres rifiuta la riga.
+        </figcaption>
+      </figure>
+
       <div class="item-foot">
-        <span class="tech">FastAPI &middot; PostgreSQL &middot; Redis &middot; React &middot; Docker &middot; 37 file di test</span>
+        <span class="tech">PostgreSQL (Supabase) &middot; vincoli di esclusione &middot; row level security &middot; PWA &middot; service worker &middot; JavaScript</span>
         <div class="go">
           <span class="aside">Repository privato &mdash; lo mostro volentieri in colloquio</span>
         </div>
       </div>
     </article>
+
+    
 
     <div class="closing">
       <p>
