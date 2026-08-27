@@ -88,10 +88,12 @@ def main():
             f'Consolas,monospace" font-size="10" fill="{INK_FAINT}">{e}</text>')
 
     # punti
+    disegnati = []
     for nome, _sq, _ruolo, e, t in righe:
         if not (X0 <= e <= X1):
             continue
         giovane = e <= GIOVANE and t >= SOGLIA_TPI
+        disegnati.append((px(e), py(t)))
         add(f'<circle cx="{px(e):.1f}" cy="{py(t):.1f}" r="{4.2 if giovane else 2.8}" '
             f'fill="{ACCENT if giovane else INK_SOFT}" '
             f'opacity="{0.95 if giovane else 0.28}"/>')
@@ -102,13 +104,38 @@ def main():
             f'font-family="Archivo,system-ui,sans-serif" font-size="11" font-weight="500" '
             f'fill="{INK}">{nome}</text>')
 
-    # Posizionate a mano e non in ciclo: i primi due della fascia giovane stanno a
-    # 1.04 e 1.00 di TPI, cioe' a quattro pixel l'uno dall'altro, e con lo stesso
-    # scostamento le due scritte si sovrappongono. Il secondo va a sinistra.
-    etichetta(massimo[0], massimo[3], massimo[4], -9, 4, "end")
-    posti = [(9, 4, "start"), (-9, 4, "end"), (9, 4, "start")]
-    for (nome, _sq, _r, e, t), (dx, dy, anc) in zip(giovani[:3], posti):
+    # Il lato lo sceglie l'etichetta, non chi scrive il codice.
+    #
+    # Prima gli scostamenti erano una lista fissa — [(9,4), (-9,4), (9,4)] —
+    # tarata a mano su una configurazione di dati che poi e' cambiata: rifatta
+    # la stagione, "Nico Paz" e' finito con la scritta sopra tre punti di altri
+    # giocatori. Una posizione decisa a mano invecchia come un numero scritto a
+    # mano, e qui non se ne accorgeva nessuno perche' il grafico "sembrava" a
+    # posto.
+    #
+    # Adesso per ogni nome si provano i due lati e tre altezze, si contano i
+    # punti che finirebbero sotto la scritta, e vince la posizione che ne copre
+    # meno; a parita', quella piu' vicina al punto.
+    def posiziona(nome, e, t):
+        larg = len(nome) * 5.6          # larghezza stimata a 11px di corpo
+        xp, yp = px(e), py(t)
+        opzioni = []
+        for dx, anc in ((9, "start"), (-9, "end")):
+            for dy in (4, -8, 15):
+                x0 = xp + dx if anc == "start" else xp + dx - larg
+                coperti = sum(
+                    1 for cx, cy in disegnati
+                    if x0 - 2 < cx < x0 + larg + 2
+                    and yp + dy - 9 < cy < yp + dy + 3
+                    and (abs(cx - xp) > 1.5 or abs(cy - yp) > 1.5)
+                )
+                opzioni.append((coperti, abs(dy - 4), dx, dy, anc))
+        _, _, dx, dy, anc = min(opzioni)
         etichetta(nome, e, t, dx, dy, anc)
+
+    posiziona(massimo[0], massimo[3], massimo[4])
+    for nome, _sq, _r, e, t in giovani[:3]:
+        posiziona(nome, e, t)
 
     # assi
     add(f'<line x1="{L}" y1="{H-B}" x2="{W-R}" y2="{H-B}" stroke="{INK}" stroke-width="1"/>')
