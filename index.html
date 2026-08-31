@@ -406,11 +406,11 @@
          per intero, ed e' il suo pregio: fa vedere il ragionamento, non solo il
          risultato. Ma quattromilacinquecento pixel di scroll non si scorrono in
          mezzo minuto, e chi seleziona ne ha meno di uno.
-         Qui sopra ci sono le quattro righe che si leggono in dieci secondi:
+         Qui sopra ci sono le cinque righe che si leggono in dieci secondi:
          cosa fa, il fatto che lo dimostra, se e' provabile adesso. Chi vuole
          leggere scende; chi ha fretta ha gia' capito. -->
     <div class="band">
-      <span>I quattro progetti</span>
+      <span>I cinque progetti</span>
       <span class="legend">Due provabili online adesso</span>
     </div>
 
@@ -424,6 +424,18 @@
           <b>&rho; 0.762</b>
           <span class="ix-ic" aria-label="intervallo di confidenza da 0,713 a 0,801"><i></i>0.713 &mdash; 0.801<i></i></span>
           <em>fra le due met&agrave; di stagione</em>
+        </span>
+      </a></li>
+
+      <li><a href="#clienti-che-tornano">
+        <span class="ix-nome">Quanto vale un cliente che torna</span>
+        <span class="ix-stato">Analisi completa</span>
+        <span class="ix-cosa">Coorti, retention e riacquisto su un milione di righe: quanto rende
+          trattenere un cliente, e fin dove conviene spendere per riattivarlo.</span>
+        <span class="ix-fatto">
+          <b>&pound;1.374</b>
+          <span class="ix-ic" aria-label="intervallo di confidenza da 1.125 a 1.658 sterline"><i></i>1.125 &mdash; 1.658<i></i></span>
+          <em>fra clienti uguali al primo acquisto</em>
         </span>
       </a></li>
 
@@ -500,7 +512,7 @@
 
     <!-- ===== progetti ===== -->
     <div class="band" style="margin-top:38px">
-      <span>Gli stessi quattro, per esteso</span>
+      <span>Gli stessi cinque, per esteso</span>
       <span>Come sono fatti, e dove sbagliano</span>
     </div>
 
@@ -573,7 +585,66 @@
       </div>
     </article>
 
-    <!-- 2. il lavoro su dati non miei -->
+    <!-- 2. il lavoro da analista su dati di qualcun altro -->
+    <article class="item" id="clienti-che-tornano">
+      <div class="item-top">
+        <h3>Quanto vale un cliente che torna</h3>
+        <span class="state">Analisi completa &middot; pagina e cartella Excel</span>
+      </div>
+      <p class="claim">Un milione di righe di scontrini e una domanda sola: conviene di pi&ugrave; trattenere un cliente o acquisirne uno nuovo?</p>
+      <p>
+        <strong>Online Retail II</strong>, un negozio online britannico di articoli da regalo:
+        1.067.371 righe fra dicembre 2009 e dicembre 2011. Schema a stella su <strong>MySQL</strong>,
+        63 controlli di integrit&agrave; e un audit che rilegge le query prima che i numeri finiscano
+        in pagina.
+      </p>
+      <p>
+        Chi arriva al secondo ordine spende nel primo anno <strong>&pound;1.990 contro
+        &pound;337</strong>. Appaiando solo clienti che al primo acquisto erano uguali &mdash; stesso
+        decile di primo ordine, stessa coorte &mdash; il divario resta <strong>&pound;1.374</strong>,
+        fra &pound;1.125 e &pound;1.658. Riattivare conviene finch&eacute; costa meno di margine
+        &times; &pound;1.125: <strong>&pound;225</strong> con un margine del 20%.
+      </p>
+
+      <figure class="shot">
+        <a href="assets/coorti-calendario.png">
+          <img src="assets/coorti-calendario.png" width="1310" height="850" loading="lazy"
+               alt="La matrice delle coorti nella pagina del progetto, allineata per mese del
+                    calendario: ventitre righe, una per mese di ingresso, con accanto quanti clienti
+                    sono entrati; le colonne sono i mesi da gennaio 2010 a novembre 2011. Le celle
+                    portano la percentuale di clienti tornati, colorate dal blu al giallo. Le due
+                    colonne di novembre sono le pi&ugrave; accese su tutte le coorti. In alto
+                    l&rsquo;interruttore fra i due allineamenti, in basso la striscia con la media di
+                    ogni colonna.">
+        </a>
+        <figcaption>
+          La matrice, riallineata per mese del calendario: ogni riga &egrave; il mese in cui quei
+          clienti sono entrati, ogni colonna un mese vero. Le due colonne di novembre si accendono su
+          tutte le coorti, <strong>25,0% contro l&rsquo;11,3% di gennaio</strong>: il mese
+          dell&rsquo;anno spiega il 34,8% della variazione, l&rsquo;et&agrave; del cliente il 16,6%.
+          Chi avesse messo le coorti in classifica avrebbe premiato il mese di ingresso.
+          Clicca per la schermata intera.
+        </figcaption>
+      </figure>
+
+      <p>
+        Tre cose che i dati non hanno confermato, e stanno scritte accanto a quelle risolte: la
+        sopravvivenza da un ordine al successivo &egrave; <strong>costante al 72,3%</strong>, quindi
+        arrivare al secondo ordine non mette al sicuro; la soglia di silenzio oltre la quale un
+        cliente &egrave; perso <strong>non esiste</strong>, e resta la mediana di 64 giorni; il valore
+        a 24 mesi <strong>non &egrave; misurabile</strong>, perch&eacute; nessuna coorte utile arriva
+        a 24 mesi interi.
+      </p>
+
+      <div class="item-foot">
+        <span class="tech">MySQL &middot; schema a stella &middot; Python &middot; pandas &middot; 63 controlli di integrit&agrave; &middot; audit delle query &middot; pagina e cartella Excel generate dai dati</span>
+        <div class="go">
+          <a href="https://github.com/raffaeleciccone-analyst/clienti-che-tornano">Codice e documenti</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. il lavoro su dati non miei -->
     <article class="item" id="ritardi-consegna">
       <div class="item-top">
         <h3>I ritardi di consegna, in Power BI</h3>
