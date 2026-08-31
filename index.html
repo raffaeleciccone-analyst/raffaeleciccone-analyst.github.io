@@ -415,18 +415,6 @@
     </div>
 
     <ol class="indice">
-      <li><a href="#scout-index">
-        <span class="ix-nome">Football Scout Index</span>
-        <span class="ix-stato on">Demo online</span>
-        <span class="ix-cosa">Ordina i giocatori per impatto offensivo e pubblica tutte e quindici
-          le verifiche, compresa quella costruita per bocciarlo. Stesso motore su due campionati.</span>
-        <span class="ix-fatto">
-          <b>&rho; 0.762</b>
-          <span class="ix-ic" aria-label="intervallo di confidenza da 0,713 a 0,801"><i></i>0.713 &mdash; 0.801<i></i></span>
-          <em>fra le due met&agrave; di stagione</em>
-        </span>
-      </a></li>
-
       <li><a href="#clienti-che-tornano">
         <span class="ix-nome">Quanto vale un cliente che torna</span>
         <span class="ix-stato">Analisi completa</span>
@@ -436,6 +424,19 @@
           <b>&pound;1.374</b>
           <span class="ix-ic" aria-label="intervallo di confidenza da 1.125 a 1.658 sterline"><i></i>1.125 &mdash; 1.658<i></i></span>
           <em>fra clienti uguali al primo acquisto</em>
+        </span>
+      </a></li>
+
+      <li><a href="#scout-index">
+        <span class="ix-nome">Football Scout Index</span>
+        <span class="ix-stato on">Demo online</span>
+        <span class="ix-cosa">Ordina 356 giocatori per impatto offensivo, con la validazione
+          pubblicata per intero: quindici verifiche e l&rsquo;intervallo di confidenza accanto a ogni
+          numero. Stesso motore su due campionati.</span>
+        <span class="ix-fatto">
+          <b>&rho; 0.762</b>
+          <span class="ix-ic" aria-label="intervallo di confidenza da 0,713 a 0,801"><i></i>0.713 &mdash; 0.801<i></i></span>
+          <em>fra le due met&agrave; di stagione</em>
         </span>
       </a></li>
 
@@ -516,7 +517,66 @@
       <span>Come sono fatti, e dove sbagliano</span>
     </div>
 
-    <!-- 1. il lavoro da analista -->
+    <!-- 1. il lavoro da analista, su dati di qualcun altro -->
+    <article class="item" id="clienti-che-tornano">
+      <div class="item-top">
+        <h3>Quanto vale un cliente che torna</h3>
+        <span class="state">Analisi completa &middot; pagina e cartella Excel</span>
+      </div>
+      <p class="claim">Un milione di righe di scontrini e una domanda sola: conviene di pi&ugrave; trattenere un cliente o acquisirne uno nuovo?</p>
+      <p>
+        <strong>Online Retail II</strong>, un negozio online britannico di articoli da regalo:
+        1.067.371 righe fra dicembre 2009 e dicembre 2011. Schema a stella su <strong>MySQL</strong>,
+        63 controlli di integrit&agrave; e un audit che rilegge le query prima che i numeri finiscano
+        in pagina.
+      </p>
+      <p>
+        Chi arriva al secondo ordine spende nel primo anno <strong>&pound;1.990 contro
+        &pound;337</strong>. Appaiando solo clienti che al primo acquisto erano uguali &mdash; stesso
+        decile di primo ordine, stessa coorte &mdash; il divario resta <strong>&pound;1.374</strong>,
+        fra &pound;1.125 e &pound;1.658. Riattivare conviene finch&eacute; costa meno di margine
+        &times; &pound;1.125: <strong>&pound;225</strong> con un margine del 20%.
+      </p>
+
+      <figure class="shot">
+        <a href="assets/coorti-calendario.png">
+          <img src="assets/coorti-calendario.png" width="1310" height="850" loading="lazy"
+               alt="La matrice delle coorti nella pagina del progetto, allineata per mese del
+                    calendario: ventitre righe, una per mese di ingresso, con accanto quanti clienti
+                    sono entrati; le colonne sono i mesi da gennaio 2010 a novembre 2011. Le celle
+                    portano la percentuale di clienti tornati, colorate dal blu al giallo. Le due
+                    colonne di novembre sono le pi&ugrave; accese su tutte le coorti. In alto
+                    l&rsquo;interruttore fra i due allineamenti, in basso la striscia con la media di
+                    ogni colonna.">
+        </a>
+        <figcaption>
+          La matrice, riallineata per mese del calendario: ogni riga &egrave; il mese in cui quei
+          clienti sono entrati, ogni colonna un mese vero. Le due colonne di novembre si accendono su
+          tutte le coorti, <strong>25,0% contro l&rsquo;11,3% di gennaio</strong>: il mese
+          dell&rsquo;anno spiega il 34,8% della variazione, l&rsquo;et&agrave; del cliente il 16,6%.
+          Chi avesse messo le coorti in classifica avrebbe premiato il mese di ingresso.
+          Clicca per la schermata intera.
+        </figcaption>
+      </figure>
+
+      <p>
+        Tre cose che i dati non hanno confermato, e stanno scritte accanto a quelle risolte: la
+        sopravvivenza da un ordine al successivo &egrave; <strong>costante al 72,3%</strong>, quindi
+        arrivare al secondo ordine non mette al sicuro; la soglia di silenzio oltre la quale un
+        cliente &egrave; perso <strong>non esiste</strong>, e resta la mediana di 64 giorni; il valore
+        a 24 mesi <strong>non &egrave; misurabile</strong>, perch&eacute; nessuna coorte utile arriva
+        a 24 mesi interi.
+      </p>
+
+      <div class="item-foot">
+        <span class="tech">MySQL &middot; schema a stella &middot; Python &middot; pandas &middot; 63 controlli di integrit&agrave; &middot; audit delle query &middot; pagina e cartella Excel generate dai dati</span>
+        <div class="go">
+          <a href="https://github.com/raffaeleciccone-analyst/clienti-che-tornano">Codice e documenti</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. il lavoro da analista, sui dati raccolti da me -->
     <article class="item" id="scout-index">
       <div class="item-top">
         <h3>Football Scout Index</h3>
@@ -581,65 +641,6 @@
           <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/validazione.html">Le verifiche</a>
           <a href="https://github.com/raffaeleciccone-analyst/serie-a-index-engine">Il motore</a>
           <a href="https://github.com/raffaeleciccone-analyst/serie-a-sql">Lo schema SQL</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 2. il lavoro da analista su dati di qualcun altro -->
-    <article class="item" id="clienti-che-tornano">
-      <div class="item-top">
-        <h3>Quanto vale un cliente che torna</h3>
-        <span class="state">Analisi completa &middot; pagina e cartella Excel</span>
-      </div>
-      <p class="claim">Un milione di righe di scontrini e una domanda sola: conviene di pi&ugrave; trattenere un cliente o acquisirne uno nuovo?</p>
-      <p>
-        <strong>Online Retail II</strong>, un negozio online britannico di articoli da regalo:
-        1.067.371 righe fra dicembre 2009 e dicembre 2011. Schema a stella su <strong>MySQL</strong>,
-        63 controlli di integrit&agrave; e un audit che rilegge le query prima che i numeri finiscano
-        in pagina.
-      </p>
-      <p>
-        Chi arriva al secondo ordine spende nel primo anno <strong>&pound;1.990 contro
-        &pound;337</strong>. Appaiando solo clienti che al primo acquisto erano uguali &mdash; stesso
-        decile di primo ordine, stessa coorte &mdash; il divario resta <strong>&pound;1.374</strong>,
-        fra &pound;1.125 e &pound;1.658. Riattivare conviene finch&eacute; costa meno di margine
-        &times; &pound;1.125: <strong>&pound;225</strong> con un margine del 20%.
-      </p>
-
-      <figure class="shot">
-        <a href="assets/coorti-calendario.png">
-          <img src="assets/coorti-calendario.png" width="1310" height="850" loading="lazy"
-               alt="La matrice delle coorti nella pagina del progetto, allineata per mese del
-                    calendario: ventitre righe, una per mese di ingresso, con accanto quanti clienti
-                    sono entrati; le colonne sono i mesi da gennaio 2010 a novembre 2011. Le celle
-                    portano la percentuale di clienti tornati, colorate dal blu al giallo. Le due
-                    colonne di novembre sono le pi&ugrave; accese su tutte le coorti. In alto
-                    l&rsquo;interruttore fra i due allineamenti, in basso la striscia con la media di
-                    ogni colonna.">
-        </a>
-        <figcaption>
-          La matrice, riallineata per mese del calendario: ogni riga &egrave; il mese in cui quei
-          clienti sono entrati, ogni colonna un mese vero. Le due colonne di novembre si accendono su
-          tutte le coorti, <strong>25,0% contro l&rsquo;11,3% di gennaio</strong>: il mese
-          dell&rsquo;anno spiega il 34,8% della variazione, l&rsquo;et&agrave; del cliente il 16,6%.
-          Chi avesse messo le coorti in classifica avrebbe premiato il mese di ingresso.
-          Clicca per la schermata intera.
-        </figcaption>
-      </figure>
-
-      <p>
-        Tre cose che i dati non hanno confermato, e stanno scritte accanto a quelle risolte: la
-        sopravvivenza da un ordine al successivo &egrave; <strong>costante al 72,3%</strong>, quindi
-        arrivare al secondo ordine non mette al sicuro; la soglia di silenzio oltre la quale un
-        cliente &egrave; perso <strong>non esiste</strong>, e resta la mediana di 64 giorni; il valore
-        a 24 mesi <strong>non &egrave; misurabile</strong>, perch&eacute; nessuna coorte utile arriva
-        a 24 mesi interi.
-      </p>
-
-      <div class="item-foot">
-        <span class="tech">MySQL &middot; schema a stella &middot; Python &middot; pandas &middot; 63 controlli di integrit&agrave; &middot; audit delle query &middot; pagina e cartella Excel generate dai dati</span>
-        <div class="go">
-          <a href="https://github.com/raffaeleciccone-analyst/clienti-che-tornano">Codice e documenti</a>
         </div>
       </div>
     </article>
@@ -735,7 +736,7 @@
         <div class="go">
           <a href="https://nlda.onrender.com">Apri la demo</a>
           <a href="https://github.com/raffaeleciccone-analyst/Natural-Language-Data-Analyst">Codice</a>
-          <span class="aside">il primo accesso sveglia il server: ~35 secondi</span>
+          <span class="aside">la pagina lo sveglia mentre leggi; se clicchi subito, mezzo minuto</span>
         </div>
       </div>
     </article>
@@ -851,5 +852,22 @@
 }
 </script>
 
+<script>
+// La demo dorme. Render spegne il servizio gratuito dopo un quarto d'ora di
+// silenzio, e la prima chiamata che lo risveglia ci mette 35 secondi
+// (cronometrati il 31/08). Chi arriva in vetrina impiega piu' di mezzo minuto
+// ad arrivare alla scheda e a cliccare: se il risveglio parte adesso, quando
+// clicca il server e' gia' in piedi.
+//
+// Una richiesta sola, su /api/health, senza dati e senza cookie. Se fallisce
+// non cambia niente in pagina: il link continua a funzionare come prima, solo
+// con l'attesa che c'era.
+addEventListener("load", function(){
+  try {
+    fetch("https://nlda.onrender.com/api/health", {mode:"no-cors", cache:"no-store"})
+      .catch(function(){});
+  } catch (e) {}
+});
+</script>
 </body>
 </html>
