@@ -27,7 +27,7 @@ from pathlib import Path
 SITO = Path(r"C:/dev/raffaeleciccone-analyst.github.io")
 PAGINA = SITO / "index.html"
 SERIE_A = Path(r"C:/dev/serie-a-index")
-MOTORE = Path(r"C:/dev/serie-a-index-engine")
+MOTORE = Path(r"C:/dev/football-index-engine")
 
 
 def _righe_database() -> int | None:
