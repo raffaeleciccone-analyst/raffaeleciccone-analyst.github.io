@@ -299,7 +299,7 @@
     </div>
     <div class="numeri">
       <div><b>7 su 10</b><span>clienti in ritardo che recensiscono prima di avere il pacco</span></div>
-      <div><b>&pound;1.374</b><span>in pi&ugrave; nel primo anno da un cliente che torna</span></div>
+      <div><b>25%</b><span>clienti che tornano a novembre, contro l&rsquo;11% di gennaio</span></div>
       <div><b>4</b><span>progetti pubblici su dati reali</span></div>
       <div><b>2</b><span>demo provabili online adesso</span></div>
     </div>
@@ -357,20 +357,20 @@
           <h3>Quanto vale un cliente che torna</h3>
           <span class="state">Analisi di coorte</span>
         </div>
-        <p class="aggancio">Chi torna a comprare spende &pound;1.374 in pi&ugrave; nel primo anno di un cliente partito uguale che non torna.</p>
+        <p class="aggancio">Chi torna non vale di pi&ugrave; perch&eacute; torna: a parit&agrave; di acquisti nei primi tre mesi il vantaggio quasi sparisce. Conta il volume, e la retention segue il calendario.</p>
         <ul class="punti">
-          <li>1.067.371 righe di scontrini di un e-commerce UK (dataset pubblico Online Retail II)</li>
-          <li>Schema a stella su <strong>MySQL</strong>, 63 controlli di integrit&agrave; sui dati</li>
-          <li>Chi riordina spende &pound;1.990 il primo anno contro &pound;337; a parit&agrave; di primo acquisto il divario resta &pound;1.374</li>
+          <li>1.067.371 righe di fatture di un e-commerce UK (dataset pubblico Online Retail II)</li>
+          <li>Il mese dell&rsquo;anno spiega il doppio dell&rsquo;et&agrave; del cliente: a novembre torna il 25%, a gennaio l&rsquo;11%</li>
+          <li>Schema a stella su <strong>MySQL</strong>, 68 controlli che ricalcolano a parte ogni cifra</li>
         </ul>
         <details>
           <summary>Come l&rsquo;ho fatto</summary>
-          <p>Ho confrontato solo clienti uguali al primo acquisto (stesso decile di spesa, stessa
-            coorte), perch&eacute; il confronto diretto gonfiava il risultato. Il divario &egrave; un&rsquo;associazione,
-            non un effetto: dice quanto valgono i clienti che tornano, non quanto renderebbe farli
-            tornare. Una spesa di riattivazione fino a &pound;225 (con un margine del 20%) si ripaga
-            solo se il cliente riattivato si comporta come chi torna da solo, e per saperlo serve un
-            test. Tre cose i dati non le hanno confermate, e sono scritte
+          <p>La prima versione diceva che chi torna vale &pound;1.374 in pi&ugrave; nel primo anno. Una
+            revisione esterna mi ha fatto vedere che il confronto girava in tondo: la spesa misurata
+            conteneva gli ordini che definivano chi torna. L&rsquo;ho rifatto con il gruppo deciso nei
+            primi 90 giorni e la spesa contata dopo: a parit&agrave; di primo ordine chi &egrave; tornato
+            spende &pound;756 in pi&ugrave;, ma a parit&agrave; di quanto aveva gi&agrave; comprato solo &pound;150, con
+            un intervallo che comprende lo zero. Tre cose i dati non le hanno confermate, e sono scritte
             accanto alle altre: arrivare al secondo ordine non mette al sicuro (la probabilit&agrave; di
             un ordine successivo resta ferma al 72%), la soglia di silenzio oltre cui un cliente &egrave;
             perso non esiste, e il valore a 24 mesi non &egrave; misurabile con questi dati.</p>
