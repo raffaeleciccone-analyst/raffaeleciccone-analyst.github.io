@@ -4,870 +4,504 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Raffaele Ciccone — Data Analyst | SQL, Python, dashboard</title>
-<meta name="description" content="Data analyst. SQL, Python, pandas, dashboard interattive, ETL e validazione dei dati. Progetti pubblici con demo online: un modello di scoring validato e un'app che analizza dati in linguaggio naturale.">
+<title>Raffaele Ciccone – Junior Data Analyst | SQL, Power BI, Python</title>
+<meta name="description" content="Junior data analyst: SQL, Python, Power BI. Quattro progetti pubblici su dati reali, due demo online. Stage ITS da dicembre 2026, Roma e Latina.">
 <meta name="author" content="Raffaele Ciccone">
 <link rel="canonical" href="https://raffaeleciccone-analyst.github.io/">
+<meta name="theme-color" content="#F6F6F3">
 
-<meta property="og:type" content="profile">
-<meta property="og:title" content="Raffaele Ciccone — Data Analyst">
-<meta property="og:description" content="SQL, Python, pandas, dashboard, ETL e validazione. Progetti pubblici, due provabili online adesso.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raffaele Ciccone – Junior Data Analyst">
+<meta property="og:description" content="SQL, Python, Power BI. Quattro progetti pubblici su dati reali, due demo online. Stage ITS da dicembre 2026.">
 <meta property="og:url" content="https://raffaeleciccone-analyst.github.io/">
+<meta property="og:image" content="https://raffaeleciccone-analyst.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Raffaele Ciccone, Junior Data Analyst">
 <meta property="og:locale" content="it_IT">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-
-<style>
-  :root{
-    --paper:#F6F6F3;
-    --paper-2:#EFEFEB;
-    --ink:#15191B;
-    --ink-soft:#4E5658;
-    --ink-faint:#828C8E;
-    --rule:#D9D9D2;
-    --accent:#16565C;
-    --live:#1E6B4A;
-    --sans:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-    --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
-    --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-  }
-
-  *{box-sizing:border-box}
-
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--serif);
-    font-size:17px;
-    line-height:1.62;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  .sheet{
-    max-width:1120px;
-    margin:0 auto;
-    padding:0 40px;
-    display:grid;
-    grid-template-columns:310px 1fr;
-    gap:0 72px;
-    align-items:start;
-  }
-
-  /* ---------- colonna identita' ---------- */
-  .id{position:sticky;top:0;padding:70px 0 60px}
-
-  .id h1{
-    font-family:var(--sans);
-    font-weight:600;
-    font-size:28px;
-    line-height:1.16;
-    letter-spacing:-.015em;
-    margin:0 0 6px;
-  }
-  .role{
-    font-family:var(--mono);
-    font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--accent);
-    margin:0 0 22px;
-  }
-  .bio{
-    font-size:16px;
-    color:var(--ink-soft);
-    margin:0 0 22px;
-    max-width:35ch;
-  }
-
-  /* il blocco "cerco lavoro": e' il motivo per cui la pagina esiste */
-  .seeking{
-    border:1px solid var(--rule);
-    border-left:3px solid var(--accent);
-    background:var(--paper-2);
-    padding:15px 17px 16px;
-    margin:0 0 24px;
-    max-width:35ch;
-  }
-  .seeking h2{
-    font-family:var(--mono);
-    font-size:10px;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--accent);
-    margin:0 0 8px;font-weight:500;
-  }
-  .seeking p{margin:0;font-size:15px;line-height:1.5;color:var(--ink)}
-  .seeking .avail{
-    display:block;margin-top:9px;
-    font-family:var(--mono);font-size:11.5px;line-height:1.7;
-    color:var(--ink-soft);
-  }
-
-  .contacts{display:flex;flex-direction:column;gap:9px;align-items:flex-start;margin-bottom:26px}
-  .contacts a{
-    font-family:var(--mono);font-size:12.5px;
-    color:var(--ink);text-decoration:none;
-    border-bottom:1px solid var(--rule);
-    padding-bottom:2px;
-    transition:border-color .15s,color .15s;
-  }
-  .contacts a:hover,.contacts a:focus-visible{color:var(--accent);border-color:var(--accent)}
-  .contacts a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  .contacts a.primary{
-    font-family:var(--sans);font-weight:500;font-size:14px;
-    color:var(--accent);border-color:rgba(22,86,92,.4);
-  }
-
-  /* ---------- colonna destra ---------- */
-  .work{padding:70px 0 0;min-width:0}
-
-  .band{
-    font-family:var(--mono);
-    font-size:11px;letter-spacing:.13em;text-transform:uppercase;
-    color:var(--ink-faint);
-    padding-bottom:11px;
-    border-bottom:1.5px solid var(--ink);
-    margin-bottom:0;
-    display:flex;align-items:baseline;justify-content:space-between;gap:20px;
-  }
-  .band .legend::before{
-    content:"";display:inline-block;
-    width:6px;height:6px;border-radius:50%;
-    background:var(--live);
-    margin-right:7px;vertical-align:1px;
-  }
-
-  /* ---------- indice dei progetti ---------- */
-  /* Nessun colore e nessun carattere nuovo: usa quelli che la pagina ha gia'.
-     L'unica cosa che aggiunge e' un livello di lettura sopra a quello lungo. */
-  .indice{list-style:none;margin:0 0 34px;padding:0}
-  .indice li{border-bottom:1px solid var(--rule)}
-
-  .indice a{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) auto;
-    gap:3px 18px;
-    padding:15px 0 16px;
-    text-decoration:none;color:inherit;
-    transition:background .14s;
-  }
-  .indice a:hover,.indice a:focus-visible{background:var(--paper-2)}
-  .indice a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-
-  .ix-nome{
-    font-family:var(--sans);font-weight:600;
-    font-size:17px;letter-spacing:-.01em;
-    color:var(--ink);
-  }
-  /* la freccia dice che la riga porta da qualche parte, e compare al passaggio */
-  .ix-nome::after{
-    content:" ↓";
-    color:var(--accent);
-    opacity:0;transition:opacity .14s;
-  }
-  .indice a:hover .ix-nome::after,
-  .indice a:focus-visible .ix-nome::after{opacity:.7}
-
-  .ix-stato{
-    grid-column:2;grid-row:1;
-    font-family:var(--mono);
-    font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--ink-faint);white-space:nowrap;
-    align-self:baseline;
-  }
-  .ix-stato.on{color:var(--live)}
-  .ix-stato.on::before{
-    content:"";display:inline-block;
-    width:6px;height:6px;border-radius:50%;
-    background:var(--live);margin-right:6px;vertical-align:1px;
-  }
-
-  .ix-cosa{
-    grid-column:1;
-    font-size:15px;line-height:1.5;
-    color:var(--ink-soft);
-    max-width:56ch;
-  }
-
-  /* Il fatto che regge il progetto: una misura dove esiste, una capacita' dove
-     non esiste. Non si mette un numero dove non c'e' niente da misurare. */
-  .ix-fatto{
-    grid-column:1/-1;
-    display:flex;align-items:baseline;flex-wrap:wrap;gap:0 10px;
-    margin-top:5px;
-    font-family:var(--mono);font-size:13px;
-    color:var(--ink);
-  }
-  .ix-fatto b{font-weight:500;color:var(--accent)}
-  /* Il monospazio e' la voce delle misure. Dove il fatto non e' un numero ma
-     una frase, quella voce suona come un'etichetta di sistema: torna al
-     carattere dei titoli, cosi' si legge per quello che e'. */
-  .ix-fatto b.parola{
-    font-family:var(--sans);font-weight:600;font-size:14px;
-    letter-spacing:-.005em;
-  }
-  .ix-fatto em{
-    font-family:var(--serif);font-style:normal;
-    font-size:13.5px;color:var(--ink-faint);
-  }
-  .ix-ic{
-    display:inline-flex;align-items:center;gap:6px;
-    font-size:11.5px;color:var(--ink-soft);white-space:nowrap;
-  }
-  .ix-ic i{display:inline-block;width:1px;height:11px;background:var(--ink-soft)}
-
-  /* competenze: la prima cosa che deve trovare chi cerca parole chiave */
-  .skills{padding:24px 0 26px;border-bottom:1px solid var(--rule)}
-  .skills dl{
-    margin:0;
-    display:grid;
-    grid-template-columns:135px 1fr;
-    gap:11px 22px;
-  }
-  .skills dt{
-    font-family:var(--mono);
-    font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--ink-faint);
-    padding-top:4px;
-  }
-  .skills dd{
-    margin:0;
-    font-family:var(--sans);
-    font-size:14.5px;line-height:1.65;
-    color:var(--ink);
-  }
-  .skills .caveat{
-    margin:18px 0 0;
-    font-size:15.5px;
-    color:var(--ink-soft);
-    max-width:66ch;
-  }
-
-  /* ---------- progetti ---------- */
-  .item{padding:30px 0 28px;border-bottom:1px solid var(--rule)}
-  .item-top{
-    display:flex;align-items:baseline;justify-content:space-between;
-    gap:10px 24px;flex-wrap:wrap;
-    margin-bottom:4px;
-  }
-  .item h3{
-    font-family:var(--sans);
-    font-weight:500;
-    font-size:23px;
-    letter-spacing:-.012em;
-    line-height:1.2;
-    margin:0;
-    text-wrap:balance;
-  }
-  .state{
-    font-family:var(--mono);
-    font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--ink-faint);
-    white-space:nowrap;
-  }
-  .state.on{color:var(--live)}
-  .state.on::before{
-    content:"";display:inline-block;
-    width:6px;height:6px;border-radius:50%;
-    background:var(--live);
-    margin-right:7px;vertical-align:1px;
-  }
-
-  /* una riga che dice cosa dimostra il progetto, prima del dominio */
-  .claim{
-    font-family:var(--sans);
-    font-size:15px;font-weight:500;
-    color:var(--accent);
-    margin:0 0 12px;
-    max-width:64ch;
-  }
-
-  .item p{margin:0;color:var(--ink-soft);max-width:64ch}
-  .item p + p{margin-top:12px}
-  .item strong{color:var(--ink);font-weight:600}
-
-  .note{
-    margin-top:16px;
-    padding:13px 17px 14px;
-    background:var(--paper-2);
-    border-left:2px solid var(--rule);
-    max-width:64ch;
-  }
-  .note p{font-size:15px;line-height:1.55;max-width:none}
-
-  figure.shot{margin:20px 0 0;max-width:64ch}
-  figure.shot a{
-    display:block;border:1px solid var(--rule);background:#fff;line-height:0;
-    transition:border-color .15s;
-  }
-  figure.shot a:hover,figure.shot a:focus-visible{border-color:var(--accent)}
-  figure.shot a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  figure.shot img{display:block;width:100%;height:auto}
-  figure.shot figcaption{
-    font-family:var(--mono);font-size:11px;line-height:1.6;
-    color:var(--ink-faint);margin-top:9px;
-  }
-
-  .item-foot{
-    display:flex;align-items:baseline;justify-content:space-between;
-    gap:12px 28px;flex-wrap:wrap;
-    margin-top:18px;
-  }
-  .tech{
-    font-family:var(--mono);font-size:11.5px;
-    color:var(--ink-faint);
-    font-variant-numeric:tabular-nums;
-    max-width:52ch;
-  }
-  .go{display:flex;gap:20px;flex-wrap:wrap;align-items:baseline}
-  .go a{
-    font-family:var(--sans);font-weight:500;font-size:13.5px;
-    color:var(--accent);text-decoration:none;
-    border-bottom:1px solid rgba(22,86,92,.35);
-    padding-bottom:1px;transition:border-color .15s;
-  }
-  .go a:hover,.go a:focus-visible{border-color:var(--accent)}
-  .go a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  .go .aside{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
-
-  .closing{
-    padding:28px 0 0;
-    max-width:64ch;
-  }
-  .closing p{margin:0;color:var(--ink-soft)}
-  .closing a{color:var(--accent)}
-
-  .colophon{
-    grid-column:1/-1;
-    margin-top:48px;
-    padding:20px 0 64px;
-    border-top:1px solid var(--rule);
-    font-family:var(--mono);font-size:11px;letter-spacing:.05em;
-    color:var(--ink-faint);
-    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  }
-  .colophon a{color:var(--ink-faint)}
-
-  @media (max-width:860px){
-    .sheet{grid-template-columns:1fr;gap:0;padding:0 26px}
-    .id{position:static;padding:52px 0 30px}
-    .work{padding-top:0}
-    .bio,.seeking{max-width:58ch}
-    .contacts{flex-direction:row;gap:18px;flex-wrap:wrap}
-    .skills dl{grid-template-columns:1fr;gap:3px 0}
-    .skills dt{padding-top:12px}
-    .band{gap:10px}
-    .indice a{grid-template-columns:1fr;gap:4px}
-    .ix-stato{grid-column:1;grid-row:auto;order:-1}
-  }
-  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
-</style>
-</head>
-<body>
-
-<div class="sheet">
-
-  <aside class="id">
-    <h1>Raffaele Ciccone</h1>
-    <p class="role">Data analyst &middot; SQL &middot; Python &middot; BI</p>
-
-    <p class="bio">
-      Prendo dati grezzi e li porto fino a una decisione: li pulisco, li metto in un modello,
-      li misuro, e costruisco lo strumento con cui qualcuno li interroga. Poi lo metto online,
-      con i test che avvisano quando si rompe.
-    </p>
-
-    <section class="seeking">
-      <h2>Cerco lavoro</h2>
-      <p>
-        Posizioni da <strong>data analyst</strong>, <strong>business intelligence analyst</strong>,
-        <strong>data engineer junior</strong>. Valuto anche stage e tirocini.
-      </p>
-      <span class="avail">
-        Disponibile da subito<br>
-        <!-- TODO Raffaele: citta' e modalita' (in sede / ibrido / full remote).
-             Esempio: "Fondi (LT) &middot; disponibile a trasferte &middot; anche full remote" -->
-      </span>
-    </section>
-
-    <nav class="contacts" aria-label="Contatti">
-      <a class="primary" href="mailto:raffaeleciccone.analyst@gmail.com">raffaeleciccone.analyst@gmail.com</a>
-      <a href="https://github.com/raffaeleciccone-analyst">GitHub</a>
-      <a href="https://www.linkedin.com/in/raffaeleciccone">LinkedIn</a>
-      <!-- Il CV e' ancora da finire. Quando c'e': in questa cartella, con il nome nel
-           file, e si toglie il commento qui sotto.
-           <a href="cv-raffaele-ciccone.pdf">CV (PDF)</a> -->
-    </nav>
-  </aside>
-
-  <main class="work">
-
-    <!-- ===== indice dei progetti =====
-         Serve a chi ha trenta secondi. La pagina sotto argomenta ogni progetto
-         per intero, ed e' il suo pregio: fa vedere il ragionamento, non solo il
-         risultato. Ma quattromilacinquecento pixel di scroll non si scorrono in
-         mezzo minuto, e chi seleziona ne ha meno di uno.
-         Qui sopra ci sono le cinque righe che si leggono in dieci secondi:
-         cosa fa, il fatto che lo dimostra, se e' provabile adesso. Chi vuole
-         leggere scende; chi ha fretta ha gia' capito. -->
-    <div class="band">
-      <span>I cinque progetti</span>
-      <span class="legend">Due provabili online adesso</span>
-    </div>
-
-    <ol class="indice">
-      <li><a href="#clienti-che-tornano">
-        <span class="ix-nome">Quanto vale un cliente che torna</span>
-        <span class="ix-stato">Analisi completa</span>
-        <span class="ix-cosa">Coorti, retention e riacquisto su un milione di righe: quanto rende
-          trattenere un cliente, e fin dove conviene spendere per riattivarlo.</span>
-        <span class="ix-fatto">
-          <b>&pound;1.374</b>
-          <span class="ix-ic" aria-label="intervallo di confidenza da 1.125 a 1.658 sterline"><i></i>1.125 &mdash; 1.658<i></i></span>
-          <em>fra clienti uguali al primo acquisto</em>
-        </span>
-      </a></li>
-
-      <li><a href="#scout-index">
-        <span class="ix-nome">Football Scout Index</span>
-        <span class="ix-stato on">Demo online</span>
-        <span class="ix-cosa">Ordina 356 giocatori per impatto offensivo, con la validazione
-          pubblicata per intero: quindici verifiche e l&rsquo;intervallo di confidenza accanto a ogni
-          numero. Stesso motore su due campionati.</span>
-        <span class="ix-fatto">
-          <b>&rho; 0.762</b>
-          <span class="ix-ic" aria-label="intervallo di confidenza da 0,713 a 0,801"><i></i>0.713 &mdash; 0.801<i></i></span>
-          <em>fra le due met&agrave; di stagione</em>
-        </span>
-      </a></li>
-
-      <li><a href="#ritardi-consegna">
-        <span class="ix-nome">I ritardi di consegna, in Power BI</span>
-        <span class="ix-stato">Report in PDF</span>
-        <span class="ix-cosa">Quanto costano i ritardi in recensioni negative, e di chi &egrave; la colpa.
-          La risposta &egrave; scomoda e sta nel cruscotto.</span>
-        <span class="ix-fatto">
-          <b>17 giorni</b>
-          <em>la logistica, contro 1,2 del venditore &mdash; su 96.470 ordini</em>
-        </span>
-      </a></li>
-
-      <li><a href="#linguaggio-naturale">
-        <span class="ix-nome">Natural Language Data Analyst</span>
-        <span class="ix-stato on">Demo online</span>
-        <span class="ix-cosa">Carichi un file, fai una domanda in italiano, ottieni l&rsquo;analisi &mdash;
-          e il codice generato, che puoi aprire e controllare.</span>
-        <span class="ix-fatto">
-          <b class="parola">Lo strumento, non l&rsquo;uso</b>
-          <em>l&rsquo;LLM traduce la domanda, pandas calcola i numeri</em>
-        </span>
-      </a></li>
-      <li><a href="#mybnb">
-        <span class="ix-nome">MyB&amp;B</span>
-        <span class="ix-stato">In uso</span>
-        <span class="ix-cosa">Il gestionale di prenotazioni che ho scritto per il lavoro che
-          facevo: camere, stagioni, e chi arriva domani.</span>
-        <span class="ix-fatto">
-          <b class="parola">Due ospiti, una camera</b>
-          <em>il difetto piu&rsquo; costoso: la regola e&rsquo; scesa nel database</em>
-        </span>
-      </a></li>
-    </ol>
-
-    <!-- ===== competenze ===== -->
-    <div class="band">
-      <span>Competenze</span>
-      <span>Verificabili nei progetti qui sotto</span>
-    </div>
-
-    <section class="skills">
-      <dl>
-        <dt>Linguaggi</dt>
-        <dd>Python &middot; SQL &middot; JavaScript</dd>
-
-        <dt>Dati</dt>
-        <dd>pandas &middot; NumPy &middot; SciPy &middot; MySQL &middot; PostgreSQL &middot;
-            ETL e pipeline &middot; pulizia e deduplica &middot; validazione e data quality &middot;
-            statistica applicata (bootstrap, correlazione, calibrazione)</dd>
-
-        <dt>Analisi e BI</dt>
-        <dd>Power BI (DAX, Power Query, modello a stella) &middot; dashboard interattive &middot;
-            reportistica &middot; Plotly &middot; export CSV &middot; Excel e CSV in ingresso &middot;
-            KPI e metriche composite</dd>
-
-        <dt>Sviluppo</dt>
-        <dd>FastAPI &middot; React &middot; Docker &middot; Redis &middot; Git &middot;
-            GitHub Actions (CI) &middot; pytest &middot; API REST</dd>
-
-        <dt>Modo di lavorare</dt>
-        <dd>Test automatici &middot; documentazione tecnica &middot; codice riproducibile &middot;
-            limiti dichiarati insieme ai risultati</dd>
-      </dl>
-
-      <p class="caveat">
-        Il dominio in cui l&rsquo;ho dimostrato spesso &egrave; il calcio, ed &egrave; una scelta:
-        sono dati pubblici, chiunque pu&ograve; rifare i conti e dirmi che ho sbagliato. Il mestiere
-        &mdash; pulire, modellare, misurare, spiegare &mdash; &egrave; lo stesso su un magazzino,
-        su un CRM o su un bilancio.
-      </p>
-    </section>
-
-    <!-- ===== progetti ===== -->
-    <div class="band" style="margin-top:38px">
-      <span>Gli stessi cinque, per esteso</span>
-      <span>Come sono fatti, e dove sbagliano</span>
-    </div>
-
-    <!-- 1. il lavoro da analista, su dati di qualcun altro -->
-    <article class="item" id="clienti-che-tornano">
-      <div class="item-top">
-        <h3>Quanto vale un cliente che torna</h3>
-        <span class="state">Analisi completa &middot; pagina e cartella Excel</span>
-      </div>
-      <p class="claim">Un milione di righe di scontrini e una domanda sola: conviene di pi&ugrave; trattenere un cliente o acquisirne uno nuovo?</p>
-      <p>
-        <strong>Online Retail II</strong>, un negozio online britannico di articoli da regalo:
-        1.067.371 righe fra dicembre 2009 e dicembre 2011. Schema a stella su <strong>MySQL</strong>,
-        63 controlli di integrit&agrave; e un audit che rilegge le query prima che i numeri finiscano
-        in pagina.
-      </p>
-      <p>
-        Chi arriva al secondo ordine spende nel primo anno <strong>&pound;1.990 contro
-        &pound;337</strong>. Appaiando solo clienti che al primo acquisto erano uguali &mdash; stesso
-        decile di primo ordine, stessa coorte &mdash; il divario resta <strong>&pound;1.374</strong>,
-        fra &pound;1.125 e &pound;1.658. Riattivare conviene finch&eacute; costa meno di margine
-        &times; &pound;1.125: <strong>&pound;225</strong> con un margine del 20%.
-      </p>
-
-      <figure class="shot">
-        <a href="assets/coorti-calendario.png">
-          <img src="assets/coorti-calendario.png" width="1310" height="850" loading="lazy"
-               alt="La matrice delle coorti nella pagina del progetto, allineata per mese del
-                    calendario: ventitre righe, una per mese di ingresso, con accanto quanti clienti
-                    sono entrati; le colonne sono i mesi da gennaio 2010 a novembre 2011. Le celle
-                    portano la percentuale di clienti tornati, colorate dal blu al giallo. Le due
-                    colonne di novembre sono le pi&ugrave; accese su tutte le coorti. In alto
-                    l&rsquo;interruttore fra i due allineamenti, in basso la striscia con la media di
-                    ogni colonna.">
-        </a>
-        <figcaption>
-          La matrice, riallineata per mese del calendario: ogni riga &egrave; il mese in cui quei
-          clienti sono entrati, ogni colonna un mese vero. Le due colonne di novembre si accendono su
-          tutte le coorti, <strong>25,0% contro l&rsquo;11,3% di gennaio</strong>: il mese
-          dell&rsquo;anno spiega il 34,8% della variazione, l&rsquo;et&agrave; del cliente il 16,6%.
-          Chi avesse messo le coorti in classifica avrebbe premiato il mese di ingresso.
-          Clicca per la schermata intera.
-        </figcaption>
-      </figure>
-
-      <p>
-        Tre cose che i dati non hanno confermato, e stanno scritte accanto a quelle risolte: la
-        sopravvivenza da un ordine al successivo &egrave; <strong>costante al 72,3%</strong>, quindi
-        arrivare al secondo ordine non mette al sicuro; la soglia di silenzio oltre la quale un
-        cliente &egrave; perso <strong>non esiste</strong>, e resta la mediana di 64 giorni; il valore
-        a 24 mesi <strong>non &egrave; misurabile</strong>, perch&eacute; nessuna coorte utile arriva
-        a 24 mesi interi.
-      </p>
-
-      <div class="item-foot">
-        <span class="tech">MySQL &middot; schema a stella &middot; Python &middot; pandas &middot; 63 controlli di integrit&agrave; &middot; audit delle query &middot; pagina e cartella Excel generate dai dati</span>
-        <div class="go">
-          <a href="https://github.com/raffaeleciccone-analyst/clienti-che-tornano">Codice e documenti</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 2. il lavoro da analista, sui dati raccolti da me -->
-    <article class="item" id="scout-index">
-      <div class="item-top">
-        <h3>Football Scout Index</h3>
-        <span class="state on">Demo online</span>
-      </div>
-      <p class="claim">Modellare e validare: da un database di 23.858 righe a una metrica che dichiara i propri limiti. Due campionati, un motore solo.</p>
-      <p>
-        Un database <strong>MySQL</strong> di 23.858 righe giocatore-partita su due stagioni,
-        alimentato da due fonti diverse agganciate per identificativo e non per nome, con le
-        riparazioni per righe orfane e doppioni scritte e ripetibili. Sopra, una metrica composita
-        a sette dimensioni che ordina 356 giocatori, e una <strong>dashboard</strong> con filtri,
-        cinque contesti, confronto testa a testa ed export CSV di ci&ograve; che stai guardando.
-      </p>
-      <p>
-        Lo stesso motore serve anche la <strong>Premier League</strong>: il campionato &egrave; un
-        parametro, come la stagione. Nessun fork, nessuna seconda copia da tenere allineata &mdash;
-        una correzione resta una correzione sola, e i due indici restano confrontabili perch&eacute;
-        i pesi non sono tarati su nessuno dei due. Cambiano solo i dati, la lingua di partenza e le
-        verifiche che in Inghilterra non si possono fare: quelle che si appoggiano a fonti italiane
-        la pagina le dichiara non applicabili invece di ometterle.
-      </p>
-      <div class="note">
-        <p>
-          Le <strong>quindici verifiche</strong> sono pubblicate intere, con l&rsquo;intervallo di
-          confidenza accanto: compresa quella costruita per bocciare il modello, che in parte lo
-          boccia. Contro tre predittori elementari non ne batte nessuno sul livello di rendimento
-          futuro; sulla domanda per cui era nato &mdash; chi migliorer&agrave; rispetto a s&eacute;
-          stesso &mdash; ne batte due su tre. Un indice che non ha mai perso &egrave; solo un indice
-          che non &egrave; mai stato messo alla prova.
-        </p>
-      </div>
-
-      <figure class="shot">
-        <img src="assets/tpi-eta.svg" width="720" height="430" loading="lazy"
-             alt="Grafico a dispersione dei 356 giocatori qualificati: in orizzontale l&rsquo;et&agrave;,
-                  in verticale l&rsquo;indice TPI. La parte alta e&rsquo; occupata quasi solo da
-                  giocatori fra i 27 e i 31 anni, con Lautaro Martinez al vertice. Nella fascia
-                  chiara a sinistra, gli otto giocatori fino a 23 anni gia&rsquo; nella parte alta
-                  dell&rsquo;indice: Wesley, Kenan Yildiz e Nico Paz i primi tre.">
-        <figcaption>
-          Ogni punto e&rsquo; uno dei 356 giocatori qualificati. In alto ci sono quasi solo
-          giocatori fra i 27 e i 31 anni: l&rsquo;indice premia chi e&rsquo; nel pieno. Nella fascia
-          chiara gli otto sotto i 23 che stanno gi&agrave; nella parte alta &mdash; quelli che un
-          club puo&rsquo; ancora comprare e rivendere. <strong>Non dice quanto costano.</strong>
-          Generato dal CSV pubblico con <code>grafico_tpi_eta.py</code>.
-        </figcaption>
-      </figure>
-
-      <p>
-        Sopra questa misura ho costruito <strong>heXI</strong>, un sistema di supporto alle
-        decisioni di mercato per un club: se l&rsquo;indice dice chi &egrave; forte, heXI risponde
-        alla domanda dopo &mdash; chi sostituisce chi, e che cosa si rompe nella squadra se lo
-        firmi. Autenticazione, multi-utente, API versionata, ricerca per similarit&agrave; su
-        vettori giocatore. Repository privato: lo mostro volentieri in colloquio.
-      </p>
-
-      <div class="item-foot">
-        <span class="tech">Python &middot; pandas &middot; SciPy &middot; MySQL &middot; test di regressione &middot; GitHub Actions</span>
-        <div class="go">
-          <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/">Serie A</a>
-          <a href="https://raffaeleciccone-analyst.github.io/premier-league-index/">Premier League</a>
-          <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/validazione.html">Le verifiche</a>
-          <a href="https://github.com/raffaeleciccone-analyst/football-index-engine">Il motore</a>
-          <a href="https://github.com/raffaeleciccone-analyst/serie-a-sql">Lo schema SQL</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 3. il lavoro su dati non miei -->
-    <article class="item" id="ritardi-consegna">
-      <div class="item-top">
-        <h3>I ritardi di consegna, in Power BI</h3>
-        <span class="state on">Report in PDF</span>
-      </div>
-      <p class="claim">Rispondere a una domanda che non ho scelto io, su dati di qualcun altro, e dire cosa la risposta non copre.</p>
-      <p>
-        96.470 ordini consegnati di un marketplace brasiliano. La domanda &mdash; <em>i ritardi
-        quanto ci costano in recensioni negative, e quali venditori li causano</em> &mdash; &egrave;
-        stata scritta prima di aprire <strong>Power BI</strong>, e il cruscotto risponde a quella
-        e a nient&rsquo;altro. Modello a stella con due tabelle dei fatti a grana diversa,
-        <strong>39 misure DAX</strong>, filtri sincronizzati, drillthrough sul mese e un riquadro
-        di dettaglio al passaggio del mouse.
-      </p>
-      <div class="note">
-        <p>
-          La seconda met&agrave; della domanda ha una risposta scomoda: <strong>in larga parte non
-          sono i venditori</strong>. Scomponendo il tempo di consegna, sugli ordini in ritardo il
-          venditore impiega 1,2 giorni in pi&ugrave; del solito e la logistica ne impiega 17; e
-          1.390 venditori su 2.970 producono almeno un ritardo, quindi non esiste una manciata di
-          colpevoli da sospendere. Un cruscotto che avesse proposto quello sarebbe stato peggio di
-          nessun cruscotto.
-        </p>
-      </div>
-
-      <figure class="shot">
-        <img src="assets/powerbi-ritardi.png" width="720" height="405" loading="lazy"
-             alt="Prima pagina del cruscotto: quattro riquadri in alto con la quota di consegne
-                  oltre la data promessa (8,1%), le recensioni negative in orario (9,2%) e in
-                  ritardo (54,0%) e il fatturato interessato. Sotto, un grafico a barre delle
-                  recensioni negative per fascia di ritardo, dal 9% delle consegne in anticipo
-                  all&rsquo;82% fra quindici e trenta giorni di ritardo.">
-        <figcaption>
-          Il legame non &egrave; una pendenza, &egrave; un dirupo: fra dieci giorni di anticipo e la
-          consegna appena in orario le recensioni negative passano dall&rsquo;8,9% all&rsquo;11,0%,
-          ma fra 3 e 7 giorni di ritardo sono gi&agrave; il 61,3%. <strong>Per questo nel cruscotto
-          non c&rsquo;&egrave; nessun coefficiente di correlazione:</strong> su tutti gli ordini
-          varrebbe &minus;0,18, schiacciato dal 92% di consegne in anticipo.
-        </figcaption>
-      </figure>
-
-      <div class="item-foot">
-        <span class="tech">Power BI &middot; DAX &middot; Power Query (M) &middot; modello a stella &middot; generazione del report da script</span>
-        <div class="go">
-          <a href="assets/ritardi-consegna-report.pdf">Il report in PDF</a>
-          <a href="https://github.com/raffaeleciccone-analyst/delivery-delay-impact">Codice</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 2. il lavoro da ingegnere -->
-    <article class="item" id="linguaggio-naturale">
-      <div class="item-top">
-        <h3>Natural Language Data Analyst</h3>
-        <span class="state on">Demo online</span>
-      </div>
-      <p class="claim">Costruire lo strumento, non solo usarlo: chi non sa scrivere codice carica un file e fa una domanda.</p>
-      <p>
-        Carichi un CSV, un Excel o un JSON, fai una domanda in italiano e ottieni l&rsquo;analisi:
-        risposta in prosa, tabella, grafici, e il codice generato che puoi aprire e controllare.
-        L&rsquo;applicazione produce da sola un report iniziale sul dataset &mdash; sintesi,
-        anomalie, andamenti &mdash; prima ancora che tu chieda qualcosa.
-      </p>
-      <p>
-        Sotto, un LLM scrive codice Pandas che gira in una <strong>sandbox a due livelli</strong>,
-        con modello di minaccia scritto e rischi residui dichiarati; i numeri li calcola Pandas e
-        controlli deterministici bloccano le colonne inventate prima che l&rsquo;analisi parta.
-        All&rsquo;AI resta il compito di raccontare i risultati, non di produrli.
-      </p>
-
-      <figure class="shot">
-        <a href="assets/nlda-risposta.png">
-          <img src="assets/nlda-risposta.png" width="1538" height="784" loading="lazy"
-               alt="Interfaccia di Natural Language Data Analyst: a destra la domanda
-                    &laquo;Quali sono le 5 Region con piu' Sales?&raquo;, la risposta in prosa, la
-                    tabella dei valori e il codice generato consultabile; a sinistra il report
-                    automatico con sintesi del dataset, insight e grafici a barre e a linee.">
-        </a>
-        <figcaption>
-          Domanda in italiano &rarr; risposta, tabella e codice generato consultabile.
-          A sinistra il report che la app produce da sola al caricamento del file.
-          Clicca per la schermata intera.
-        </figcaption>
-      </figure>
-
-      <div class="item-foot">
-        <span class="tech">Python &middot; FastAPI &middot; React &middot; pandas &middot; Docker &middot; 32 suite di test &middot; 3 workflow CI</span>
-        <div class="go">
-          <a href="https://nlda.onrender.com">Apri la demo</a>
-          <a href="https://github.com/raffaeleciccone-analyst/Natural-Language-Data-Analyst">Codice</a>
-          <span class="aside">la pagina lo sveglia mentre leggi; se clicchi subito, mezzo minuto</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- 4. il software che qualcuno usa davvero -->
-    <article class="item" id="mybnb">
-      <div class="item-top">
-        <h3>MyB&amp;B</h3>
-        <span class="state">In uso &middot; gestionale della struttura</span>
-      </div>
-      <p class="claim">L&rsquo;unico software che qualcuno usa tutti i giorni: quello che ho scritto per il lavoro che facevo.</p>
-      <p>
-        Gestionale di prenotazioni per un bed &amp; breakfast: camere, prenotazioni, stagioni con
-        prezzi diversi, e il pannello che si apre la mattina per sapere chi arriva. Non &egrave;
-        un esercizio &mdash; &egrave; il programma con cui si gestiva la struttura, e le decisioni
-        tecniche dentro sono figlie di quello.
-      </p>
-      <div class="note">
-        <p>
-          Il controllo sulle date sovrapposte stava in JavaScript, e non basta: <strong>basta una
-          seconda scheda aperta</strong>, una riga inserita dal pannello o una sincronizzazione
-          andata storta, e il database accetta la sovrapposizione senza fiatare. Su un gestionale
-          di prenotazioni quello &egrave; il difetto pi&ugrave; costoso possibile: <strong>due
-          ospiti, una camera</strong>. La regola &egrave; scesa dove non si pu&ograve; aggirare
-          &mdash; un vincolo di esclusione in Postgres, che rifiuta la riga.
-        </p>
-      </div>
-      <p>
-        L&rsquo;applicazione si installa sul telefono e funziona anche senza rete, ma la cache
-        &egrave; scritta per non tradire: le pagine si prendono prima dalla rete, cos&igrave; chi
-        non &egrave; autenticato non vede dati protetti rimasti in memoria, e le chiamate di
-        autenticazione non si mettono in cache mai &mdash; <strong>i token non devono restare
-        offline</strong>. Ogni tabella ha la sicurezza a livello di riga, con una politica che
-        lascia vedere a ciascuno solo la propria struttura.
-      </p>
-      <figure class="shot">
-        <img src="assets/mybnb-dashboard.jpg" width="1200" height="1008" loading="lazy"
-             alt="Cruscotto del gestionale: tre camere occupate su sei, cinquanta per cento di
-                  occupazione, i movimenti del giorno con due arrivi e una partenza, i prossimi
-                  sette giorni con l&rsquo;occupazione riga per riga, e l&rsquo;elenco delle sei
-                  camere con chi c&rsquo;&egrave; dentro.">
-        <figcaption>
-          Quello che si apre la mattina: chi arriva, chi parte, quante camere restano.
-          I dati sono di esempio &mdash; l&rsquo;applicazione ha una modalit&agrave; di anteprima
-          che li inietta al posto dei veri, ed &egrave; lei a dirlo nella fascia in alto.
-        </figcaption>
-      </figure>
-
-      <figure class="shot">
-        <img src="assets/mybnb-calendario.jpg" width="1234" height="891" loading="lazy"
-             alt="Calendario mensile: ogni prenotazione &egrave; una barra colorata per camera,
-                  distesa sui giorni del soggiorno, con la legenda delle sei camere in alto.">
-        <figcaption>
-          La stessa cosa vista nel tempo. &Egrave; qui che si vede perch&eacute; il vincolo sta nel
-          database: due barre della stessa camera non possono accavallarsi, e non perch&eacute; il
-          calendario le disegna bene &mdash; perch&eacute; Postgres rifiuta la riga.
-        </figcaption>
-      </figure>
-
-      <div class="item-foot">
-        <span class="tech">PostgreSQL (Supabase) &middot; vincoli di esclusione &middot; row level security &middot; PWA &middot; service worker &middot; JavaScript</span>
-        <div class="go">
-          <span class="aside">Repository privato &mdash; lo mostro volentieri in colloquio</span>
-        </div>
-      </div>
-    </article>
-
-    
-
-    <div class="closing">
-      <p>
-        Il modo pi&ugrave; rapido per capire come lavoro &egrave; aprire
-        <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/validazione.html">la pagina
-        delle verifiche</a>: &egrave; l&rsquo;unica in cui pubblico anche i controlli che il mio
-        modello non supera. Se cercate qualcuno che vi dica quanto vale un numero <em>e</em> dove
-        non vale, <a href="mailto:raffaeleciccone.analyst@gmail.com">scrivetemi</a>.
-      </p>
-    </div>
-  </main>
-
-  <div class="colophon">
-    <span>Raffaele Ciccone &middot; Data analyst &middot; 2026</span>
-    <span><a href="mailto:raffaeleciccone.analyst@gmail.com">raffaeleciccone.analyst@gmail.com</a></span>
-  </div>
-</div>
+<meta name="twitter:card" content="summary_large_image">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Raffaele Ciccone",
-  "jobTitle": "Data Analyst",
-  "email": "mailto:raffaeleciccone.analyst@gmail.com",
+  "jobTitle": "Junior Data Analyst",
   "url": "https://raffaeleciccone-analyst.github.io/",
-  "description": "Data analyst: SQL, Python, pandas, dashboard interattive, ETL e validazione dei dati. Progetti pubblici con demo online.",
-  "sameAs": [
-    "https://github.com/raffaeleciccone-analyst",
-    "https://www.linkedin.com/in/raffaeleciccone"
-  ],
-  "knowsLanguage": ["it", "en"],
-  "seeks": {
-    "@type": "Demand",
-    "name": "Posizione da data analyst, business intelligence analyst o data engineer junior"
-  },
-  "knowsAbout": [
-    "Data analysis", "SQL", "Python", "pandas", "NumPy", "SciPy",
-    "MySQL", "PostgreSQL", "ETL", "Data quality", "Data validation",
-    "Business intelligence", "Power BI", "DAX", "Power Query", "Modellazione dimensionale",
-    "Dashboard", "Data visualization", "Plotly",
-    "Statistica applicata", "Bootstrap", "KPI",
-    "FastAPI", "React", "Docker", "Redis", "Git", "GitHub Actions", "pytest", "REST API"
-  ]
+  "email": "mailto:raffaeleciccone.analyst@gmail.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "Fondi", "addressRegion": "LT", "addressCountry": "IT"},
+  "affiliation": {"@type": "EducationalOrganization", "name": "ITS Maria Gaetana Agnesi"},
+  "knowsAbout": ["SQL", "Python", "Power BI", "DAX", "Excel", "Data analysis"],
+  "sameAs": ["https://www.linkedin.com/in/raffaeleciccone", "https://github.com/raffaeleciccone-analyst"]
 }
 </script>
 
-<script>
-// La demo dorme. Render spegne il servizio gratuito dopo un quarto d'ora di
-// silenzio, e la prima chiamata che lo risveglia ci mette 35 secondi
-// (cronometrati il 31/08). Chi arriva in vetrina impiega piu' di mezzo minuto
-// ad arrivare alla scheda e a cliccare: se il risveglio parte adesso, quando
-// clicca il server e' gia' in piedi.
-//
-// Una richiesta sola, su /api/health, senza dati e senza cookie. Se fallisce
-// non cambia niente in pagina: il link continua a funzionare come prima, solo
-// con l'attesa che c'era.
-addEventListener("load", function(){
-  try {
-    fetch("https://nlda.onrender.com/api/health", {mode:"no-cors", cache:"no-store"})
-      .catch(function(){});
-  } catch (e) {}
-});
-</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root{
+    /* Colori della versione chiara del sito: carta, inchiostro, un accento. */
+    --fondo:#F6F6F3;
+    --fondo-2:#EFEFEB;
+    --carta:#FFFFFF;
+    --filo:#D9D9D2;
+    --filo-2:#BDBDB3;
+    --accento:#16565C;
+    --accento-scuro:#0F4045;
+    --live:#1E6B4A;
+    --testo:#15191B;
+    --testo-2:#3F4749;
+    --testo-3:#626B6D;
+
+    --sans:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+    --lato:290px;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;overflow-x:clip}
+  body{
+    margin:0;background:var(--fondo);color:var(--testo);
+    font-family:var(--sans);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accento);color:#fff}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accento);outline-offset:3px}
+
+  /* ══ barra laterale ══ */
+  .lato{
+    position:fixed;top:0;left:0;bottom:0;width:var(--lato);
+    background:var(--fondo-2);border-right:1px solid var(--filo);
+    padding:30px 24px 26px;overflow-y:auto;scrollbar-width:thin;
+  }
+  .sigla{
+    width:68px;height:68px;border-radius:50%;display:grid;place-items:center;
+    margin:0 auto 14px;background:var(--accento);color:#fff;
+    font-weight:700;font-size:23px;letter-spacing:-.02em;
+  }
+  .lato h1{font-size:20px;font-weight:700;letter-spacing:-.015em;text-align:center;margin:0 0 4px}
+  .lato .ruolo{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accento);text-align:center;margin:0 0 20px;line-height:1.6;
+  }
+  .cerco{
+    background:var(--carta);border:1px solid var(--filo);border-left:3px solid var(--accento);
+    border-radius:0 6px 6px 0;padding:13px 14px;margin:0 0 18px;font-size:14px;line-height:1.5;
+  }
+  .cerco h2{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accento);margin:0 0 6px;font-weight:600;
+  }
+  .cerco p{margin:0}
+  .cerco .avail{display:block;margin-top:8px;font-size:13px;color:var(--testo-3);line-height:1.5}
+
+  .contatti{display:flex;flex-direction:column;gap:8px;margin:0 0 6px}
+  .contatti a{
+    font-family:var(--mono);font-size:12.5px;color:var(--testo-2);text-decoration:none;
+    border-bottom:1px solid transparent;overflow-wrap:anywhere;width:fit-content;
+  }
+  .contatti a:hover{color:var(--accento);border-color:var(--accento)}
+  .contatti a.primario{color:var(--accento);font-weight:500}
+
+  .lato-sez{border-top:1px solid var(--filo);padding:16px 0 4px;margin-top:14px}
+  .lato-tit{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--testo-3);margin:0 0 10px;
+  }
+  .indice{margin:0;padding:0;list-style:none;font-size:14px}
+  .indice a{display:block;padding:4px 0;text-decoration:none;color:var(--testo-2)}
+  .indice a:hover{color:var(--accento)}
+  .dati{margin:0;font-size:13.5px}
+  .dati div{display:flex;justify-content:space-between;gap:12px;padding:3px 0}
+  .dati dt{color:var(--testo-3)}
+  .dati dd{margin:0;text-align:right}
+
+  /* ══ colonna del lavoro ══ */
+  .lavoro{margin-left:var(--lato);padding:32px 44px 72px;max-width:1160px}
+
+  .apertura{
+    background:var(--carta);border:1px solid var(--filo);border-radius:10px;
+    padding:32px;margin-bottom:34px;
+    display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:26px 0;align-items:center;
+  }
+  .apertura h2{font-size:31px;font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:0 0 10px}
+  .apertura h2 span{color:var(--accento)}
+  .motto{font-family:var(--mono);font-size:13px;color:var(--testo-3);margin:0 0 14px}
+  .sommario{color:var(--testo-2);margin:0 0 20px;font-size:16px}
+  .bottoni{display:flex;gap:10px;flex-wrap:wrap}
+  .bottone{
+    display:inline-block;background:var(--accento);color:#fff;
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+    padding:12px 20px;border-radius:5px;text-decoration:none;transition:background .15s;
+  }
+  .bottone:hover{background:var(--accento-scuro)}
+  .bottone.vuoto{background:transparent;color:var(--accento);border:1px solid var(--accento)}
+  .bottone.vuoto:hover{background:var(--fondo-2)}
+  .numeri{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 26px;
+    border-left:1px solid var(--filo);padding-left:32px;
+  }
+  .numeri div{display:flex;flex-direction:column;gap:4px}
+  .numeri b{font-family:var(--mono);font-size:30px;font-weight:600;color:var(--accento);letter-spacing:-.03em;line-height:1}
+  .numeri span{font-size:14px;color:var(--testo-2);line-height:1.4}
+
+  .sez-tit{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin:0 0 16px}
+  .sez-tit h2{font-size:22px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .sez-tit span{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--testo-3)}
+
+  /* ══ schede: una per riga, testo a sinistra e immagine a destra ══ */
+  .progetti{display:flex;flex-direction:column;gap:22px;margin-bottom:44px}
+  .item{
+    background:var(--carta);border:1px solid var(--filo);border-radius:10px;padding:28px 30px;
+    display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:28px;align-items:start;
+    transition:border-color .16s;
+  }
+  .item:hover{border-color:var(--filo-2)}
+  .item > *{min-width:0}
+  .item-top{display:flex;align-items:baseline;justify-content:space-between;gap:6px 14px;flex-wrap:wrap;margin-bottom:8px}
+  .item h3{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0;line-height:1.2}
+  .state{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--testo-3);white-space:nowrap}
+  .state.on{color:var(--live)}
+  .state.on::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--live);margin-right:6px;vertical-align:1px}
+  .aggancio{font-size:16.5px;font-weight:600;color:var(--testo);margin:0 0 12px;line-height:1.45}
+  .item p{margin:0 0 12px;color:var(--testo-2);font-size:15px;line-height:1.6}
+  .item strong{color:var(--testo);font-weight:600}
+  .punti{margin:0 0 14px;padding-left:18px;color:var(--testo-2);font-size:15px}
+  .punti li{margin-bottom:5px}
+  .punti li::marker{color:var(--accento)}
+
+  details{margin:0 0 14px;border-top:1px solid var(--filo);padding-top:10px}
+  summary{
+    cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accento);list-style:none;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+ "}
+  details[open] summary::before{content:"\2013 "}
+  details p{margin-top:10px}
+
+  .tech{display:block;font-size:13px;color:var(--testo-3);line-height:1.6;margin-bottom:10px}
+  .go{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:baseline}
+  .go a{
+    font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;
+    color:var(--accento);text-decoration:none;border-bottom:1px solid transparent;
+  }
+  .go a::after{content:" \2192"}
+  .go a:hover{border-color:var(--accento)}
+  .go .aside{font-family:var(--mono);font-size:12px;color:var(--testo-3)}
+
+  .shot{margin:0}
+  .cornice{background:var(--fondo-2);border:1px solid var(--filo);padding:6px;border-radius:8px}
+  .shot a{display:block}
+  .shot img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top left;border-radius:4px}
+  .shot figcaption{font-size:13px;color:var(--testo-3);line-height:1.5;margin-top:9px}
+
+  .item.breve{grid-template-columns:1fr}
+  .item.breve p{max-width:70ch}
+
+  .skills,.percorso{background:var(--carta);border:1px solid var(--filo);border-radius:10px;padding:24px 28px;margin-bottom:34px}
+  .skills dl{margin:0;display:grid;grid-template-columns:170px 1fr;gap:12px 24px}
+  .skills dt,.percorso .quando{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--testo-3);padding-top:2px}
+  .skills dd{margin:0;font-size:15px;color:var(--testo-2)}
+  .percorso dl{margin:0;display:grid;grid-template-columns:120px 1fr;gap:14px 24px}
+  .percorso dd{margin:0;font-size:15px;color:var(--testo-2)}
+  .percorso dd b{color:var(--testo)}
+
+  .chiusa{
+    background:var(--carta);border:1px solid var(--filo);border-left:3px solid var(--accento);
+    border-radius:0 10px 10px 0;padding:20px 26px;font-size:16px;color:var(--testo-2);
+  }
+  .chiusa a{color:var(--accento);font-weight:600}
+
+  .solo-mobile{display:none}
+
+  @media (max-width:1100px){
+    .apertura{grid-template-columns:1fr}
+    .numeri{border-left:0;padding-left:0;border-top:1px solid var(--filo);padding-top:22px}
+    .item{grid-template-columns:1fr}
+  }
+  @media (max-width:860px){
+    .lato{position:static;width:auto;border-right:0;border-bottom:1px solid var(--filo);padding:22px 18px}
+    .sigla{width:48px;height:48px;font-size:17px;margin-bottom:10px}
+    .contatti{flex-direction:row;flex-wrap:wrap;gap:8px 16px;justify-content:center}
+    .solo-desktop{display:none}
+    .solo-mobile{display:block}
+    .lavoro{margin-left:0;padding:22px 16px 60px}
+    .apertura{padding:22px 18px}
+    .apertura h2{font-size:25px}
+    .numeri b{font-size:24px}
+    .item{padding:20px 18px}
+    .skills,.percorso{padding:20px 18px}
+    .skills dl,.percorso dl{grid-template-columns:1fr;gap:2px 0}
+    .skills dt,.percorso .quando{padding-top:12px}
+    .go a,summary,.contatti a{display:inline-block;padding:9px 0;font-size:13px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+
+<aside class="lato">
+  <div class="sigla" aria-hidden="true">RC</div>
+  <h1>Raffaele Ciccone</h1>
+  <p class="ruolo">Junior data analyst<br>SQL &middot; Python &middot; Power BI</p>
+
+  <section class="cerco">
+    <h2>Disponibile</h2>
+    <p>Per lo <strong>stage ITS</strong> (dicembre 2026 &ndash; maggio 2027), poi come
+      <strong>junior data / BI analyst</strong>.</p>
+    <span class="avail">Fondi (LT) &middot; Roma, Latina e provincia, in presenza o ibrido</span>
+  </section>
+
+  <nav class="contatti" aria-label="Contatti">
+    <a class="primario" href="mailto:raffaeleciccone.analyst@gmail.com">Email</a>
+    <a href="cv-raffaele-ciccone.pdf">CV in PDF</a>
+    <a href="https://www.linkedin.com/in/raffaeleciccone">LinkedIn</a>
+    <a href="https://github.com/raffaeleciccone-analyst">GitHub</a>
+  </nav>
+
+  <div class="lato-sez solo-desktop">
+    <p class="lato-tit">Progetti</p>
+    <ul class="indice">
+      <li><a href="#ritardi-consegna">I ritardi di consegna</a></li>
+      <li><a href="#clienti-che-tornano">Quanto vale un cliente che torna</a></li>
+      <li><a href="#linguaggio-naturale">Natural Language Data Analyst</a></li>
+      <li><a href="#scout-index">Football Scout Index</a></li>
+      <li><a href="#mybnb">MyB&amp;B</a></li>
+    </ul>
+  </div>
+
+  <div class="lato-sez solo-desktop">
+    <p class="lato-tit">In breve</p>
+    <dl class="dati">
+      <div><dt>Formazione</dt><dd>ITS Data Analyst</dd></div>
+      <div><dt>Inglese</dt><dd>C1</dd></div>
+      <div><dt>Certificazione</dt><dd>AI Act in Azienda</dd></div>
+    </dl>
+  </div>
+</aside>
+
+<main class="lavoro">
+
+  <section class="apertura">
+    <div>
+      <h2>Junior data analyst: <span>SQL, Python, Power BI</span>.</h2>
+      <p class="motto">Analizzo dati reali, verifico i numeri e scrivo anche cosa non dimostrano.</p>
+      <p class="sommario">Studente ITS Data Analyst. Dal 2021 gestisco il B&amp;B di famiglia, per cui ho
+        costruito il gestionale che usiamo ogni giorno: da l&igrave; sono arrivato ai dati.</p>
+      <div class="bottoni">
+        <a class="bottone" href="#progetti">Guarda i progetti</a>
+        <a class="bottone vuoto" href="mailto:raffaeleciccone.analyst@gmail.com">Scrivimi</a>
+      </div>
+    </div>
+    <div class="numeri">
+      <div><b>+45</b><span>punti di recensioni negative con il ritardo di consegna</span></div>
+      <div><b>&pound;225</b><span>soglia oltre cui riattivare un cliente non conviene</span></div>
+      <div><b>4</b><span>progetti pubblici su dati reali</span></div>
+      <div><b>2</b><span>demo provabili online adesso</span></div>
+    </div>
+  </section>
+
+  <div class="sez-tit" id="progetti">
+    <h2>I progetti</h2>
+    <span>Codice e dati su GitHub</span>
+  </div>
+
+  <div class="progetti">
+
+    <article class="item" id="ritardi-consegna">
+      <div>
+        <div class="item-top">
+          <h3>I ritardi di consegna</h3>
+          <span class="state">Report Power BI</span>
+        </div>
+        <p class="aggancio">Con il ritardo le recensioni negative passano dal 9% al 54%. Ma la colpa &egrave; della logistica, non dei venditori.</p>
+        <ul class="punti">
+          <li>96.470 ordini di un marketplace brasiliano (dataset pubblico Olist)</li>
+          <li>Modello a stella con due tabelle dei fatti e <strong>39 misure DAX</strong></li>
+          <li>Sugli ordini in ritardo la logistica aggiunge 17 giorni, il venditore 1,2: il collo di bottiglia &egrave; il trasporto</li>
+        </ul>
+        <details>
+          <summary>Come l&rsquo;ho fatto</summary>
+          <p>La domanda &egrave; stata scritta prima di aprire Power BI: quanto costano i ritardi in
+            recensioni negative, e chi li causa. Il legame non &egrave; lineare: fra 3 e 7 giorni di
+            ritardo le recensioni negative sono gi&agrave; il 61,3%. Per questo nel cruscotto non c&rsquo;&egrave;
+            un coefficiente di correlazione, che su tutti gli ordini varrebbe solo &minus;0,18.
+            1.390 venditori su 2.970 producono almeno un ritardo: non ci sono pochi colpevoli da sospendere.</p>
+        </details>
+        <span class="tech">Power BI &middot; DAX &middot; Power Query &middot; modello a stella</span>
+        <div class="go">
+          <a href="assets/ritardi-consegna-report.pdf">Report in PDF</a>
+          <a href="https://github.com/raffaeleciccone-analyst/delivery-delay-impact">Codice</a>
+        </div>
+      </div>
+      <figure class="shot">
+        <div class="cornice chiara">
+          <a href="assets/powerbi-ritardi.png"><img src="assets/powerbi-ritardi.png" width="720" height="405" loading="lazy"
+               alt="Prima pagina del cruscotto Power BI: quota di consegne in ritardo (8,1%), recensioni
+                    negative in orario (9,2%) e in ritardo (54,0%), e un grafico a barre delle recensioni
+                    negative per fascia di ritardo."></a>
+        </div>
+        <figcaption>La prima pagina del cruscotto: recensioni negative per fascia di ritardo.</figcaption>
+      </figure>
+    </article>
+
+    <article class="item" id="clienti-che-tornano">
+      <div>
+        <div class="item-top">
+          <h3>Quanto vale un cliente che torna</h3>
+          <span class="state">Analisi di coorte</span>
+        </div>
+        <p class="aggancio">Un cliente che torna vale &pound;1.374 in pi&ugrave; nel primo anno: riattivarlo conviene finch&eacute; costa meno di &pound;225.</p>
+        <ul class="punti">
+          <li>1.067.371 righe di scontrini di un e-commerce UK (dataset pubblico Online Retail II)</li>
+          <li>Schema a stella su <strong>MySQL</strong>, 63 controlli di integrit&agrave; sui dati</li>
+          <li>Chi riordina spende &pound;1.990 il primo anno contro &pound;337; a parit&agrave; di primo acquisto il divario resta &pound;1.374</li>
+        </ul>
+        <details>
+          <summary>Come l&rsquo;ho fatto</summary>
+          <p>Ho confrontato solo clienti uguali al primo acquisto (stesso decile di spesa, stessa
+            coorte), perch&eacute; il confronto diretto gonfiava il risultato. La soglia di &pound;225
+            vale ipotizzando un margine del 20%. Tre cose i dati non le hanno confermate, e sono scritte
+            accanto alle altre: arrivare al secondo ordine non mette al sicuro (la probabilit&agrave; di
+            un ordine successivo resta ferma al 72%), la soglia di silenzio oltre cui un cliente &egrave;
+            perso non esiste, e il valore a 24 mesi non &egrave; misurabile con questi dati.</p>
+        </details>
+        <span class="tech">MySQL &middot; schema a stella &middot; Python &middot; pandas &middot; Excel</span>
+        <div class="go">
+          <a href="https://github.com/raffaeleciccone-analyst/clienti-che-tornano">Codice e documenti</a>
+        </div>
+      </div>
+      <figure class="shot">
+        <div class="cornice">
+          <a href="assets/coorti-calendario.png"><img src="assets/coorti-calendario.png" width="1310" height="850" loading="lazy"
+               alt="Matrice delle coorti: ogni riga &egrave; il mese di ingresso dei clienti, ogni colonna
+                    un mese del calendario; le colonne di novembre sono le pi&ugrave; accese."></a>
+        </div>
+        <figcaption>La matrice delle coorti: a novembre torna il 25% dei clienti, a gennaio l&rsquo;11%.</figcaption>
+      </figure>
+    </article>
+
+    <article class="item" id="linguaggio-naturale">
+      <div>
+        <div class="item-top">
+          <h3>Natural Language Data Analyst</h3>
+          <span class="state on">Demo online</span>
+        </div>
+        <p class="aggancio">Fai una domanda in italiano su un CSV o un Excel: ricevi tabella, grafico e il codice pandas che li ha prodotti, da controllare.</p>
+        <ul class="punti">
+          <li>Carichi un CSV, un Excel o un JSON e ricevi subito un report automatico sul dataset</li>
+          <li>L&rsquo;IA traduce la domanda in codice, i numeri li calcola pandas</li>
+          <li>Controlli automatici bloccano le colonne inesistenti prima del calcolo</li>
+        </ul>
+        <span class="tech">Python &middot; pandas &middot; LLM &middot; test automatici</span>
+        <div class="go">
+          <a href="https://nlda.onrender.com">Apri la demo</a>
+          <a href="https://github.com/raffaeleciccone-analyst/Natural-Language-Data-Analyst">Codice</a>
+          <span class="aside">il primo accesso richiede circa 35 secondi</span>
+        </div>
+      </div>
+      <figure class="shot">
+        <div class="cornice">
+          <a href="assets/nlda-risposta.png"><img src="assets/nlda-risposta.png" width="1538" height="784" loading="lazy"
+               alt="Interfaccia dell'app: la domanda in italiano, la risposta, la tabella dei valori e il
+                    codice generato; a sinistra il report automatico del dataset."></a>
+        </div>
+        <figcaption>Domanda in italiano, risposta, tabella e codice generato.</figcaption>
+      </figure>
+    </article>
+
+    <article class="item" id="scout-index">
+      <div>
+        <div class="item-top">
+          <h3>Football Scout Index</h3>
+          <span class="state on">Demo online</span>
+        </div>
+        <p class="aggancio">Un indice che segnala quali dei 356 giocatori di Serie A e Premier League stanno crescendo, verificato con 15 test statistici pubblici.</p>
+        <ul class="punti">
+          <li>Database <strong>MySQL</strong> di 23.858 righe giocatore-partita da due fonti diverse</li>
+          <li>Indice a sette dimensioni e dashboard con filtri ed export CSV</li>
+          <li>Lo stesso codice serve due campionati: il campionato &egrave; un parametro</li>
+        </ul>
+        <details>
+          <summary>Come l&rsquo;ho fatto</summary>
+          <p>Le due fonti sono agganciate per identificativo e non per nome, con correzioni ripetibili
+            per righe orfane e doppioni. I test di validazione sono pubblicati con l&rsquo;intervallo di
+            confidenza: contro tre previsioni semplici l&rsquo;indice non ne batte nessuna sul rendimento
+            futuro, ma ne batte due su tre sul miglioramento, che era la domanda di partenza.
+            Ho scelto il calcio perch&eacute; i dati sono pubblici e chiunque pu&ograve; rifare i conti.</p>
+        </details>
+        <span class="tech">Python &middot; pandas &middot; SciPy &middot; MySQL &middot; GitHub Actions</span>
+        <div class="go">
+          <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/">Serie A</a>
+          <a href="https://raffaeleciccone-analyst.github.io/premier-league-index/">Premier League</a>
+          <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/validazione.html">I test</a>
+          <a href="https://github.com/raffaeleciccone-analyst/football-index-engine">Codice</a>
+        </div>
+      </div>
+      <figure class="shot">
+        <div class="cornice chiara">
+          <a href="assets/tpi-eta.svg"><img src="assets/tpi-eta.svg" width="720" height="430" loading="lazy"
+               alt="Grafico a dispersione dei 356 giocatori: et&agrave; in orizzontale, indice in verticale.
+                    In alto quasi solo giocatori fra 27 e 31 anni."></a>
+        </div>
+        <figcaption>Ogni punto &egrave; un giocatore: in alto quasi solo chi ha fra 27 e 31 anni.</figcaption>
+      </figure>
+    </article>
+
+    <article class="item breve" id="mybnb">
+      <div>
+        <div class="item-top">
+          <h3>MyB&amp;B</h3>
+          <span class="state">In uso &middot; repository privato</span>
+        </div>
+        <p class="aggancio">Il gestionale di prenotazioni del B&amp;B di famiglia, usato ogni giorno: &egrave; il database a impedire che una camera venga prenotata due volte.</p>
+        <p>Il controllo sulle date sovrapposte stava solo nell&rsquo;app, e una seconda scheda aperta
+          bastava ad aggirarlo. L&rsquo;ho spostato in <strong>PostgreSQL</strong> con un vincolo di
+          esclusione, che rifiuta la prenotazione doppia anche se arriva da fuori dall&rsquo;app. Il
+          gestionale calcola l&rsquo;occupazione, e il listino per stagione lo imposto guardando lo
+          storico delle prenotazioni.</p>
+        <span class="tech">PostgreSQL (Supabase) &middot; SQL &middot; vincoli di esclusione</span>
+        <div class="go"><span class="aside">Lo mostro volentieri in colloquio</span></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="sez-tit"><h2>Competenze</h2><span>Usate nei progetti qui sopra</span></div>
+  <section class="skills"><dl>
+    <dt>Business intelligence</dt>
+    <dd>Power BI (DAX, Power Query, modello a stella) &middot; Excel &middot; report, KPI e dashboard</dd>
+    <dt>Dati</dt>
+    <dd>SQL &middot; MySQL &middot; PostgreSQL &middot; schema a stella &middot; controlli di qualit&agrave; dei dati</dd>
+    <dt>Analisi</dt>
+    <dd>Python &middot; pandas &middot; pulizia dati ed ETL &middot; statistica descrittiva e intervalli di confidenza &middot; analisi di coorte</dd>
+    <dt>Strumenti</dt>
+    <dd>Git e GitHub &middot; IA per sviluppo e analisi, con verifica tramite test (Claude, Copilot)</dd>
+  </dl></section>
+
+  <div class="sez-tit"><h2>Percorso</h2></div>
+  <section class="percorso"><dl>
+    <dt class="quando">2025 &ndash; 2027</dt>
+    <dd><b>Diploma ITS Data Analyst</b> &mdash; ITS Maria Gaetana Agnesi, Roma. Stage di 6 mesi da dicembre 2026.</dd>
+    <dt class="quando">2021 &ndash; oggi</dt>
+    <dd><b>Gestore B&amp;B</b> &mdash; Casa Pignatelli, Fondi (LT): prenotazioni, tariffe, recensioni, incassi e il gestionale MyB&amp;B.</dd>
+    <dt class="quando">2013 &ndash; 2018</dt>
+    <dd><b>Liceo Scientifico</b> &mdash; I.S.A.S. A. Soccodato, Fondi (LT).</dd>
+  </dl>
+  <p class="solo-mobile" style="margin:16px 0 0;font-size:15px;color:var(--testo-2)">
+    Inglese C1 &middot; Certificazione: AI Act in Azienda (Data Masters)
+  </p></section>
+
+  <div class="chiusa"><p style="margin:0">
+    Cerchi uno stagista o un junior che sappia dire quanto vale un numero e dove smette di valere?
+    <a href="mailto:raffaeleciccone.analyst@gmail.com">Scrivimi</a> oppure scarica il
+    <a href="cv-raffaele-ciccone.pdf">CV in PDF</a>.
+  </p></div>
+
+</main>
+
 </body>
 </html>

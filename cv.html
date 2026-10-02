@@ -100,25 +100,13 @@
 </head>
 <body>
 
-<div class="avviso no-print">
-  <strong>Prima di mandarlo.</strong> Stampa in PDF con <kbd>Ctrl+P</kbd> &rarr; <em>Salva come PDF</em>
-  (questo riquadro non finisce nella stampa). Poi:
-  <ul>
-    <li>apri il PDF e cerca <em>Power BI</em> con <kbd>Ctrl+F</kbd>: se lo trova, lo trova anche
-      il software di selezione. Sul tuo file Canva non lo trovava.</li>
-    <li>salvalo come <strong>CV-Raffaele-Ciccone.pdf</strong>, con il tuo nome nel nome del file.</li>
-    <li>riempi le tre caselle gialle: sono le uniche cose che non ho.</li>
-  </ul>
-</div>
-
 <div class="page">
 
   <header>
     <h1>Raffaele Ciccone</h1>
-    <p class="role">Data Analyst &middot; SQL &middot; Python &middot; Business Intelligence</p>
+    <p class="role">Junior Data Analyst &middot; Business Intelligence</p>
     <p class="riga-contatti">
-      Fondi (LT) &middot; 27/02/2000
-      <span class="sep">|</span> +39 350 084 8882
+      Fondi (LT) &middot; disponibile su Roma, Latina e provincia, in presenza o ibrido
       <span class="sep">|</span> <a href="mailto:raffaeleciccone.analyst@gmail.com">raffaeleciccone.analyst@gmail.com</a>
       <span class="sep">|</span> <a href="https://github.com/raffaeleciccone-analyst">github.com/raffaeleciccone-analyst</a>
       <span class="sep">|</span> <a href="https://www.linkedin.com/in/raffaeleciccone">linkedin.com/in/raffaeleciccone</a>
@@ -127,178 +115,96 @@
 
   <h2>Profilo</h2>
   <p class="profilo">
-    Analista dati in formazione ITS. Lavoro sul percorso intero: estrazione e pulizia da fonti
-    diverse, modello relazionale, metriche, e la dashboard o l&rsquo;applicazione con cui qualcuno
-    le interroga. Costruisco con test automatici e documentazione, e pubblico i limiti di quello
-    che produco insieme ai risultati. Le competenze elencate qui sotto sono verificabili nei
-    progetti pubblici in fondo alla pagina, demo comprese.
+    Studente ITS Data Analyst (diploma 2027). Costruisco report, KPI e dashboard con SQL, Excel,
+    Power BI e Python su dati reali. Dal 2021 gestisco il B&amp;B di famiglia con un gestionale
+    PostgreSQL progettato da me. Disponibile per lo stage ITS (dicembre 2026 &ndash; maggio 2027),
+    poi come Junior Data Analyst.
   </p>
+
+  <h2>Esperienza professionale</h2>
+  <div class="voce">
+    <div class="voce-top">
+      <h3>Gestore B&amp;B &mdash; Casa Pignatelli, Fondi (LT)</h3>
+      <span class="quando">05/2021 &ndash; oggi</span>
+    </div>
+    <ul>
+      <li>Gestisco in autonomia prenotazioni, tariffe, recensioni e incassi su Booking.com.</li>
+      <li>Ho sviluppato <strong>MyB&amp;B</strong>, gestionale su <strong>PostgreSQL</strong> (Supabase)
+          usato ogni giorno: un vincolo di esclusione nel database blocca le doppie prenotazioni,
+          e il gestionale calcola l&rsquo;occupazione.</li>
+      <li>Imposto il listino stagionale analizzando lo storico delle prenotazioni.</li>
+    </ul>
+  </div>
+
+  <h2>Progetti</h2>
+  <div class="voce">
+    <div class="voce-top"><h3>I ritardi di consegna</h3><span class="quando">Power BI &middot; DAX &middot; Power Query</span></div>
+    <ul><li>Dashboard Power BI su 96.470 ordini Olist: con il ritardo le recensioni negative passano
+        dal 9,2% al 54%. Il ritardo nasce in logistica (+17 giorni sulla media), non dal venditore
+        (+1,2 giorni).</li></ul>
+    <p class="stack"><a href="https://github.com/raffaeleciccone-analyst/delivery-delay-impact">github.com/raffaeleciccone-analyst/delivery-delay-impact</a></p>
+  </div>
+  <div class="voce">
+    <div class="voce-top"><h3>Quanto vale un cliente che torna</h3><span class="quando">MySQL &middot; Python</span></div>
+    <ul><li>Analisi di coorte su un e-commerce UK: chi riordina spende &pound;1.990 il primo anno
+        contro &pound;337; a parit&agrave; di primo acquisto, &pound;1.374 in pi&ugrave;.</li></ul>
+    <p class="stack"><a href="https://github.com/raffaeleciccone-analyst/clienti-che-tornano">github.com/raffaeleciccone-analyst/clienti-che-tornano</a></p>
+  </div>
+  <div class="voce">
+    <div class="voce-top"><h3>Natural Language Data Analyst</h3><span class="quando">Python &middot; LLM</span></div>
+    <ul><li>Web app con cui chi non conosce Python fa domande ai dati in italiano: l&rsquo;IA genera
+        l&rsquo;analisi in pandas, verificata da test automatici.</li></ul>
+    <p class="stack">Demo: <a href="https://nlda.onrender.com">nlda.onrender.com</a> &middot;
+      <a href="https://github.com/raffaeleciccone-analyst/Natural-Language-Data-Analyst">codice su GitHub</a></p>
+  </div>
+  <div class="voce">
+    <div class="voce-top"><h3>Football Scout Index</h3><span class="quando">MySQL &middot; Python</span></div>
+    <ul><li>Indice di impatto offensivo su oltre 350 giocatori di Serie A e Premier League, validato
+        con 15 test statistici, documentando anche i risultati negativi.</li></ul>
+    <p class="stack"><a href="https://raffaeleciccone-analyst.github.io/serie-a-index/">raffaeleciccone-analyst.github.io/serie-a-index</a></p>
+  </div>
 
   <h2>Competenze tecniche</h2>
   <dl class="comp">
-    <dt>Linguaggi</dt>
-    <dd>Python &middot; SQL &middot; JavaScript</dd>
-
-    <dt>Basi di dati</dt>
-    <dd>MySQL &middot; PostgreSQL &middot; SQL Server &middot; Oracle &middot; Supabase &middot;
-        progettazione dello schema, viste, migrazioni, vincoli di integrit&agrave;</dd>
-
-    <dt>Analisi dati</dt>
-    <dd>pandas &middot; NumPy &middot; SciPy &middot; ETL e pipeline &middot; pulizia, deduplica e
-        riconciliazione fra fonti &middot; validazione e data quality &middot; statistica applicata
-        (bootstrap, correlazione, calibrazione)</dd>
-
     <dt>Business Intelligence</dt>
-    <dd>Power BI &middot; Power Query &middot; Data Modeling &middot; Microsoft Excel &middot;
-        dashboard interattive &middot; KPI e indici compositi &middot; reportistica</dd>
-
-    <dt>Sviluppo</dt>
-    <dd>FastAPI &middot; React &middot; Docker &middot; Redis &middot; API REST &middot;
-        Git e GitHub &middot; GitHub Actions (CI) &middot; pytest</dd>
-
-    <dt>AI generativa</dt>
-    <dd>Large Language Model applicati all&rsquo;analisi dati &middot; prompt engineering &middot;
-        Claude &middot; Microsoft Copilot</dd>
+    <dd>Power BI &middot; DAX &middot; Power Query &middot; Excel &middot; report, KPI e dashboard</dd>
+    <dt>Dati</dt>
+    <dd>SQL &middot; MySQL &middot; PostgreSQL &middot; query e modello a stella</dd>
+    <dt>Analisi</dt>
+    <dd>Python &middot; pandas &middot; pulizia dati ed ETL &middot; statistica &middot; analisi di coorte</dd>
+    <dt>Strumenti</dt>
+    <dd>Git e GitHub &middot; IA per sviluppo e analisi, con verifica tramite test (Claude, Copilot)</dd>
   </dl>
-
-  <h2>Progetti</h2>
-
-  <div class="voce">
-    <div class="voce-top">
-      <h3>Football Scout Index &mdash; modello di scoring e dashboard</h3>
-      <span class="quando">2026 &middot; online</span>
-    </div>
-    <ul>
-      <li>Costruito un database <strong>MySQL</strong> di 23.816 righe soggetto-evento su due
-          stagioni, alimentato da due fonti esterne agganciate per identificativo anzich&eacute;
-          per nome, con procedure ripetibili per righe orfane, omonimi e record duplicati.</li>
-      <li>Sviluppato un indice composito a sette dimensioni che ordina 354 soggetti, e una
-          dashboard con filtri, cinque contesti di confronto, raffronto diretto ed export CSV
-          del sottoinsieme filtrato.</li>
-      <li>Pubblicate 15 verifiche statistiche con intervalli di confidenza bootstrap,
-          <strong>comprese quelle in cui il modello perde</strong>: contro tre predittori
-          elementari non ne batte nessuno sul livello di rendimento futuro, e ne batte due su tre
-          sul miglioramento, che &egrave; la domanda per cui era stato costruito.</li>
-      <li>Suite di test di regressione eseguita a ogni modifica del motore di calcolo.</li>
-    </ul>
-    <p class="stack">
-      Python &middot; pandas &middot; SciPy &middot; MySQL &middot; GitHub Actions &mdash;
-      <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/">raffaeleciccone-analyst.github.io/serie-a-index</a>
-    </p>
-  </div>
-
-  <div class="voce">
-    <div class="voce-top">
-      <h3>Natural Language Data Analyst &mdash; applicazione full-stack</h3>
-      <span class="quando">2026 &middot; online</span>
-    </div>
-    <ul>
-      <li>Applicazione che permette a un utente non tecnico di caricare un CSV, un Excel o un JSON,
-          porre una domanda in linguaggio naturale e ottenere l&rsquo;analisi: risposta discorsiva,
-          tabella, grafici e il codice generato, consultabile.</li>
-      <li>Report automatico sul dataset al caricamento: sintesi, valori anomali, andamenti nel
-          tempo e distribuzioni, senza che venga chiesto nulla.</li>
-      <li>Il codice prodotto dal modello linguistico viene eseguito in una sandbox a due livelli
-          con modello di minaccia documentato; i calcoli li esegue pandas e controlli
-          deterministici bloccano i riferimenti a colonne inesistenti prima dell&rsquo;esecuzione.</li>
-      <li>32 suite di test e tre flussi di integrazione continua, uno dei quali interroga la demo
-          realmente in esercizio.</li>
-    </ul>
-    <p class="stack">
-      Python &middot; FastAPI &middot; React &middot; pandas &middot; Docker &middot; pytest &mdash;
-      <a href="https://nlda.onrender.com">nlda.onrender.com</a>
-    </p>
-  </div>
-
-  <div class="voce">
-    <div class="voce-top">
-      <h3>heXI &mdash; applicazione multi-utente per il supporto alle decisioni</h3>
-      <span class="quando">2026 &middot; prototipo</span>
-    </div>
-    <ul>
-      <li>Applicazione web completa: autenticazione con token di rinnovo, limitazione delle
-          richieste, API REST versionata, motore di ricerca per similarit&agrave; su vettori,
-          generazione di report e gestione degli abbonamenti.</li>
-      <li>170 moduli Python con 37 file di test, su architettura a servizi containerizzata.</li>
-    </ul>
-    <p class="stack">FastAPI &middot; PostgreSQL &middot; Redis &middot; React &middot; Docker &mdash; repository privato, disponibile in colloquio</p>
-  </div>
-
-  <h2>Esperienze lavorative</h2>
-
-  <div class="voce">
-    <div class="voce-top">
-      <h3>Property Manager e sviluppatore del gestionale</h3>
-      <span class="quando">2022 &ndash; in corso</span>
-    </div>
-    <p class="dove">B&amp;B Casa Pignatelli &mdash; Fondi (LT)</p>
-    <ul>
-      <li>Progettato, messo in esercizio e mantengo il <strong>gestionale della struttura</strong>,
-          usato ogni giorno: prenotazioni, anagrafica ospiti, prezzi per stagione, imposta di
-          soggiorno e adempimenti di legge verso la Questura.</li>
-      <li>Migrato il campo prezzo da testo a tipo numerico e introdotto in <strong>PostgreSQL</strong>
-          un vincolo di esclusione che rende impossibile registrare due prenotazioni sovrapposte
-          sulla stessa camera: un controllo che prima viveva solo lato browser ora vive nel
-          database.</li>
-      <li>Scritti script di verifica preliminare da eseguire prima di ogni intervento sui dati di
-          produzione (prezzi non validi, sovrapposizioni preesistenti, righe orfane).</li>
-      <li>Gestione operativa della struttura, delle prenotazioni e della relazione con gli ospiti.</li>
-    </ul>
-    <p class="stack">PostgreSQL &middot; Supabase &middot; SQL &middot; JavaScript</p>
-  </div>
-
-  <div class="voce">
-    <div class="voce-top">
-      <h3>Operatore servizi al cliente &mdash; settore turismo</h3>
-      <span class="quando">2021</span>
-    </div>
-    <p class="dove">Spiaggino</p>
-    <ul>
-      <li>Gestione di richieste immediate della clientela in contesti dinamici e ad alta affluenza,
-          in collaborazione con il team di servizio.</li>
-    </ul>
-  </div>
 
   <h2>Istruzione</h2>
   <div class="voce">
     <div class="voce-top">
-      <h3>ITS Maria Gaetana Agnesi &mdash; Percorso di Alta Specializzazione, Data Analysis</h3>
-      <span class="quando">2025 &ndash; in corso</span>
+      <h3>Diploma ITS &mdash; Data Analyst</h3>
+      <span class="quando">11/2025 &ndash; 2027</span>
     </div>
-  </div>
-  <div class="voce">
-    <div class="voce-top">
-      <h3><span class="todo">Corso di laurea e universit&agrave;: da compilare</span></h3>
-      <span class="quando"><span class="todo">2018 &ndash; 2020</span></span>
-    </div>
-    <p class="dove" style="color:var(--ink-faint);font-weight:400">Percorso interrotto nel 2020.</p>
+    <p class="dove">ITS Maria Gaetana Agnesi, Roma &middot; in corso</p>
   </div>
   <div class="voce">
     <div class="voce-top">
       <h3>Diploma di Liceo Scientifico</h3>
       <span class="quando">2013 &ndash; 2018</span>
     </div>
+    <p class="dove">I.S.A.S. Istituti Scolastici A. Soccodato, Fondi (LT)</p>
   </div>
 
   <div class="duecol">
     <div>
       <h2>Certificazioni</h2>
       <p style="font-size:9.6pt;margin:0">
-        <strong>Anthropic Academy</strong> &mdash; 7 corsi completati: Claude, Claude Code,
-        Claude Platform, AI Fluency, AI Capabilities<br>
-        <strong>Microsoft Learn</strong> &mdash; AI &amp; Copilot Learning Paths<br>
-        <strong>Match Analyst</strong> &mdash; certificazione tecnica, tesserino tecnico
+        <strong>AI Act in Azienda</strong> &mdash; Data Masters (2026)<br>
+        <strong>Match Analyst</strong> &mdash; Diploma Nazionale CSEN, riconosciuto CONI (2025)
       </p>
     </div>
     <div>
       <h2>Lingue e altro</h2>
       <p style="font-size:9.6pt;margin:0">
-        <strong>Italiano</strong> madrelingua &middot; <strong>Inglese</strong> B1 &mdash; la
-        documentazione tecnica dei progetti &egrave; scritta in inglese<br>
-        <strong>Patenti</strong> AM, B<br>
-        <strong>Disponibilit&agrave;</strong>
-        <span class="todo">da compilare: trasferte / trasferimento / full remote</span><br>
-        <strong>Interessi</strong> football e sport analytics, data visualization
+        <strong>Italiano</strong> madrelingua &middot; <strong>Inglese</strong> C1<br>
+        <strong>Patente</strong> B
       </p>
     </div>
   </div>
