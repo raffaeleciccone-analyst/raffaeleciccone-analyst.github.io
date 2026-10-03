@@ -1,7 +1,7 @@
 """Disegna le due figure delle schede Olist e coorti, leggibili alla larghezza della scheda.
 
 Fino al 3/10/2026 le schede mostravano lo screenshot intero del cruscotto e della matrice:
-ridotti a ~530 px il testo scendeva a 4-5 px e non si leggeva niente (revisione esterna).
+ridotti a ~530 px il testo scendeva a 4-5 px e non si leggeva niente (revisione del 3/10/2026).
 Qui ogni scheda ha UN grafico, con i numeri grandi; il clic porta ancora alla schermata
 intera.
 
