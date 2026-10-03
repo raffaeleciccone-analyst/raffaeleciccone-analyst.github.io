@@ -64,8 +64,15 @@ def main() -> None:
     verifiche = int(sintesi["n_verifiche"])
     righe = _righe_database()
 
-    html = PAGINA.read_text(encoding="utf-8")
-    originale = html
+    pagina = PAGINA.read_text(encoding="utf-8")
+    originale = pagina
+
+    # Si lavora solo dentro la scheda del Football Scout Index. Fino al 3/10/2026 le
+    # sostituzioni giravano su tutta la pagina, e in anteprima "righe" agganciava anche
+    # le 1.067.371 righe di fatture della scheda coorti, che non c'entrano.
+    inizio = pagina.index('<article class="item" id="scout-index">')
+    fine = pagina.index("</article>", inizio) + len("</article>")
+    html = pagina[inizio:fine]
 
     # I giocatori qualificati: nel claim, nel corpo, nell'alt del grafico e nella
     # didascalia. Si cerca il numero vecchio accanto alla parola "giocatori",
@@ -75,14 +82,18 @@ def main() -> None:
         if int(v) != qualificati:
             html = re.sub(r"\b%s(\s+giocatori)" % v, r"%d\1" % qualificati, html)
 
-    # Le righe del database, sempre accanto alla parola "righe".
+    # Le righe del database, sempre accanto alla parola "righe". Dopo "oltre" il numero
+    # e' una soglia tonda (il database cresce a ogni giornata): si aggiorna la soglia,
+    # alle migliaia per difetto, e non si scrive il conteggio esatto.
     if righe is not None:
         atteso = _formatta(righe)
-        for v in sorted(set(re.findall(r"\b(\d{1,3}(?:\.\d{3})+)\s+righe", html))):
-            if v != atteso:
-                html = html.replace(f"{v} righe", f"{atteso} righe")
-        # anche la forma "un database di 23.816 righe" nel claim e' coperta sopra
+        soglia = _formatta(righe // 1000 * 1000)
+        for oltre, v in sorted(set(re.findall(r"(oltre\s+)?\b(\d{1,3}(?:\.\d{3})+)\s+righe", html))):
+            nuovo = soglia if oltre else atteso
+            if v != nuovo:
+                html = html.replace(f"{oltre}{v} righe", f"{oltre}{nuovo} righe")
 
+    html = pagina[:inizio] + html + pagina[fine:]
     print(f"  giocatori qualificati : {qualificati}")
     print(f"  verifiche pubblicate  : {verifiche}")
     print(f"  righe giocatore-partita: {righe if righe is not None else 'non letto'}")
