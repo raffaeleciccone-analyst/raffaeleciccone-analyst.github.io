@@ -147,6 +147,7 @@
   .numeri div{display:flex;flex-direction:column;gap:4px}
   .numeri b{font-family:var(--mono);font-size:30px;font-weight:600;color:var(--accento);letter-spacing:-.03em;line-height:1}
   .numeri span{font-size:14px;color:var(--testo-2);line-height:1.4}
+  .numeri small{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--testo-3)}
 
   .sez-tit{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin:0 0 16px}
   .sez-tit h2{font-size:22px;font-weight:700;letter-spacing:-.015em;margin:0}
@@ -290,20 +291,21 @@
 
   <section class="apertura">
     <div>
-      <h2>Verifico i numeri, e scrivo anche <span>cosa non dimostrano</span>.</h2>
-      <p class="motto">Junior data analyst &middot; SQL &middot; Python &middot; Power BI</p>
+      <h2>Junior Data Analyst: <span>trasformo dati di vendita e clienti in decisioni</span>.</h2>
+      <p class="motto">SQL &middot; Power BI &middot; Python &mdash; verifico i numeri e scrivo anche cosa non dimostrano</p>
       <p class="sommario">Studente ITS Data Analyst. Dal 2021 gestisco il B&amp;B di famiglia, per cui ho
         costruito il gestionale che usiamo ogni giorno: da l&igrave; sono arrivato ai dati.</p>
+      <p class="sommario">Uso l&rsquo;IA come un collega. Il ragionamento analitico lo metto io: la domanda, il metodo, cosa un numero dimostra e cosa no. All&rsquo;LLM lascio il lavoro sporco: scrivere il codice, generare le pagine, rifare i conti ripetitivi.</p>
       <div class="bottoni">
         <a class="bottone" href="#progetti">Guarda i progetti</a>
         <a class="bottone vuoto" href="mailto:raffaeleciccone.analyst@gmail.com">Scrivimi</a>
       </div>
     </div>
     <div class="numeri">
-      <div><b>7 su 10</b><span>clienti in ritardo che recensiscono prima di avere il pacco</span></div>
-      <div><b>25%</b><span>clienti che tornano a novembre, contro il 12% di febbraio</span></div>
-      <div><b>19% vs 9%</b><span>recensioni negative di chi riceve il pacco in ritardo, contro chi lo riceve in orario</span></div>
-      <div><b>15</b><span>test pubblicati sull&rsquo;indice calcistico, compresi quelli che non supera</span></div>
+      <div><small>Olist &middot; Power BI</small><b>7 su 10</b><span>clienti in ritardo che recensiscono prima di avere il pacco</span></div>
+      <div><small>Olist &middot; Power BI</small><b>19% vs 9%</b><span>recensioni negative di chi riceve il pacco in ritardo, contro chi lo riceve in orario</span></div>
+      <div><small>E-commerce UK &middot; SQL</small><b>25%</b><span>clienti che tornano a novembre, contro il 12% di febbraio</span></div>
+      <div><small>Calcio &middot; Python</small><b>15</b><span>test di validazione pubblicati sull&rsquo;indice, anche quelli non superati</span></div>
     </div>
   </section>
 
@@ -320,7 +322,7 @@
           <h3>I ritardi di consegna</h3>
           <span class="state">Report Power BI</span>
         </div>
-        <p class="aggancio">Il danno arriva prima del pacco: 7 clienti in ritardo su 10 recensiscono senza averlo ricevuto, e l&rsquo;81% boccia. Chi lo riceve in ritardo boccia il doppio: 19% contro 9%.</p>
+        <p class="aggancio">Il danno arriva prima del pacco: 7 clienti in ritardo su 10 recensiscono senza averlo ricevuto, e l&rsquo;81% lascia una recensione negativa. Chi lo riceve in ritardo dà il doppio di recensioni negative: 19% contro 9%.</p>
         <ul class="punti">
           <li>96.470 ordini di un marketplace brasiliano (dataset pubblico Olist)</li>
           <li>Modello a stella con due tabelle dei fatti e <strong>40 misure DAX</strong></li>
@@ -366,7 +368,7 @@
           <li>Il mese dell&rsquo;anno spiega il doppio dell&rsquo;et&agrave; del cliente: a novembre torna il 25%, a febbraio il 12%</li>
           <li>Schema a stella su <strong>MySQL</strong>, 68 controlli che ricalcolano a parte ogni cifra</li>
         </ul>
-        <p class="farei"><strong>Cosa farei:</strong> pianificherei le campagne di riacquisto sul calendario e non sull&rsquo;anzianit&agrave; del cliente, perch&eacute; a novembre torna il doppio dei clienti che a febbraio. Manderei il richiamo verso il secondo mese, perch&eacute; met&agrave; di chi torna lo fa entro 64 giorni. Prima di investire, un test con il richiamo assegnato a caso.</p>
+        <p class="farei"><strong>Cosa farei:</strong> pianificherei le campagne di riacquisto sul calendario e non sull&rsquo;anzianit&agrave; del cliente, perch&eacute; a novembre torna il doppio dei clienti che a febbraio. Manderei il richiamo verso il secondo mese, perch&eacute; met&agrave; di chi torna entro l&rsquo;anno lo fa entro 64 giorni. Prima di investire, un test con il richiamo assegnato a caso.</p>
         <details>
           <summary>Come l&rsquo;ho fatto</summary>
           <p>La prima versione diceva che chi torna vale &pound;1.374 in pi&ugrave; nel primo anno. Una
@@ -410,7 +412,7 @@
         <div class="go">
           <a href="https://nlda.onrender.com">Apri la demo</a>
           <a href="https://github.com/raffaeleciccone-analyst/Natural-Language-Data-Analyst">Codice</a>
-          <span class="aside">il primo accesso richiede circa 35 secondi</span>
+          <span class="aside">il primo accesso pu&ograve; richiedere fino a un minuto</span>
         </div>
       </div>
       <figure class="shot">
