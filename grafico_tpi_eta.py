@@ -142,8 +142,10 @@ def main():
     add(f'<text x="{W-R}" y="{H-B+34}" text-anchor="end" font-family="ui-monospace,Consolas,'
         f'monospace" font-size="10" letter-spacing="0.08em" fill="{INK_FAINT}">'
         f'ET\u00c0 AL 20 AGOSTO 2026</text>')
-    add(f'<text x="{L-9}" y="{T-8}" text-anchor="end" font-family="ui-monospace,Consolas,'
-        f'monospace" font-size="10" letter-spacing="0.08em" fill="{INK_FAINT}">TPI</text>')
+    # la sigla da sola non diceva niente a chi non conosce il progetto (revisione del 3/10/2026)
+    add(f'<text x="{L}" y="{T-8}" text-anchor="start" font-family="ui-monospace,Consolas,'
+        f'monospace" font-size="10" letter-spacing="0.08em" fill="{INK_FAINT}">'
+        f'INDICE DI IMPATTO OFFENSIVO (TPI)</text>')
     add(f'<text x="{px(X0)+8:.1f}" y="{T+16}" font-family="ui-monospace,Consolas,monospace" '
         f'font-size="10" letter-spacing="0.06em" fill="{ACCENT}">FINO A {GIOVANE:.0f} ANNI</text>')
     add("</svg>")
