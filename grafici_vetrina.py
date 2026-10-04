@@ -84,7 +84,7 @@ def olist():
     L, R, T, passo, alto = 172, 58, 92, 41, 26
     larg = W - L - R
     c = [testo(24, 34, "Recensioni negative per fascia di consegna", 20, INK, weight=700),
-         testo(24, 60, "Sui ritardi la gran parte arriva prima che il cliente abbia il pacco",
+         testo(24, 60, "Sugli ordini in ritardo quasi tutte arrivano prima che il cliente abbia il pacco",
                14, INK_SOFT)]
     # legenda
     lx = 24

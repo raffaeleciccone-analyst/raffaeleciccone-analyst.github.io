@@ -280,7 +280,7 @@
   <div class="lato-sez solo-desktop">
     <p class="lato-tit">In breve</p>
     <dl class="dati">
-      <div><dt>Formazione</dt><dd>ITS Data Analyst</dd></div>
+      <div><dt>Formazione</dt><dd>ITS Data Analytics &amp; BI</dd></div>
       <div><dt>Inglese</dt><dd>C1</dd></div>
       <div><dt>Certificazione</dt><dd>AI Act in Azienda</dd></div>
     </dl>
@@ -293,16 +293,16 @@
     <div>
       <h2>Junior Data Analyst: <span>trasformo dati di vendita e clienti in decisioni</span>.</h2>
       <p class="motto">SQL &middot; Power BI &middot; Python &mdash; verifico i numeri e scrivo anche cosa non dimostrano</p>
-      <p class="sommario">Studente ITS Data Analyst. Dal 2021 gestisco il B&amp;B di famiglia, per cui ho
+      <p class="sommario">Studente ITS in Data Analytics &amp; Business Intelligence. Dal 2021 gestisco il B&amp;B di famiglia, per cui ho
         costruito il gestionale che usiamo ogni giorno: da l&igrave; sono arrivato ai dati.</p>
-      <p class="sommario">Uso l&rsquo;IA come un collega. Il ragionamento analitico lo metto io: la domanda, il metodo, cosa un numero dimostra e cosa no. All&rsquo;LLM lascio il lavoro sporco: scrivere il codice, generare le pagine, rifare i conti ripetitivi.</p>
+      <p class="sommario">Domanda, metodo e controllo dei numeri sono miei; il codice lo produco con l&rsquo;IA e ne verifico i risultati.</p>
       <div class="bottoni">
         <a class="bottone" href="#progetti">Guarda i progetti</a>
         <a class="bottone vuoto" href="mailto:raffaeleciccone.analyst@gmail.com">Scrivimi</a>
       </div>
     </div>
     <div class="numeri">
-      <div><small>Olist &middot; Power BI</small><b>7 su 10</b><span>clienti in ritardo che recensiscono prima di avere il pacco</span></div>
+      <div><small>Olist &middot; Power BI</small><b>7 su 10</b><span>recensioni sugli ordini in ritardo scritte prima di avere il pacco</span></div>
       <div><small>Olist &middot; Power BI</small><b>19% vs 9%</b><span>recensioni negative di chi riceve il pacco in ritardo, contro chi lo riceve in orario</span></div>
       <div><small>E-commerce UK &middot; SQL</small><b>25%</b><span>clienti che tornano a novembre, contro il 12% di febbraio</span></div>
       <div><small>Calcio &middot; Python</small><b>15</b><span>test di validazione pubblicati sull&rsquo;indice, anche quelli non superati</span></div>
@@ -322,7 +322,7 @@
           <h3>I ritardi di consegna</h3>
           <span class="state">Report Power BI</span>
         </div>
-        <p class="aggancio">Il danno arriva prima del pacco: 7 clienti in ritardo su 10 recensiscono senza averlo ricevuto, e l&rsquo;81% lascia una recensione negativa. Chi lo riceve in ritardo dà il doppio di recensioni negative: 19% contro 9%.</p>
+        <p class="aggancio">Il danno arriva prima del pacco: sugli ordini in ritardo 7 recensioni su 10 sono scritte senza averlo ricevuto, e l&rsquo;81% &egrave; negativa. Chi riceve il pacco in ritardo d&agrave; il doppio di recensioni negative di chi lo riceve in orario: 19% contro 9%.</p>
         <ul class="punti">
           <li>96.470 ordini di un marketplace brasiliano (dataset pubblico Olist)</li>
           <li>Modello a stella con due tabelle dei fatti e <strong>40 misure DAX</strong></li>
@@ -331,10 +331,10 @@
         <p class="farei"><strong>Cosa farei:</strong> avviserei il cliente prima della data promessa quando il ritardo &egrave; gi&agrave; prevedibile, perch&eacute; sui ritardi 7 recensioni su 10 arrivano prima del pacco. E tratterei i picchi come un problema di capacit&agrave; nei mesi di punta, non sospendendo venditori.</p>
         <details>
           <summary>Come l&rsquo;ho fatto</summary>
-          <p><strong>Cosa ho deciso io.</strong> La domanda: nei dati c&rsquo;erano tantissime recensioni negative e volevo capire da dove venissero. Quando una revisione fatta con l&rsquo;IA ha trovato due errori, ho capito il problema e ho deciso di rifare il conto per data. Il modello e le pagine Power BI li generano script scritti con l&rsquo;IA: io li ho guidati e ho controllato i risultati.</p>
+          <p><strong>Cosa ho deciso io.</strong> La domanda: nei dati c&rsquo;erano tantissime recensioni negative e volevo capire da dove venissero. Quando una revisione che ho chiesto all&rsquo;IA ha trovato due errori, ho capito il problema e ho deciso di rifare il conto per data.</p>
           <p>La domanda &egrave; stata scritta prima di aprire Power BI: quanto costano i ritardi in
             recensioni negative, e chi li causa. La prima versione diceva &laquo;dal 9% al 54%&raquo;; una
-            revisione fatta con l&rsquo;IA mi ha fatto trovare due errori. Il ritardo era calcolato sugli orari invece
+            revisione che ho chiesto all&rsquo;IA mi ha fatto trovare due errori. Il ritardo era calcolato sugli orari invece
             che sulle date, e il 54% mescolava chi giudica la consegna con chi, sui ritardi, riceve il
             questionario due giorni dopo la data promessa e risponde senza avere il pacco. Li ho corretti,
             e le correzioni stanno nel repository accanto ai numeri vecchi.
@@ -364,15 +364,15 @@
         <p class="aggancio">La retention segue il calendario, non l&rsquo;et&agrave; del cliente. E chi torna spende di pi&ugrave;, ma lo prevede gi&agrave; quanto ha speso nei primi tre mesi.</p>
         <ul class="punti">
           <li>1.067.371 righe di fatture di un e-commerce UK (dataset pubblico Online Retail II)</li>
-          <li>Il mese dell&rsquo;anno spiega il doppio dell&rsquo;et&agrave; del cliente: a novembre torna il 25%, a febbraio il 12%</li>
+          <li>La retention segue il calendario pi&ugrave; che l&rsquo;et&agrave; del cliente: a novembre torna il 25%, a febbraio il 12%</li>
           <li>Schema a stella su <strong>MySQL</strong>, 68 controlli che ricalcolano a parte ogni cifra</li>
         </ul>
         <p class="farei"><strong>Cosa farei:</strong> pianificherei le campagne di riacquisto sul calendario e non sull&rsquo;anzianit&agrave; del cliente, perch&eacute; a novembre torna il doppio dei clienti che a febbraio. Manderei il richiamo verso il secondo mese, perch&eacute; met&agrave; di chi torna entro l&rsquo;anno lo fa entro 64 giorni. Prima di investire, un test con il richiamo assegnato a caso.</p>
         <details>
           <summary>Come l&rsquo;ho fatto</summary>
-          <p><strong>Cosa ho deciso io.</strong> La domanda &egrave; quella di base di ogni e-commerce: quanto vale un cliente che torna. Il legame tra ritorni e calendario &egrave; emerso dall&rsquo;analisi. Il primo confronto, &pound;1.374, l&rsquo;ha messo in dubbio una revisione fatta con l&rsquo;IA: ho rifatto il conto con il gruppo deciso nei primi 90 giorni. Le query SQL e il codice Python li ha scritti l&rsquo;IA: io l&rsquo;ho guidata e ho controllato i risultati.</p>
+          <p><strong>Cosa ho deciso io.</strong> La domanda &egrave; quella di base di ogni e-commerce: quanto vale un cliente che torna. Il legame tra ritorni e calendario &egrave; emerso dall&rsquo;analisi. Il primo confronto, &pound;1.374, l&rsquo;ha messo in dubbio una revisione che ho chiesto all&rsquo;IA: ho rifatto il conto con il gruppo deciso nei primi 90 giorni.</p>
           <p>La prima versione diceva che chi torna vale &pound;1.374 in pi&ugrave; nel primo anno. Una
-            revisione fatta con l&rsquo;IA mi ha fatto vedere che il confronto girava in tondo: la spesa misurata
+            revisione che ho chiesto all&rsquo;IA mi ha fatto vedere che il confronto girava in tondo: la spesa misurata
             conteneva gli ordini che definivano chi torna. L&rsquo;ho rifatto con il gruppo deciso nei
             primi 90 giorni e la spesa contata dopo: a parit&agrave; di primo ordine chi &egrave; tornato
             spende &pound;756 in pi&ugrave;, ma a parit&agrave; di quanto aveva gi&agrave; comprato solo &pound;150, con
@@ -409,7 +409,7 @@
         </ul>
         <details>
           <summary>Come l&rsquo;ho fatto</summary>
-          <p><strong>Cosa ho deciso io.</strong> L&rsquo;idea &egrave; mia: fare domande ai dati in italiano, senza saper programmare. La scelta centrale anche: un modello linguistico pu&ograve; inventarsi i numeri, quindi l&rsquo;IA traduce la domanda in codice e i conti li fa pandas. Il codice dell&rsquo;app l&rsquo;ha scritto l&rsquo;IA: io l&rsquo;ho guidata e ho controllato i risultati.</p>
+          <p><strong>Cosa ho deciso io.</strong> L&rsquo;idea &egrave; mia: fare domande ai dati in italiano, per chi non sa programmare. La scelta centrale anche: un modello linguistico pu&ograve; inventarsi i numeri, quindi l&rsquo;IA traduce la domanda in codice e i conti li fa pandas.</p>
         </details>
         <span class="tech">Python &middot; pandas &middot; LLM &middot; test automatici</span>
         <div class="go">
@@ -420,10 +420,10 @@
       </div>
       <figure class="shot">
         <div class="cornice">
-          <a href="assets/nlda-risposta.png"><img src="assets/nlda-domanda.png" width="525" height="328" loading="lazy"
-               alt="La domanda in italiano, la risposta e la tabella dei valori calcolati da pandas."></a>
+          <a href="assets/nlda-risposta.png"><img src="assets/nlda-domanda.png" width="1046" height="654" loading="lazy"
+               alt="La domanda &laquo;Quali sono le 5 Region con pi&ugrave; Sales?&raquo; e la risposta: le regioni sono quattro, con le vendite di ciascuna."></a>
         </div>
-        <figcaption>Domanda in italiano, risposta e tabella. Clic per l&rsquo;app intera, con il report automatico.</figcaption>
+        <figcaption>Chiesti cinque valori, l&rsquo;app risponde che sono quattro. Clic per l&rsquo;app intera, con il report automatico.</figcaption>
       </figure>
     </article>
 
@@ -441,7 +441,7 @@
         </ul>
         <details>
           <summary>Come l&rsquo;ho fatto</summary>
-          <p><strong>Cosa ho deciso io.</strong> L&rsquo;idea nasce dall&rsquo;incrocio fra il calcio giocato e il lavoro da match analyst: un indice che dica chi sta migliorando. La scelta di pubblicare tutti i 15 test, compresi quelli che l&rsquo;indice non supera, &egrave; mia. I doppioni e le righe orfane li ho scoperti esplorando il dataset e i risultati. Il codice l&rsquo;ha scritto l&rsquo;IA: io l&rsquo;ho guidata e ho controllato i risultati.</p>
+          <p><strong>Cosa ho deciso io.</strong> L&rsquo;idea nasce dall&rsquo;incrocio fra il calcio giocato e il lavoro da match analyst: un indice che dica chi sta migliorando. La scelta di pubblicare tutti i 15 test, compresi quelli che l&rsquo;indice non supera, &egrave; mia. I doppioni e le righe orfane li ho scoperti esplorando il dataset e i risultati.</p>
           <p>Le due fonti sono agganciate per identificativo e non per nome, con correzioni ripetibili
             per righe orfane e doppioni. I test di validazione sono pubblicati con l&rsquo;intervallo di
             confidenza: contro tre previsioni semplici l&rsquo;indice non ne batte nessuna sul rendimento
@@ -454,6 +454,7 @@
           <a href="https://raffaeleciccone-analyst.github.io/premier-league-index/">Premier League</a>
           <a href="https://raffaeleciccone-analyst.github.io/serie-a-index/validazione.html">I test</a>
           <a href="https://github.com/raffaeleciccone-analyst/football-index-engine">Codice</a>
+          <a href="https://github.com/raffaeleciccone-analyst/serie-a-sql">Le query SQL</a>
         </div>
       </div>
       <figure class="shot">
@@ -499,7 +500,7 @@
   <div class="sez-tit"><h2>Percorso</h2></div>
   <section class="percorso"><dl>
     <dt class="quando">2025 &ndash; 2027</dt>
-    <dd><b>Diploma ITS Data Analyst</b> &mdash; ITS Maria Gaetana Agnesi, Roma. Stage di 6 mesi da dicembre 2026.</dd>
+    <dd><b>Diploma ITS Data Analytics &amp; Business Intelligence</b> &mdash; ITS Maria Gaetana Agnesi, Roma. Stage di 6 mesi da dicembre 2026.</dd>
     <dt class="quando">2021 &ndash; oggi</dt>
     <dd><b>Gestore B&amp;B</b> &mdash; Casa Pignatelli, Fondi (LT): prenotazioni, tariffe, recensioni, incassi e il gestionale MyB&amp;B.</dd>
     <dt class="quando">2013 &ndash; 2018</dt>

@@ -116,6 +116,13 @@ def main():
     # Adesso per ogni nome si provano i due lati e tre altezze, si contano i
     # punti che finirebbero sotto la scritta, e vince la posizione che ne copre
     # meno; a parita', quella piu' vicina al punto.
+    #
+    # E una scritta non puo' finire sopra un'altra: il 3/10/2026 "Wesley" e
+    # "Kenan Yildiz" (23 e 21 anni, indice 1,04 e 1,00) si sovrapponevano.
+    # Ogni etichetta messa lascia il suo rettangolo, e una posizione che ne
+    # tocca uno pesa piu' di qualunque numero di punti coperti.
+    piazzate = []
+
     def posiziona(nome, e, t):
         larg = len(nome) * 5.6          # larghezza stimata a 11px di corpo
         xp, yp = px(e), py(t)
@@ -125,12 +132,16 @@ def main():
                 x0 = xp + dx if anc == "start" else xp + dx - larg
                 coperti = sum(
                     1 for cx, cy in disegnati
-                    if x0 - 2 < cx < x0 + larg + 2
+                    if x0 - 6 < cx < x0 + larg + 6   # margine: una scritta non deve toccare il punto di un altro
                     and yp + dy - 9 < cy < yp + dy + 3
                     and (abs(cx - xp) > 1.5 or abs(cy - yp) > 1.5)
                 )
-                opzioni.append((coperti, abs(dy - 4), dx, dy, anc))
-        _, _, dx, dy, anc = min(opzioni)
+                box = (x0, yp + dy - 9, x0 + larg, yp + dy + 3)
+                urti = sum(1 for a in piazzate
+                           if box[0] < a[2] and a[0] < box[2] and box[1] < a[3] and a[1] < box[3])
+                opzioni.append((urti, coperti, abs(dy - 4), dx, dy, anc, box))
+        _, _, _, dx, dy, anc, box = min(opzioni)
+        piazzate.append(box)
         etichetta(nome, e, t, dx, dy, anc)
 
     posiziona(massimo[0], massimo[3], massimo[4])
