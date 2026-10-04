@@ -25,7 +25,7 @@ OUT = SITO / "assets" / "tpi-eta.svg"
 INK, INK_SOFT, INK_FAINT = "#15191B", "#4E5658", "#828C8E"
 RULE, ACCENT, PAPER2 = "#D9D9D2", "#16565C", "#EFEFEB"
 
-W, H = 720, 430
+W, H = 720, 450   # 16:10 come le schede: a 430 la scheda tagliava il bordo destro
 L, R, T, B = 56, 18, 22, 48          # margini
 X0, X1 = 18.0, 42.0                  # eta'
 Y0, Y1 = -1.4, 2.0                   # TPI

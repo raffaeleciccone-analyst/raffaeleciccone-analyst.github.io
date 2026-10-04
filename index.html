@@ -295,7 +295,6 @@
       <p class="motto">SQL &middot; Power BI &middot; Python &mdash; verifico i numeri e scrivo anche cosa non dimostrano</p>
       <p class="sommario">Studente ITS in Data Analytics &amp; Business Intelligence. Dal 2021 gestisco il B&amp;B di famiglia, per cui ho
         costruito il gestionale che usiamo ogni giorno: da l&igrave; sono arrivato ai dati.</p>
-      <p class="sommario">Domanda, metodo e controllo dei numeri sono miei; il codice lo produco con l&rsquo;IA e ne verifico i risultati.</p>
       <div class="bottoni">
         <a class="bottone" href="#progetti">Guarda i progetti</a>
         <a class="bottone vuoto" href="mailto:raffaeleciccone.analyst@gmail.com">Scrivimi</a>
@@ -305,7 +304,7 @@
       <div><small>Olist &middot; Power BI</small><b>7 su 10</b><span>recensioni sugli ordini in ritardo scritte prima di avere il pacco</span></div>
       <div><small>Olist &middot; Power BI</small><b>19% vs 9%</b><span>recensioni negative di chi riceve il pacco in ritardo, contro chi lo riceve in orario</span></div>
       <div><small>E-commerce UK &middot; SQL</small><b>25%</b><span>clienti che tornano a novembre, contro il 12% di febbraio</span></div>
-      <div><small>Calcio &middot; Python</small><b>15</b><span>test di validazione pubblicati sull&rsquo;indice, anche quelli non superati</span></div>
+      <div><small>Calcio &middot; Python</small><b>25.000+</b><span>righe giocatore-partita da due fonti, aggiornate a ogni giornata</span></div>
     </div>
   </section>
 
@@ -331,7 +330,6 @@
         <p class="farei"><strong>Cosa farei:</strong> avviserei il cliente prima della data promessa quando il ritardo &egrave; gi&agrave; prevedibile, perch&eacute; sui ritardi 7 recensioni su 10 arrivano prima del pacco. E tratterei i picchi come un problema di capacit&agrave; nei mesi di punta, non sospendendo venditori.</p>
         <details>
           <summary>Come l&rsquo;ho fatto</summary>
-          <p><strong>Cosa ho deciso io.</strong> La domanda: nei dati c&rsquo;erano tantissime recensioni negative e volevo capire da dove venissero. Quando una revisione che ho chiesto all&rsquo;IA ha trovato due errori, ho capito il problema e ho deciso di rifare il conto per data.</p>
           <p>La domanda &egrave; stata scritta prima di aprire Power BI: quanto costano i ritardi in
             recensioni negative, e chi li causa. La prima versione diceva &laquo;dal 9% al 54%&raquo;; una
             revisione che ho chiesto all&rsquo;IA mi ha fatto trovare due errori. Il ritardo era calcolato sugli orari invece
@@ -361,7 +359,7 @@
           <h3>Quanto vale un cliente che torna</h3>
           <span class="state">Analisi di coorte</span>
         </div>
-        <p class="aggancio">La retention segue il calendario, non l&rsquo;et&agrave; del cliente. E chi torna spende di pi&ugrave;, ma lo prevede gi&agrave; quanto ha speso nei primi tre mesi.</p>
+        <p class="aggancio">La retention segue il calendario pi&ugrave; che l&rsquo;et&agrave; del cliente. E chi torna spende di pi&ugrave;, ma lo prevede gi&agrave; quanto ha speso nei primi tre mesi.</p>
         <ul class="punti">
           <li>1.067.371 righe di fatture di un e-commerce UK (dataset pubblico Online Retail II)</li>
           <li>La retention segue il calendario pi&ugrave; che l&rsquo;et&agrave; del cliente: a novembre torna il 25%, a febbraio il 12%</li>
@@ -370,7 +368,6 @@
         <p class="farei"><strong>Cosa farei:</strong> pianificherei le campagne di riacquisto sul calendario e non sull&rsquo;anzianit&agrave; del cliente, perch&eacute; a novembre torna il doppio dei clienti che a febbraio. Manderei il richiamo verso il secondo mese, perch&eacute; met&agrave; di chi torna entro l&rsquo;anno lo fa entro 64 giorni. Prima di investire, un test con il richiamo assegnato a caso.</p>
         <details>
           <summary>Come l&rsquo;ho fatto</summary>
-          <p><strong>Cosa ho deciso io.</strong> La domanda &egrave; quella di base di ogni e-commerce: quanto vale un cliente che torna. Il legame tra ritorni e calendario &egrave; emerso dall&rsquo;analisi. Il primo confronto, &pound;1.374, l&rsquo;ha messo in dubbio una revisione che ho chiesto all&rsquo;IA: ho rifatto il conto con il gruppo deciso nei primi 90 giorni.</p>
           <p>La prima versione diceva che chi torna vale &pound;1.374 in pi&ugrave; nel primo anno. Una
             revisione che ho chiesto all&rsquo;IA mi ha fatto vedere che il confronto girava in tondo: la spesa misurata
             conteneva gli ordini che definivano chi torna. L&rsquo;ho rifatto con il gruppo deciso nei
@@ -407,10 +404,6 @@
           <li>L&rsquo;IA traduce la domanda in codice, i numeri li calcola pandas</li>
           <li>Controlli automatici bloccano le colonne inesistenti prima del calcolo</li>
         </ul>
-        <details>
-          <summary>Come l&rsquo;ho fatto</summary>
-          <p><strong>Cosa ho deciso io.</strong> L&rsquo;idea &egrave; mia: fare domande ai dati in italiano, per chi non sa programmare. La scelta centrale anche: un modello linguistico pu&ograve; inventarsi i numeri, quindi l&rsquo;IA traduce la domanda in codice e i conti li fa pandas.</p>
-        </details>
         <span class="tech">Python &middot; pandas &middot; LLM &middot; test automatici</span>
         <div class="go">
           <a href="https://nlda.onrender.com">Apri la demo</a>
@@ -433,7 +426,7 @@
           <h3>Football Scout Index</h3>
           <span class="state on">Demo online</span>
         </div>
-        <p class="aggancio">Un indice che ordina i giocatori di Serie A e Premier League per impatto offensivo rispetto al ruolo, aggiornato da solo a ogni giornata, con 15 test statistici pubblicati, compresi quelli persi.</p>
+        <p class="aggancio">Un indice che ordina i giocatori di Serie A e Premier League per impatto offensivo rispetto al ruolo, aggiornato da solo a ogni giornata, validato con 15 test statistici pubblicati.</p>
         <ul class="punti">
           <li>Database <strong>MySQL</strong> di oltre 25.000 righe giocatore-partita da due fonti diverse</li>
           <li>Indice a sette dimensioni e dashboard con filtri ed export CSV</li>
@@ -441,7 +434,6 @@
         </ul>
         <details>
           <summary>Come l&rsquo;ho fatto</summary>
-          <p><strong>Cosa ho deciso io.</strong> L&rsquo;idea nasce dall&rsquo;incrocio fra il calcio giocato e il lavoro da match analyst: un indice che dica chi sta migliorando. La scelta di pubblicare tutti i 15 test, compresi quelli che l&rsquo;indice non supera, &egrave; mia. I doppioni e le righe orfane li ho scoperti esplorando il dataset e i risultati.</p>
           <p>Le due fonti sono agganciate per identificativo e non per nome, con correzioni ripetibili
             per righe orfane e doppioni. I test di validazione sono pubblicati con l&rsquo;intervallo di
             confidenza: contro tre previsioni semplici l&rsquo;indice non ne batte nessuna sul rendimento
@@ -459,11 +451,11 @@
       </div>
       <figure class="shot">
         <div class="cornice chiara">
-          <a href="assets/tpi-eta.svg"><img src="assets/tpi-eta.svg" width="720" height="430" loading="lazy"
+          <a href="assets/tpi-eta.svg"><img src="assets/tpi-eta.svg" width="720" height="450" loading="lazy"
                alt="Grafico a dispersione dei giocatori di Serie A: et&agrave; in orizzontale, indice in verticale.
-                    In alto quasi solo giocatori fra 27 e 31 anni."></a>
+                    In alto soprattutto giocatori fra 27 e 31 anni; in evidenza gli under 23 gi&agrave; nella parte alta."></a>
         </div>
-        <figcaption>Ogni punto &egrave; un giocatore: in alto quasi solo chi ha fra 27 e 31 anni.</figcaption>
+        <figcaption>Ogni punto &egrave; un giocatore. In alto soprattutto chi ha fra 27 e 31 anni; in evidenza gli under 23 che ci sono gi&agrave; arrivati.</figcaption>
       </figure>
     </article>
 
@@ -496,6 +488,9 @@
     <dt>Strumenti</dt>
     <dd>Git e GitHub &middot; IA per sviluppo e analisi, con verifica tramite test (Claude, Copilot)</dd>
   </dl></section>
+
+  <div class="sez-tit"><h2>Come lavoro</h2></div>
+  <section class="percorso"><p style="margin:0;font-size:15px;color:var(--testo-2);line-height:1.6">Imposto la domanda e il metodo e verifico i risultati sui dati; il codice lo scrivo con l&rsquo;aiuto dell&rsquo;IA.</p></section>
 
   <div class="sez-tit"><h2>Percorso</h2></div>
   <section class="percorso"><dl>
