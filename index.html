@@ -304,7 +304,7 @@
       <div><small>Olist &middot; Power BI</small><b>7 su 10</b><span>recensioni sugli ordini in ritardo scritte prima di avere il pacco</span></div>
       <div><small>Olist &middot; Power BI</small><b>19% vs 9%</b><span>recensioni negative di chi riceve il pacco in ritardo, contro chi lo riceve in orario</span></div>
       <div><small>E-commerce UK &middot; SQL</small><b>25%</b><span>clienti che tornano a novembre, contro il 12% di febbraio</span></div>
-      <div><small>Calcio &middot; Python</small><b>25.000+</b><span>righe giocatore-partita da due fonti, aggiornate a ogni giornata</span></div>
+      <div><small>Calcio &middot; Python</small><b>0,82 vs 0,78</b><span>la previsione della Premier League contro la statistica semplice, su stagioni mai viste</span></div>
     </div>
   </section>
 
@@ -427,35 +427,33 @@
           <h3>Football Scout Index</h3>
           <span class="state on">Demo online</span>
         </div>
-        <p class="aggancio">Un indice che ordina i giocatori di Serie A e Premier League per impatto offensivo rispetto al ruolo, aggiornato da solo a ogni giornata, validato con 15 test statistici pubblicati.</p>
+        <p class="aggancio">Chi far&agrave; bene la prossima stagione in Serie A e Premier League? Una previsione che si mostra solo dove, su stagioni che il modello non aveva mai visto, ha battuto la statistica semplice.</p>
         <ul class="punti">
-          <li>Database <strong>MySQL</strong> di oltre 25.000 righe giocatore-partita da due fonti diverse</li>
-          <li>Indice a sette dimensioni e dashboard con filtri ed export CSV</li>
-          <li>Lo stesso codice serve i due campionati: il campionato &egrave; un parametro</li>
+          <li>In Premier League la previsione batte la statistica semplice (0,82 contro 0,78) e si mostra; in Serie A il vantaggio &egrave; troppo piccolo (0,75 contro 0,74) e il sito lo dice</li>
+          <li>Accanto alla previsione, un indice che descrive chi sta andando forte ora, ruolo per ruolo</li>
+          <li>Un sito solo, in italiano e in inglese, con le carte dei giocatori e i giovani da seguire</li>
         </ul>
         <details>
           <summary>Come l&rsquo;ho fatto</summary>
-          <p>Le due fonti sono agganciate per identificativo e non per nome, con correzioni ripetibili
-            per righe orfane e doppioni. I test di validazione sono pubblicati con l&rsquo;intervallo di
-            confidenza: contro tre previsioni semplici l&rsquo;indice non ne batte nessuna sul rendimento
-            futuro, ma ne batte due su tre sul miglioramento, che era la domanda di partenza.
+          <p>Prima ho scritto cosa doveva fare il programma e come controllarlo, poi un test per ogni regola.
+            La previsione &egrave; provata a finestra mobile: si allena sul passato, prevede una stagione mai vista,
+            si confronta con quello che &egrave; successo davvero. Quello che ho provato e non ha aiutato
+            (contesti di gioco, infortuni) non &egrave; usato, e il sito lo dice.
             Ho scelto il calcio perch&eacute; i dati sono pubblici e chiunque pu&ograve; rifare i conti.</p>
         </details>
-        <span class="tech">Python &middot; pandas &middot; SciPy &middot; MySQL &middot; GitHub Actions</span>
+        <span class="tech">Python &middot; pandas &middot; scikit-learn &middot; SQLite &middot; HTML/JavaScript</span>
         <div class="go">
-          <a href="https://raffaeleciccone-analyst.github.io/football-scout-index/serie_a/index.html">Serie A</a>
-          <a href="https://raffaeleciccone-analyst.github.io/football-scout-index/premier/index.html">Premier League</a>
+          <a href="https://raffaeleciccone-analyst.github.io/football-scout-index/">Il sito</a>
           <a href="https://raffaeleciccone-analyst.github.io/football-scout-index/serie_a/metodo.html">Come funziona</a>
           <a href="https://github.com/raffaeleciccone-analyst/football-scout-index">Codice</a>
         </div>
       </div>
       <figure class="shot">
         <div class="cornice chiara">
-          <a href="assets/tpi-eta.svg"><img src="assets/tpi-eta.svg" width="720" height="450" loading="lazy"
-               alt="Grafico a dispersione dei giocatori di Serie A: et&agrave; in orizzontale, indice in verticale.
-                    In alto soprattutto giocatori fra 27 e 31 anni; in evidenza gli under 23 gi&agrave; nella parte alta."></a>
+          <a href="https://raffaeleciccone-analyst.github.io/football-scout-index/serie_a/index.html"><img src="assets/football-scout-index.png" width="960" height="794" loading="lazy"
+               alt="La pagina della Serie A: in alto il risultato della prova, previsione 0,75 contro statistica semplice 0,74, con la scritta NON ANCORA; sotto, le carte dei giovani da seguire."></a>
         </div>
-        <figcaption>Ogni punto &egrave; un giocatore. In alto soprattutto chi ha fra 27 e 31 anni; in evidenza gli under 23 che ci sono gi&agrave; arrivati.</figcaption>
+        <figcaption>In Serie A la previsione non batte ancora la statistica semplice: il sito lo scrive in alto e mostra solo ci&ograve; che ha passato la prova.</figcaption>
       </figure>
     </article>
 
