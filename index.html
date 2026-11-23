@@ -470,7 +470,11 @@
           esclusione, che rifiuta la prenotazione doppia anche se arriva da fuori dall&rsquo;app. Il
           gestionale calcola l&rsquo;occupazione, e il listino per stagione lo imposto guardando lo
           storico delle prenotazioni.</p>
-        <span class="tech">PostgreSQL (Supabase) &middot; SQL &middot; vincoli di esclusione</span>
+        <p>A novembre 2026 l&rsquo;ho ripreso partendo dai requisiti: prima ho scritto cosa deve fare e come
+          controllarlo, poi un test per ogni regola, anche nel browser. Ora registra i pagamenti con gli importi,
+          tiene le cancellazioni nello storico e ha un accesso per le pulizie che, per regola del database,
+          non vede prezzi n&eacute; contatti.</p>
+        <span class="tech">PostgreSQL (Supabase) &middot; SQL &middot; vincoli di esclusione &middot; Row Level Security &middot; test automatici</span>
         <div class="go"><span class="aside">Lo mostro volentieri in colloquio</span></div>
       </div>
     </article>
