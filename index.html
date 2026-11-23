@@ -271,7 +271,7 @@
     <ul class="indice">
       <li><a href="#ritardi-consegna">I ritardi di consegna</a></li>
       <li><a href="#clienti-che-tornano">Quanto vale un cliente che torna</a></li>
-      <li><a href="#linguaggio-naturale">Natural Language Data Analyst</a></li>
+      <li><a href="#quid">QUID</a></li>
       <li><a href="#scout-index">Football Scout Index</a></li>
       <li><a href="#mybnb">MyB&amp;B</a></li>
     </ul>
@@ -393,31 +393,32 @@
       </figure>
     </article>
 
-    <article class="item" id="linguaggio-naturale">
+    <article class="item" id="quid">
       <div>
         <div class="item-top">
-          <h3>Natural Language Data Analyst</h3>
+          <h3>QUID</h3>
           <span class="state on">Demo online</span>
         </div>
-        <p class="aggancio">Fai una domanda in italiano su un CSV o un Excel: ricevi tabella, grafico e il codice pandas che li ha prodotti, da controllare.</p>
+        <p class="aggancio">Fai una domanda in italiano sul tuo estratto conto o sulle vendite: l&rsquo;IA capisce la domanda, i numeri li calcola il programma e ogni risposta mostra le righe che la compongono.</p>
         <ul class="punti">
-          <li>Carichi un CSV, un Excel o un JSON e ricevi subito un report automatico sul dataset</li>
-          <li>L&rsquo;IA traduce la domanda in codice, i numeri li calcola pandas</li>
-          <li>Controlli automatici bloccano le colonne inesistenti prima del calcolo</li>
+          <li>L&rsquo;IA non scrive codice n&eacute; numeri: restituisce solo una richiesta controllata, il calcolo &egrave; fisso</li>
+          <li>All&rsquo;IA online arrivano i nomi delle colonne e i testi senza cifre, mai gli importi</li>
+          <li>Se la domanda &egrave; ambigua chiede (&laquo;quale ottobre?&raquo;); se non trova niente lo dice, invece di rispondere 0 &euro;</li>
+          <li>Legge anche il PDF della banca e risponde solo se saldo iniziale pi&ugrave; movimenti fa il saldo finale</li>
         </ul>
-        <span class="tech">Python &middot; pandas &middot; LLM &middot; test automatici</span>
+        <span class="tech">Python &middot; pandas &middot; FastAPI &middot; LLM &middot; 61 test automatici</span>
         <div class="go">
-          <a href="https://nlda.onrender.com">Apri la demo</a>
-          <a href="https://github.com/raffaeleciccone-analyst/Natural-Language-Data-Analyst">Codice</a>
+          <a href="https://quid-piz0.onrender.com">Apri la demo</a>
+          <a href="https://github.com/raffaeleciccone-analyst/quid">Codice</a>
           <span class="aside">il primo accesso pu&ograve; richiedere fino a un minuto</span>
         </div>
       </div>
       <figure class="shot">
         <div class="cornice">
-          <a href="assets/nlda-risposta.png"><img src="assets/nlda-domanda.png" width="1046" height="654" loading="lazy"
-               alt="La domanda &laquo;Quali sono le 5 Region con pi&ugrave; Sales?&raquo; e la risposta: le regioni sono quattro, con le vendite di ciascuna."></a>
+          <a href="assets/quid-risposta.png"><img src="assets/quid-risposta-piccola.png" width="1046" height="654" loading="lazy"
+               alt="La domanda &laquo;Come sono andate le bollette mese per mese nel 2026?&raquo; e la risposta: 1.557,00 euro, da 123,00 a gennaio a 190,60 a novembre, con il grafico."></a>
         </div>
-        <figcaption>Chiesti cinque valori, l&rsquo;app risponde che sono quattro. Clic per l&rsquo;app intera, con il report automatico.</figcaption>
+        <figcaption>Sopra la risposta, cosa ha capito; sotto, le righe che fanno il numero. Clic per la pagina intera.</figcaption>
       </figure>
     </article>
 
